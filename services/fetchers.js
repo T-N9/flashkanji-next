@@ -22,10 +22,23 @@ export const shuffleAll = async () => {
   }
 };
 
-export const fetchByChapter = async (chapter) => {
+export const fetchByChapter = async (chapter, level) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/?level=5&chapter=${chapter}`
+      `https://flashkanji.000webhostapp.com/api/?level=${level}&chapter=${chapter}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};
+
+export const fetchByLevel = async (level) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/?level=${level}`
     );
     const data = await response.json();
     return data;
