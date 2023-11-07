@@ -1,5 +1,5 @@
 import Head from "next/head";
-import FlashGround from "@/components/FlashGround";
+import FlashGround from "@/components/flash_ground/FlashGround";
 
 export default function Home() {
   return (
