@@ -9,25 +9,8 @@ import Hook from "./hook";
 
 export default function FlashGround() {
   const {
-    n4NoChapters,
-    n5NoChapters,
-    noChapters,
     kanji,
     isLoading,
-    level,
-    selectedLevel,
-    selectedChapter,
-
-    /* actions */
-    setLevel,
-    setNoChapters,
-    setSelectedChapter,
-    setSelectedLevel,
-    shuffleNowData,
-    shuffleAllData,
-    fetchByChapterData,
-    fetchByLevelData,
-    getRandomData,
   } = Hook();
 
   return (

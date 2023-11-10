@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
     randomData,
@@ -8,27 +9,34 @@ import {
     shuffleAll,
   } from "@/services/fetchers";
 
+import { setSelectedChapter, setSelectedLevel, setStartLoading, setStopLoading, setLevel, setKanji } from "@/store/flashGroundSlice";
+
 const Hook = () => {
     const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
     const n4NoChapters = Array.from({ length: 20 }, (_, index) => index + 1);
   
-    const [kanji, setKanji] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [level, setLevel] = useState(5);
     const [noChapters, setNoChapters] = useState(n5NoChapters);
-  
-    const [selectedLevel, setSelectedLevel] = useState("");
-    const [selectedChapter, setSelectedChapter] = useState("");
+    const dispatch = useDispatch();
+
+    const {
+      kanji,
+      level,
+      selectedChapter,
+      selectedLevel,
+      isLoading
+    } = useSelector((state) => state.flashGroundReducer);
+
+    console.log({level})
   
     const fetchAllData = async () => {
-      setIsLoading(true);
+      dispatch(setStartLoading());
       try {
         let allData = await fetchAll();
-        setKanji(allData);
-        setIsLoading(false);
+        dispatch(setKanji(allData));
+        dispatch(setStopLoading());
       } catch (error) {
         // Handle errors if needed
-        setIsLoading(false);
+        dispatch(setStopLoading());
       }
     };
     useEffect(() => {
@@ -44,31 +52,31 @@ const Hook = () => {
           shuffledKanji[i],
         ];
       }
-      setKanji(shuffledKanji.slice(0, count));
+      dispatch(setKanji(shuffledKanji.slice(0, count)));
     };
   
     const shuffleAllData = async () => {
-      setIsLoading(true);
+      dispatch(setStartLoading());
       try {
         let allData = await shuffleAll();
-        setKanji(allData);
-        setIsLoading(false);
+        dispatch(setKanji(allData));
+        dispatch(setStopLoading());
       } catch (error) {
         // Handle errors if needed
-        setIsLoading(false);
+        dispatch(setStopLoading());
       }
     };
   
     const fetchByChapterData = async (chapter, level) => {
-      setIsLoading(true);
+      dispatch(setStartLoading());
       try {
         if (chapter > 0) {
           let allData = await fetchByChapter(chapter, level);
-          setKanji(allData);
-          setIsLoading(false);
+          dispatch(setKanji(allData));
+          dispatch(setStopLoading());
         } else {
           fetchAllData();
-          setIsLoading(false);
+          dispatch(setStopLoading());
         }
       } catch (error) {
         // Handle errors if needed
@@ -76,15 +84,15 @@ const Hook = () => {
     };
   
     const fetchByLevelData = async (level) => {
-      setIsLoading(true);
+      dispatch(setStartLoading());
       switch (level) {
         case 5:
           setNoChapters(n5NoChapters);
-          setLevel(5);
+          dispatch(setLevel(5));
           break;
         case 4:
           setNoChapters(n4NoChapters);
-          setLevel(4);
+          dispatch(setLevel(4));
           break;
         default:
           break;
@@ -92,25 +100,25 @@ const Hook = () => {
   
       try {
         let allData = await fetchByLevel(level);
-        setKanji(allData);
-        setIsLoading(false);
+        dispatch(setKanji(allData));
+        dispatch(setStopLoading());
       } catch (error) {
         // Handle errors if needed
-        setIsLoading(false);
+        dispatch(setStopLoading());
       }
   
-      setIsLoading(false);
+      dispatch(setStopLoading());
     };
   
     const getRandomData = async (count) => {
-      setIsLoading(true);
+      dispatch(setStartLoading());
       try {
         let allData = await randomData(count);
-        setKanji(allData);
-        setIsLoading(false);
+        dispatch(setKanji(allData));
+        dispatch(setStopLoading());
       } catch (error) {
         // Handle errors if needed
-        setIsLoading(false);
+        dispatch(setStopLoading());
       }
     };
     return {
@@ -122,6 +130,7 @@ const Hook = () => {
         level,
         selectedLevel,
         selectedChapter,
+        dispatch,
 
         /* actions */
         setLevel,

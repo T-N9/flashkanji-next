@@ -10,27 +10,23 @@ import { Select, Option, Button } from "@material-tailwind/react";
 import Hook from "./hook";
 
 export const FlashSettings = () => {
-    const {
-        n4NoChapters,
-        n5NoChapters,
-        noChapters,
-        kanji,
-        isLoading,
-        level,
-        selectedLevel,
-        selectedChapter,
-    
-        /* actions */
-        setLevel,
-        setNoChapters,
-        setSelectedChapter,
-        setSelectedLevel,
-        shuffleNowData,
-        shuffleAllData,
-        fetchByChapterData,
-        fetchByLevelData,
-        getRandomData
-      } = Hook();
+  const {
+    noChapters,
+    kanji,
+    level,
+    selectedLevel,
+    selectedChapter,
+    dispatch,
+
+    /* actions */
+    setSelectedChapter,
+    setSelectedLevel,
+    shuffleNowData,
+    shuffleAllData,
+    fetchByChapterData,
+    fetchByLevelData,
+    getRandomData,
+  } = Hook();
   return (
     <div className="mb-5 flex flex-col lg:flex-row justify-center gap-4">
       <div className="flex gap-4">
@@ -47,8 +43,8 @@ export const FlashSettings = () => {
                 key={level}
                 onClick={() => {
                   fetchByLevelData(level);
-                  setSelectedLevel(`N${level}`);
-                  setSelectedChapter("");
+                  dispatch(setSelectedLevel(`N${level}`));
+                  dispatch(setSelectedChapter(""));
                 }}
                 value={level.toString()}
                 disabled={level <= 3} // Assuming that levels 3 and above are disabled
@@ -71,7 +67,7 @@ export const FlashSettings = () => {
                 <Option
                   onClick={() => {
                     fetchByChapterData(item, level);
-                    setSelectedChapter(item);
+                    dispatch(setSelectedChapter(item));
                   }}
                   key={item}
                   value={item.toString()}
@@ -104,8 +100,8 @@ export const FlashSettings = () => {
         <Button
           onClick={() => {
             getRandomData(10);
-            setSelectedChapter("");
-            setSelectedLevel("");
+            dispatch(setSelectedChapter(""));
+            dispatch(setSelectedLevel(""));
           }}
           variant="gradient"
           className="bg-gradient-radial rounded-full"
