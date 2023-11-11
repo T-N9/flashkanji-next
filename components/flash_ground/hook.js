@@ -25,8 +25,6 @@ const Hook = () => {
       selectedLevel,
       isLoading
     } = useSelector((state) => state.flashGroundReducer);
-
-    console.log({level})
   
     const fetchAllData = async () => {
       dispatch(setStartLoading());

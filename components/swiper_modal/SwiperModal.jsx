@@ -1,0 +1,50 @@
+import React from "react";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Pagination, Navigation } from "swiper/modules";
+
+/* Hook */
+import { Hook } from "./hook";
+
+/* Component */
+import FlashCard from "../FlashCards";
+
+export const SwiperModal = () => {
+  const { kanji, isLoading } = Hook();
+
+  return (
+    <>
+      {!isLoading && (
+        <section className="fixed top-0 left-0 bottom-0 right-0 flex justify-center items-center">
+          <div className="fixed top-0 left-0 bottom-0 right-0 bg-blue-gray-700 bg-opacity-60"></div>
+          <div className=" relative z-30">
+            <Swiper
+              pagination={{
+                type: "fraction",
+              }}
+              slidesPerView={1}
+              spaceBetween={50}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="flashSwiper"
+            >
+              {kanji?.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <FlashCard key={index} item={item} isSwiped={true} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
+      )}
+    </>
+  );
+};
