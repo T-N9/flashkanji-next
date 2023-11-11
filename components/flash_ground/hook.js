@@ -7,6 +7,7 @@ import {
   fetchByChapter,
   fetchByLevel,
   shuffleAll,
+  fetchByMultiChapters,
 } from "@/services/fetchers";
 
 import {
@@ -43,7 +44,6 @@ const Hook = () => {
       dispatch(setKanji(allData));
       dispatch(setStopLoading());
     } catch (error) {
-      // Handle errors if needed
       dispatch(setStopLoading());
     }
   };
@@ -70,7 +70,6 @@ const Hook = () => {
       dispatch(setKanji(allData));
       dispatch(setStopLoading());
     } catch (error) {
-      // Handle errors if needed
       dispatch(setStopLoading());
     }
   };
@@ -86,9 +85,7 @@ const Hook = () => {
         fetchAllData();
         dispatch(setStopLoading());
       }
-    } catch (error) {
-      // Handle errors if needed
-    }
+    } catch (error) {}
   };
 
   const fetchByLevelData = async (level) => {
@@ -111,11 +108,22 @@ const Hook = () => {
       dispatch(setKanji(allData));
       dispatch(setStopLoading());
     } catch (error) {
-      // Handle errors if needed
       dispatch(setStopLoading());
     }
 
     dispatch(setStopLoading());
+  };
+
+  const fetchByMultiChaptersData = async (chapters, level) => {
+    dispatch(setStartLoading());
+    const chapterString = chapters.toString();
+    try {
+      let allData = await fetchByMultiChapters(chapterString, level);
+      dispatch(setKanji(allData));
+      dispatch(setStopLoading());
+    } catch (error) {
+      dispatch(setStopLoading());
+    }
   };
 
   const getRandomData = async (count) => {
@@ -125,7 +133,6 @@ const Hook = () => {
       dispatch(setKanji(allData));
       dispatch(setStopLoading());
     } catch (error) {
-      // Handle errors if needed
       dispatch(setStopLoading());
     }
   };
@@ -144,7 +151,7 @@ const Hook = () => {
       )
     );
   };
-  
+
   return {
     n4NoChapters,
     n5NoChapters,
@@ -169,6 +176,8 @@ const Hook = () => {
     getRandomData,
     toggleFlashModal,
     handleIncludedChapterClick,
+    setSelectedMultiChapters,
+    fetchByMultiChaptersData
   };
 };
 

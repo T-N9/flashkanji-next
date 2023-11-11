@@ -60,3 +60,16 @@ export const randomData = async (count) => {
     throw error;
   }
 };
+
+export const fetchByMultiChapters = async (chapters, level) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/?chapters=${chapters}&level=${level}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};
