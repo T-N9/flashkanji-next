@@ -10,6 +10,7 @@ import {
   } from "@/services/fetchers";
 
 import { setSelectedChapter, setSelectedLevel, setStartLoading, setStopLoading, setLevel, setKanji } from "@/store/flashGroundSlice";
+import { toggleFlashModal } from "@/store/generalSlice";
 
 const Hook = () => {
     const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
@@ -139,7 +140,8 @@ const Hook = () => {
         shuffleAllData,
         fetchByChapterData,
         fetchByLevelData,
-        getRandomData
+        getRandomData,
+        toggleFlashModal,
     }
 }
 

@@ -1,18 +1,23 @@
-import React from 'react';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+/* actions */
+import { toggleFlashModal } from "@/store/generalSlice";
 
 export const Hook = () => {
+  const { kanji, level, selectedChapter, selectedLevel, isLoading } =
+    useSelector((state) => state.flashGroundReducer);
 
-    const {
-        kanji,
-        level,
-        selectedChapter,
-        selectedLevel,
-        isLoading
-      } = useSelector((state) => state.flashGroundReducer);
+  const { isFlashModalOpen } = useSelector((state) => state.generalReducer);
+
+  const dispatch = useDispatch();
 
   return {
     kanji,
-    isLoading
-  }
-}
+    isLoading,
+    isFlashModalOpen,
+    dispatch,
+
+    /* action */
+    toggleFlashModal
+  };
+};

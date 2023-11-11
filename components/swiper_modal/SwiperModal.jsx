@@ -18,13 +18,27 @@ import { Hook } from "./hook";
 import FlashCard from "../FlashCards";
 
 export const SwiperModal = () => {
-  const { kanji, isLoading } = Hook();
+  const {
+    kanji,
+    isLoading,
+    isFlashModalOpen,
+    dispatch,
+    /* action */
+    toggleFlashModal,
+  } = Hook();
 
   return (
     <>
       {!isLoading && (
-        <section className="fixed top-0 left-0 bottom-0 right-0 flex justify-center items-center">
-          <div className="fixed top-0 left-0 bottom-0 right-0 bg-blue-gray-700 bg-opacity-60"></div>
+        <section
+          className={`${
+            isFlashModalOpen ? "opacity-100 visible" : "invisible opacity-0"
+          } fixed top-0 left-0 transform duration-300 ease-out bottom-0 right-0 flex justify-center items-center`}
+        >
+          <div
+            onClick={() => dispatch(toggleFlashModal())}
+            className="fixed top-0 left-0 bottom-0 right-0 bg-blue-gray-700 bg-opacity-60"
+          ></div>
           <div className=" relative z-30">
             <Swiper
               pagination={{
@@ -33,6 +47,7 @@ export const SwiperModal = () => {
               slidesPerView={1}
               spaceBetween={50}
               navigation={true}
+              loop={true}
               modules={[Pagination, Navigation]}
               className="flashSwiper"
             >
