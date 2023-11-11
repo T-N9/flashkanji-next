@@ -4,7 +4,14 @@ import React from "react";
 import { BiShuffle } from "react-icons/bi";
 import { GiCardRandom } from "react-icons/gi";
 
-import { Select, Option, Button } from "@material-tailwind/react";
+import {
+  Select,
+  Option,
+  Button,
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+} from "@material-tailwind/react";
 
 /* Hook */
 import Hook from "./hook";
@@ -78,6 +85,37 @@ export const FlashSettings = () => {
             })}
           </Select>
         </div>
+      </div>
+      <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
+        <Popover
+          animate={{
+            mount: { scale: 1, y: 0 },
+            unmount: { scale: 0, y: 25 },
+          }}
+          placement="bottom"
+        >
+          <PopoverHandler>
+            <Button className="px-3">Custom</Button>
+          </PopoverHandler>
+          <PopoverContent className="bg-gray-50">
+            <div className="grid grid-cols-5 gap-3 max-w-[300px]">
+              {noChapters?.map((item) => {
+                return (
+                  <Button
+                    onClick={() => {
+                      
+                    }}
+                    key={item}
+                    value={item.toString()}
+                    className="bg-gray-300 text-gray-800 rounded-full p-0 w-12 h-12 text-lg shadow-none"
+                  >
+                    {item}
+                  </Button>
+                );
+              })}
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
       <div className="flex-1 flex gap-2">
         <Button

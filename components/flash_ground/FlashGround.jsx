@@ -34,7 +34,7 @@ export default function FlashGround() {
         <div className="fixed bottom-10 right-5 z-50">
           <Button
             onClick={() => dispatch(toggleFlashModal())}
-            className=" bg-gray-800 rounded-full shadow-lg"
+            className=" bg-gradient-radial flex justify-center items-center p-0 w-14 h-14 rounded-full shadow-lg"
           >
             <PiSlideshowBold size={20} />
           </Button>
