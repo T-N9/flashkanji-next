@@ -6,6 +6,7 @@ const initialState = {
   level: 5,
   selectedLevel: "",
   selectedChapter: "",
+  selectedMultiChapters : []
 };
 
 const FlashGroundSlice = createSlice({
@@ -29,6 +30,9 @@ const FlashGroundSlice = createSlice({
     },
     setKanji : (state, action) => {
         state.kanji = action.payload;
+    },
+    setSelectedMultiChapters : (state, action) => {
+      state.selectedMultiChapters = action.payload;
     }
   },
 });
@@ -39,7 +43,8 @@ export const {
   setLevel,
   setSelectedChapter,
   setSelectedLevel,
-  setKanji
+  setKanji,
+  setSelectedMultiChapters
 } = FlashGroundSlice.actions;
 
 export default FlashGroundSlice.reducer;

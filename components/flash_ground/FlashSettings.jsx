@@ -24,6 +24,7 @@ export const FlashSettings = () => {
     selectedLevel,
     selectedChapter,
     dispatch,
+    selectedMultiChapters,
 
     /* actions */
     setSelectedChapter,
@@ -33,6 +34,7 @@ export const FlashSettings = () => {
     fetchByChapterData,
     fetchByLevelData,
     getRandomData,
+    handleIncludedChapterClick,
   } = Hook();
   return (
     <div className="mb-5 flex flex-col lg:flex-row justify-center gap-4">
@@ -100,20 +102,25 @@ export const FlashSettings = () => {
           <PopoverContent className="bg-gray-50">
             <div className="grid grid-cols-5 gap-3 max-w-[300px]">
               {noChapters?.map((item) => {
+                const isSelected = selectedMultiChapters.includes(item);
+
                 return (
                   <Button
-                    onClick={() => {
-                      
-                    }}
+                    onClick={() => handleIncludedChapterClick(item)}
                     key={item}
                     value={item.toString()}
-                    className="bg-gray-300 text-gray-800 rounded-full p-0 w-12 h-12 text-lg shadow-none"
+                    className={`${
+                      isSelected
+                        ? "bg-gradient-radial text-white"
+                        : "bg-gray-300 text-gray-800"
+                    } rounded-full p-0 w-12 h-12 text-lg shadow-none`}
                   >
                     {item}
                   </Button>
                 );
               })}
             </div>
+            <Button className="mt-3 mx-auto table">Confirm</Button>
           </PopoverContent>
         </Popover>
       </div>
