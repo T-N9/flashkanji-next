@@ -120,6 +120,7 @@ const Hook = () => {
     try {
       let allData = await fetchByMultiChapters(chapterString, level);
       dispatch(setKanji(allData));
+      dispatch(setSelectedChapter(""));
       dispatch(setStopLoading());
     } catch (error) {
       dispatch(setStopLoading());
@@ -140,7 +141,6 @@ const Hook = () => {
   const handleIncludedChapterClick = (item) => {
     // Check if the item is already selected
     const isSelected = selectedMultiChapters.includes(item);
-
     dispatch(
       setSelectedMultiChapters(
         isSelected

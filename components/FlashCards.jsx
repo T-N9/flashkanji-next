@@ -13,10 +13,20 @@ const FlashCard = ({ item, isSwiped = false }) => {
         isFlipped && "flipped"
       }`}
     >
-      <p className={`${isSwiped ? 'text-[9rem] md:text-[18rem]' : 'text-7xl'} front absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}>
+      {!isSwiped && <span className="front text-gray-400">{item.id}</span>}
+
+      <p
+        className={`${
+          isSwiped ? "text-[9rem] md:text-[18rem]" : "text-7xl"
+        } front absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}
+      >
         {item.kanji_character}
       </p>
-      <div className={`back absolute w-full top-[30%] -left-[0%] -translate-x-1/2 -translate-y-1/2 flex flex-col gap-5 p-2 ${isSwiped ? 'text-2xl md:text-[3rem]' : 'text-xl'}`}>
+      <div
+        className={`back absolute w-full top-[30%] -left-[0%] -translate-x-1/2 -translate-y-1/2 flex flex-col gap-5 p-2 ${
+          isSwiped ? "text-2xl md:text-[3rem]" : "text-xl"
+        }`}
+      >
         <p className="text-amber-900 flex flex-wrap justify-center">
           {item.kunyomi?.split(",").map((i, index) => {
             return (
