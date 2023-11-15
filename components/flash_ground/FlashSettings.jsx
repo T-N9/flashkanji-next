@@ -42,7 +42,7 @@ export const FlashSettings = () => {
   } = Hook();
   return (
     <>
-      <div className="mb-5 flex flex-col lg:flex-row justify-center gap-4">
+      <div className="mb-5 flex flex-col lg:flex-row justify-center gap-4 items-center">
         <div className="flex gap-4">
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select

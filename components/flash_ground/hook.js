@@ -8,7 +8,7 @@ import {
   fetchByLevel,
   shuffleAll,
   fetchByMultiChapters,
-  fetchBySearchValue
+  fetchBySearchValue,
 } from "@/services/fetchers";
 
 import {
@@ -19,7 +19,7 @@ import {
   setLevel,
   setKanji,
   setSelectedMultiChapters,
-  setSearchValue
+  setSearchValue,
 } from "@/store/flashGroundSlice";
 import { toggleFlashModal } from "@/store/generalSlice";
 
@@ -37,7 +37,7 @@ const Hook = () => {
     selectedLevel,
     isLoading,
     selectedMultiChapters,
-    searchValue
+    searchValue,
   } = useSelector((state) => state.flashGroundReducer);
 
   const fetchAllData = async () => {
@@ -158,18 +158,23 @@ const Hook = () => {
   const handleSearchInput = async (value) => {
     dispatch(setSearchValue(value));
 
-    dispatch(setStartLoading());
+    if (value.length >= 2) {
+      dispatch(setStartLoading());
+      fetchBySearchValue(value)
+        .then((allData) => {
+          dispatch(setKanji(allData));
+          dispatch(setSelectedChapter(""));
+          dispatch(setStopLoading());
+        })
+        .catch((error) => {
+          dispatch(setStopLoading());
+        });
+    }
 
-    fetchBySearchValue(value)
-      .then((allData) => {
-        dispatch(setKanji(allData));
-        dispatch(setSelectedChapter(""));
-        dispatch(setStopLoading());
-      })
-      .catch((error) => {
-        dispatch(setStopLoading());
-      });
-  }
+    if (value === "") {
+      fetchAllData();
+    }
+  };
 
   return {
     n4NoChapters,
@@ -197,7 +202,7 @@ const Hook = () => {
     handleIncludedChapterClick,
     setSelectedMultiChapters,
     fetchByMultiChaptersData,
-    handleSearchInput
+    handleSearchInput,
   };
 };
 
