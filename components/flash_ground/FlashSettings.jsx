@@ -11,6 +11,7 @@ import {
   Popover,
   PopoverHandler,
   PopoverContent,
+  Input,
 } from "@material-tailwind/react";
 
 /* Hook */
@@ -37,6 +38,7 @@ export const FlashSettings = () => {
     handleIncludedChapterClick,
     setSelectedMultiChapters,
     fetchByMultiChaptersData,
+    handleSearchInput,
   } = Hook();
   return (
     <>
@@ -167,6 +169,18 @@ export const FlashSettings = () => {
           >
             <GiCardRandom size={20} />
           </Button>
+        </div>
+        <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
+          <Input
+            onChange={(e) => {
+              setTimeout(() => {
+                handleSearchInput(e.target.value);
+              }, 500);
+            }}
+            color="blue"
+            className="bg-white"
+            label="Search"
+          />
         </div>
       </div>
     </>
