@@ -21,7 +21,7 @@ import {
   setSelectedMultiChapters,
   setSearchValue,
 } from "@/store/flashGroundSlice";
-import { toggleFlashModal } from "@/store/generalSlice";
+import { toggleFlashModal, toggleSetting } from "@/store/generalSlice";
 
 const Hook = () => {
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
@@ -39,6 +39,8 @@ const Hook = () => {
     selectedMultiChapters,
     searchValue,
   } = useSelector((state) => state.flashGroundReducer);
+
+  const { isSettingOpen} = useSelector((state) => state.generalReducer);
 
   const fetchAllData = async () => {
     dispatch(setStartLoading());
@@ -187,6 +189,7 @@ const Hook = () => {
     selectedChapter,
     dispatch,
     selectedMultiChapters,
+    isSettingOpen,
 
     /* actions */
     setLevel,
@@ -203,6 +206,7 @@ const Hook = () => {
     setSelectedMultiChapters,
     fetchByMultiChaptersData,
     handleSearchInput,
+    toggleSetting
   };
 };
 

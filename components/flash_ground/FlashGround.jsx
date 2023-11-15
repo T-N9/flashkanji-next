@@ -5,6 +5,7 @@ import FlashCard from "@/components/FlashCards";
 import { LoadingGround } from "../common/LoadingGround";
 import { FlashSettings } from "./FlashSettings";
 import { Button } from "@material-tailwind/react";
+import { SpeedDialMenu } from "../common/SpeedDialMenu";
 
 /* Icons */
 import { PiSlideshowBold } from "react-icons/pi";
@@ -13,24 +14,32 @@ import { PiSlideshowBold } from "react-icons/pi";
 import Hook from "./hook";
 
 export default function FlashGround() {
-  const { kanji, isLoading, toggleFlashModal, dispatch } = Hook();
+  const { kanji, isLoading, toggleFlashModal, dispatch, isSettingOpen } =
+    Hook();
 
   return (
     <section
-      className={`relative flex bg-light min-h-screen flex-col items-center p-4`}
+      className={` relative flex bg-light min-h-screen flex-col items-center p-4`}
     >
       <FlashSettings />
-      {isLoading ? (
-        <LoadingGround />
-      ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {kanji?.map((item, index) => (
-            <FlashCard key={index} item={item} />
-          ))}
-        </div>
-      )}
-
-      {!isLoading && (
+      <div
+        className={`${
+          isSettingOpen ? "translate-y-0" : "-translate-y-[215px] lg:-translate-y-16"
+        } relative transition-all duration-200 ease-out`}
+      >
+        {isLoading ? (
+          <LoadingGround />
+        ) : (
+          <div
+            className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4`}
+          >
+            {kanji?.map((item, index) => (
+              <FlashCard key={index} item={item} />
+            ))}
+          </div>
+        )}
+      </div>
+      {/* {!isLoading && (
         <div className="fixed bottom-10 right-5 z-50">
           <Button
             onClick={() => dispatch(toggleFlashModal())}
@@ -39,7 +48,8 @@ export default function FlashGround() {
             <PiSlideshowBold size={20} />
           </Button>
         </div>
-      )}
+      )} */}
+      <SpeedDialMenu />
     </section>
   );
 }

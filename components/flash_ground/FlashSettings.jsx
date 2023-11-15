@@ -3,6 +3,7 @@ import React from "react";
 /* Icons */
 import { BiShuffle } from "react-icons/bi";
 import { GiCardRandom } from "react-icons/gi";
+import { CiFilter } from "react-icons/ci";
 
 import {
   Select,
@@ -26,6 +27,7 @@ export const FlashSettings = () => {
     selectedChapter,
     dispatch,
     selectedMultiChapters,
+    isSettingOpen,
 
     /* actions */
     setSelectedChapter,
@@ -42,8 +44,12 @@ export const FlashSettings = () => {
   } = Hook();
   return (
     <>
-      <div className="mb-5 flex flex-col lg:flex-row justify-center gap-4 items-center">
-        <div className="flex gap-4">
+      <div
+        className={`mb-5 flex flex-col lg:flex-row justify-center gap-4 items-center transition-all duration-200 ease-in ${
+          isSettingOpen ? "visible opacity-100" : "invisible opacity-0"
+        }`}
+      >
+        <div className="flex gap-4 w-full md:w-fit">
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
               value={selectedLevel}

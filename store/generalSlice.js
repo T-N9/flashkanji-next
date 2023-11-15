@@ -1,21 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isFlashModalOpen : false
+  isFlashModalOpen: false,
+  isSettingOpen: true,
 };
 
 const GeneralSlice = createSlice({
   name: "general",
   initialState,
   reducers: {
-    toggleFlashModal : (state) => {
-        state.isFlashModalOpen = !state.isFlashModalOpen;
-    }
+    toggleFlashModal: (state) => {
+      state.isFlashModalOpen = !state.isFlashModalOpen;
+    },
+    toggleSetting: (state) => {
+      state.isSettingOpen = !state.isSettingOpen;
+    },
   },
 });
 
-export const {
-toggleFlashModal
-} = GeneralSlice.actions;
+export const { toggleFlashModal, toggleSetting } = GeneralSlice.actions;
 
 export default GeneralSlice.reducer;
