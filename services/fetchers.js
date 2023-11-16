@@ -86,3 +86,45 @@ export const fetchBySearchValue = async (value) => {
     throw error;
   }
 };
+
+/* Quiz for Character to Onyomi by Chapter and level */
+export const fetchQuiz_charOn_chapter_level = async (chapter, level) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/quiz.php?chapter=${chapter}&level=${level}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};
+
+/* Quiz for Character to Onyomi by level */
+export const fetchQuiz_charOn_level = async ( level) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/quiz.php?level=${level}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};
+
+/* Quiz for Character to Onyomi by random */
+export const fetchQuiz_charOn_rand = async (count) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/quiz.php?rand=${count}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};
