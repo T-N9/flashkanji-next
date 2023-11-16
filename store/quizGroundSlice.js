@@ -7,7 +7,8 @@ const initialState = {
   selectedLevel: "",
   selectedChapter: "",
   selectedMultiChapters : [],
-  searchValue: ''
+  currentMark : 0,
+  answeredCount : 0
 };
 
 const QuizGroundSlice = createSlice({
@@ -34,6 +35,20 @@ const QuizGroundSlice = createSlice({
     },
     setSelectedMultiChapters : (state, action) => {
       state.selectedMultiChapters = action.payload;
+    },
+    increaseMark : (state) => {
+      state.currentMark = state.currentMark +1;
+    },
+    decreaseMark : (state) => {
+      state.currentMark = state.currentMark -1;
+    },
+    resetQuizState : (state) => {
+      state.currentMark = 0;
+      state.answeredCount = 0;
+    }
+    ,
+    increaseAnsweredCount : (state) => {
+      state.answeredCount = state.answeredCount + 1;
     }
   },
 });
@@ -46,6 +61,10 @@ export const {
   setSelectedLevel,
   setKanji,
   setSelectedMultiChapters,
+  increaseMark, 
+  decreaseMark,
+  resetQuizState,
+  increaseAnsweredCount,
 } = QuizGroundSlice.actions;
 
 export default QuizGroundSlice.reducer;
