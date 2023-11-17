@@ -40,17 +40,18 @@ export const Quiz_Ground = () => {
     setSelectedMultiChapters,
     handleChapterData,
     handleQuizStart,
-    handleQuizSubmit
+    handleQuizSubmit,
+    handleQuizQuit,
   } = Hook();
   return (
     <section className="relative flex bg-light min-h-screen flex-col items-center p-4">
       {!isQuizReady ? (
         <>
-          <h1 className="text-4xl font-bold text-info">
+          <h1 className="text-4xl font-english text-center font-bold text-info">
             Let's practice with FlashQuiz!
           </h1>
           <p className="">今、漢字を練習しましょう。</p>
-          <div className="mt-5">
+          <div className="mt-5 w-full flex flex-col justify-center items-center">
             <div className="flex gap-4 w-full md:w-fit">
               <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
                 <Select
@@ -114,12 +115,22 @@ export const Quiz_Ground = () => {
         </>
       ) : (
         <>
-          <div className="mb-5 w-full container font-english">
-            <p className="text-xl ">
-              Quiz on {selectedLevel && selectedLevel}{" "}
-              {selectedChapter && `Chapter ${selectedChapter}`}
-            </p>
-            <p>Character to Onyomi </p>
+          <div className="mb-5 w-full flex justify-between items-center container font-english">
+            <div>
+              <h1 className="text-xl font-medium">
+                Quiz on {selectedLevel && selectedLevel}{" "}
+                {selectedChapter && `Chapter ${selectedChapter}`}
+              </h1>
+              <p>Character to Onyomi </p>
+            </div>
+
+            {isQuizSubmit && (
+              <div className="text-xl text-gray-500">
+                Score :{" "}
+                <span className="font-medium text-info">{currentMark}</span> /{" "}
+                {quizData.length}
+              </div>
+            )}
           </div>
           <div className="container mx-auto w-full lg:w-1/2">
             <div className="flex flex-col gap-4">
@@ -134,9 +145,24 @@ export const Quiz_Ground = () => {
                 );
               })}
             </div>
-            <div className="my-5 flex justify-center items-center">
+
+            {isQuizSubmit && (
+              <div className="text-xl text-center font-english mt-5 text-gray-500">
+                Score :{" "}
+                <span className="font-medium text-info">{currentMark}</span> /{" "}
+                {quizData.length}
+              </div>
+            )}
+            <div className="my-5 flex gap-4 justify-center items-center">
               <Button
-                disabled={answeredCount !== 10}
+                onClick={() => handleQuizQuit()}
+                variant="outlined"
+                className=""
+              >
+                Quit
+              </Button>
+              <Button
+                disabled={answeredCount !== quizData.length || isQuizSubmit}
                 className="bg-gradient-radial"
                 onClick={() => handleQuizSubmit()}
               >

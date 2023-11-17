@@ -15,6 +15,7 @@ import {
   setLevel,
   setKanji,
   setSelectedMultiChapters,
+  resetQuizState,
 } from "@/store/quizGroundSlice";
 
 const Hook = () => {
@@ -24,7 +25,7 @@ const Hook = () => {
   const [noChapters, setNoChapters] = useState(n5NoChapters);
   const [quizData, setQuizData] = useState([]);
   const [isQuizReady, setIsQuizReady] = useState(false);
-  const [ isQuizSubmit, setIsQuizSubmit ]= useState(false);
+  const [isQuizSubmit, setIsQuizSubmit] = useState(false);
   const dispatch = useDispatch();
 
   const {
@@ -35,7 +36,7 @@ const Hook = () => {
     isLoading,
     selectedMultiChapters,
     answeredCount,
-    currentMark
+    currentMark,
   } = useSelector((state) => state.quizGroundReducer);
 
   const handleChapterData = (level) => {
@@ -74,10 +75,16 @@ const Hook = () => {
   };
 
   const handleQuizSubmit = () => {
-    if(answeredCount === 10) {
+    if (answeredCount === quizData.length) {
       setIsQuizSubmit(true);
     }
-  }
+  };
+
+  const handleQuizQuit = () => {
+    setIsQuizSubmit(false);
+    setIsQuizReady(false);
+    dispatch(resetQuizState());
+  };
 
   return {
     kanji,
@@ -108,7 +115,8 @@ const Hook = () => {
     fetchQuiz_charOn_rand,
     handleChapterData,
     handleQuizStart,
-    handleQuizSubmit
+    handleQuizSubmit,
+    handleQuizQuit,
   };
 };
 

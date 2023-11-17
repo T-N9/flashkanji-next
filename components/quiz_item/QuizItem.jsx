@@ -14,7 +14,7 @@ export const QuizItem = ({ quizItem, number, isSubmitted }) => {
     /* actions */
     setCurrentAnswer,
     setIsAnswered,
-    handleIsAnswered
+    handleIsAnswered,
   } = Hook(quizItem.correct_option);
 
   return (
@@ -26,8 +26,16 @@ export const QuizItem = ({ quizItem, number, isSubmitted }) => {
         <h1 className="text-9xl">{quizItem?.kanji_character}</h1>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 flex-1 w-full">
+      <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 flex-1 w-full option-item">
         {quizItem?.options.map((option, index) => {
+          let optionItem = option.split(",").map((i, index) => {
+            return (
+              <div className="" key={index}>
+                <span>{i}</span>
+                {index !== option?.split(",").length - 1 && ","}
+              </div>
+            );
+          });
           return (
             <div
               key={index}
@@ -36,12 +44,24 @@ export const QuizItem = ({ quizItem, number, isSubmitted }) => {
                 setCurrentAnswer(index);
                 setIsAnswered(true);
               }}
-              className={`${isSubmitted && currentAnswer === index && index === quizItem?.correct_option && 'border-green-400'} ${isSubmitted && currentAnswer === index && index !== quizItem?.correct_option && 'border-red-300'} ${isSubmitted && 'pointer-events-none cursor-not-allowed'} ${isSubmitted && currentAnswer !== index && 'opacity-60'} border-2 border-solid bg-white p-2 shadow text-4xl cursor-pointer`}
+              className={`${
+                isSubmitted &&
+                currentAnswer === index &&
+                index === quizItem?.correct_option &&
+                "border-green-400"
+              } ${
+                isSubmitted &&
+                currentAnswer === index &&
+                index !== quizItem?.correct_option &&
+                "border-red-300"
+              } ${isSubmitted && "pointer-events-none cursor-not-allowed"} ${
+                isSubmitted && currentAnswer !== index && "opacity-60"
+              } border-2 border-solid bg-white p-2 shadow text-2xl cursor-pointer`}
             >
               <Checkbox
                 checked={currentAnswer === index}
                 id={`${option + index + quizItem?.kanji_character}`}
-                label={option}
+                label={optionItem}
                 ripple={true}
               />
             </div>
