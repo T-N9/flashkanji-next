@@ -114,9 +114,12 @@ export const Quiz_Ground = () => {
         </>
       ) : (
         <>
-          <div className="text-xl mb-5 w-full container">
-            Quiz on {selectedLevel && selectedLevel}{" "}
-            {selectedChapter && `Chapter ${selectedChapter}`}
+          <div className="mb-5 w-full container font-english">
+            <p className="text-xl ">
+              Quiz on {selectedLevel && selectedLevel}{" "}
+              {selectedChapter && `Chapter ${selectedChapter}`}
+            </p>
+            <p>Character to Onyomi </p>
           </div>
           <div className="container mx-auto w-full lg:w-1/2">
             <div className="flex flex-col gap-4">
