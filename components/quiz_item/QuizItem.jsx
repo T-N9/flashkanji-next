@@ -54,7 +54,15 @@ export const QuizItem = ({ quizItem, number, isSubmitted }) => {
                 currentAnswer === index &&
                 index !== quizItem?.correct_option &&
                 "border-red-300"
-              } ${isSubmitted && "pointer-events-none cursor-not-allowed"} ${
+              }
+              
+              ${
+                isSubmitted &&
+                index === quizItem?.correct_option &&
+                "border-green-400"
+              }
+
+              ${isSubmitted && "pointer-events-none cursor-not-allowed"} ${
                 isSubmitted && currentAnswer !== index && "opacity-60"
               } border-2 border-solid bg-white p-2 shadow text-2xl cursor-pointer`}
             >
