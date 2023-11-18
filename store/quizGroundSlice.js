@@ -8,7 +8,8 @@ const initialState = {
   selectedChapter: "",
   selectedMultiChapters : [],
   currentMark : 0,
-  answeredCount : 0
+  answeredCount : 0,
+  selectedMode : 1
 };
 
 const QuizGroundSlice = createSlice({
@@ -49,6 +50,9 @@ const QuizGroundSlice = createSlice({
     ,
     increaseAnsweredCount : (state) => {
       state.answeredCount = state.answeredCount + 1;
+    },
+    setQuizMode : (state, action) => {
+      state.selectedMode = action.payload;
     }
   },
 });
@@ -65,6 +69,7 @@ export const {
   decreaseMark,
   resetQuizState,
   increaseAnsweredCount,
+  setQuizMode
 } = QuizGroundSlice.actions;
 
 export default QuizGroundSlice.reducer;

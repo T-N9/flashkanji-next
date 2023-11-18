@@ -30,6 +30,7 @@ export const Quiz_Ground = () => {
     answeredCount,
     currentMark,
     isQuizSubmit,
+    selectedMode,
     /* action */
     setSelectedChapter,
     setSelectedLevel,
@@ -42,6 +43,7 @@ export const Quiz_Ground = () => {
     handleQuizStart,
     handleQuizSubmit,
     handleQuizQuit,
+    setQuizMode,
   } = Hook();
   return (
     <section className="relative flex bg-light min-h-screen flex-col items-center p-4">
@@ -102,12 +104,47 @@ export const Quiz_Ground = () => {
                   })}
                 </Select>
               </div>
+              <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
+                <Select
+                  color="blue"
+                  size="md"
+                  className="bg-white"
+                  label="Select Mode"
+                >
+                  {[
+                    {
+                      id: 1,
+                      name: "Onyomi",
+                    },
+                    {
+                      id: 2,
+                      name: "Kunyomi",
+                    },
+                    {
+                      id: 3,
+                      name: "Meaning",
+                    },
+                  ]?.map((item) => {
+                    return (
+                      <Option
+                        onClick={() => {
+                          dispatch(setQuizMode(item.id));
+                        }}
+                        key={item.id}
+                        value={item.id.toString()}
+                      >
+                        {item.name}
+                      </Option>
+                    );
+                  })}
+                </Select>
+              </div>
             </div>
             <Button
               onClick={() => handleQuizStart()}
               className="mt-5 mx-auto bg-gradient-radial text-2xl table"
               size="lg"
-              disabled={isLoading}
+              disabled={isLoading || selectedLevel === ""}
             >
               Start
             </Button>
