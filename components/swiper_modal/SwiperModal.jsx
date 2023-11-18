@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Keyboard } from "swiper/modules";
 
 /* Hook */
 import { Hook } from "./hook";
@@ -47,8 +47,11 @@ export const SwiperModal = () => {
               slidesPerView={1}
               spaceBetween={50}
               navigation={true}
+              keyboard={{
+                enabled: true,
+              }}
               loop={true}
-              modules={[Pagination, Navigation]}
+              modules={[Pagination, Navigation, Keyboard]}
               className="flashSwiper"
             >
               {kanji?.map((item, index) => (
