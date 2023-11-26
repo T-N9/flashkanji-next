@@ -2,22 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Button } from "@material-tailwind/react";
 
+/* Icons */
+import { FaInfoCircle } from "react-icons/fa";
+
+/* Hook */
+import { Hook } from "./hook";
+
 const FlashCard = ({ item, isSwiped = false }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const { isFlippedMode } = useSelector((state) => state.flashGroundReducer);
 
+  const { handleOpen } = Hook();
+
   useEffect(() => {
     setIsFlipped(false);
   }, [item]);
 
-  useEffect(() =>{
-    setIsFlipped(isFlippedMode)
-
-  },[isFlippedMode])
+  useEffect(() => {
+    setIsFlipped(isFlippedMode);
+  }, [isFlippedMode]);
 
   return (
-    <div>
+    <div className="relative">
       <div
         onClick={() => setIsFlipped((prev) => !prev)}
         className={`bg-white relative font-writing-1 text-black p-5 rounded-md card min-w-[150px] lg:min-w-[200px] shadow-md ${
@@ -61,11 +68,13 @@ const FlashCard = ({ item, isSwiped = false }) => {
         </div>
       </div>
 
-        {
-          !isSwiped &&
-          <Button size="sm" className="mt-2 mx-auto text-xs bg-gray-700 table">View Detail</Button>
-        }
-
+      {!isSwiped && (
+        <div className="absolute -right-2 top-0">
+          <Button onClick={() =>handleOpen(item.kanji_character)} size="sm" className="mt-2 mx-auto text-xs bg-gray-700 table">
+            <FaInfoCircle size={20}/>
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

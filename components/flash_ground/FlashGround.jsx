@@ -1,7 +1,7 @@
 import React from "react";
 
 /* Components */
-import FlashCard from "@/components/FlashCards";
+import FlashCard from "@/components/flash_card/FlashCard";
 import { LoadingGround } from "../common/LoadingGround";
 import { FlashSettings } from "./FlashSettings";
 import { Button } from "@material-tailwind/react";

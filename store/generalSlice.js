@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isFlashModalOpen: false,
   isSettingOpen: true,
+  isDetailModalOpen: false,
+  currentDetail: null,
 };
 
 const GeneralSlice = createSlice({
@@ -15,9 +17,20 @@ const GeneralSlice = createSlice({
     toggleSetting: (state) => {
       state.isSettingOpen = !state.isSettingOpen;
     },
+    toggleDetailModal: (state) => {
+      state.isDetailModalOpen = !state.isDetailModalOpen;
+    },
+    setCurrentDetail: (state, action) => {
+      state.currentDetail = action.payload;
+    },
   },
 });
 
-export const { toggleFlashModal, toggleSetting } = GeneralSlice.actions;
+export const {
+  toggleFlashModal,
+  toggleSetting,
+  toggleDetailModal,
+  setCurrentDetail,
+} = GeneralSlice.actions;
 
 export default GeneralSlice.reducer;

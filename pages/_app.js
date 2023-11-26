@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 /* Components */
 import { NavigationBar } from "@/components/common/NavigationBar";
 import { SwiperModal } from "@/components/swiper_modal/SwiperModal";
+import { DetailModal } from "@/components/detail_modal/DetailModal";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }) {
           <NavigationBar />
           <Component {...pageProps} />
           <SwiperModal/>
+          <DetailModal/>
         </main>
       </ThemeProvider>
     </Provider>

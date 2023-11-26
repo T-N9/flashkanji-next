@@ -15,7 +15,7 @@ import { Pagination, Navigation, Keyboard } from "swiper/modules";
 import { Hook } from "./hook";
 
 /* Component */
-import FlashCard from "../FlashCards";
+import FlashCard from "../flash_card/FlashCard";
 
 export const SwiperModal = () => {
   const {
