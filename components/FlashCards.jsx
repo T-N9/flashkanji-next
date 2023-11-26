@@ -18,7 +18,7 @@ const FlashCard = ({ item, isSwiped = false }) => {
   return (
     <div
       onClick={() => setIsFlipped((prev) => !prev)}
-      className={`bg-white relative font-primary-serif text-black p-5 rounded-md card min-w-[150px] lg:min-w-[200px] shadow-md ${
+      className={`bg-white relative font-writing-1 text-black p-5 rounded-md card min-w-[150px] lg:min-w-[200px] shadow-md ${
         isFlipped && "flipped"
       }`}
     >

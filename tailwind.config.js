@@ -22,7 +22,8 @@ module.exports = withMT({
       fontFamily: {
         "primary-san": ["Noto Sans JP", "sans-serif"],
         "primary-serif": ["Noto Serif JP", "serif"],
-        "english" : ["Kanit", "sans-serif"]
+        "english" : ["Kanit", "sans-serif"],
+        "writing-1" : ["Shippori Mincho", "serif"]
       },
     },
   },
