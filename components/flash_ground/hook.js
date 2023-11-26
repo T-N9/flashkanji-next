@@ -20,6 +20,7 @@ import {
   setKanji,
   setSelectedMultiChapters,
   setSearchValue,
+  setIsFlippedMode
 } from "@/store/flashGroundSlice";
 import { toggleFlashModal, toggleSetting } from "@/store/generalSlice";
 
@@ -206,7 +207,8 @@ const Hook = () => {
     setSelectedMultiChapters,
     fetchByMultiChaptersData,
     handleSearchInput,
-    toggleSetting
+    toggleSetting,
+    setIsFlippedMode
   };
 };
 

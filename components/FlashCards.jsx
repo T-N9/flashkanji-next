@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const FlashCard = ({ item, isSwiped = false }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const { isFlippedMode } = useSelector((state) => state.flashGroundReducer);
+
   useEffect(() => {
     setIsFlipped(false);
   }, [item]);
+
+  useEffect(() =>{
+    setIsFlipped(isFlippedMode)
+
+  },[isFlippedMode])
+
   return (
     <div
       onClick={() => setIsFlipped((prev) => !prev)}

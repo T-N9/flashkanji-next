@@ -24,7 +24,7 @@ export default function FlashGround() {
       <FlashSettings />
       <div
         className={`${
-          isSettingOpen ? "translate-y-0" : "-translate-y-[215px] lg:-translate-y-16"
+          isSettingOpen ? "translate-y-0" : "-translate-y-[215px] lg:-translate-y-36"
         } relative transition-all duration-200 ease-out`}
       >
         {isLoading ? (

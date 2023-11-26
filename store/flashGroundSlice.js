@@ -7,7 +7,8 @@ const initialState = {
   selectedLevel: "",
   selectedChapter: "",
   selectedMultiChapters : [],
-  searchValue: ''
+  searchValue: '',
+  isFlippedMode: false
 };
 
 const FlashGroundSlice = createSlice({
@@ -37,6 +38,9 @@ const FlashGroundSlice = createSlice({
     },
     setSearchValue : (state, action) => {
       state.searchValue = action.payload
+    },
+    setIsFlippedMode : (state) =>{
+      state.isFlippedMode = !state.isFlippedMode;
     }
   },
 });
@@ -49,7 +53,8 @@ export const {
   setSelectedLevel,
   setKanji,
   setSelectedMultiChapters,
-  setSearchValue
+  setSearchValue,
+  setIsFlippedMode
 } = FlashGroundSlice.actions;
 
 export default FlashGroundSlice.reducer;

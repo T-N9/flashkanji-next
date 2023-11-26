@@ -3,7 +3,8 @@ import React from "react";
 /* Icons */
 import { BiShuffle } from "react-icons/bi";
 import { GiCardRandom } from "react-icons/gi";
-import { CiFilter } from "react-icons/ci";
+import { MdFlipCameraAndroid } from "react-icons/md";
+import { IoCloseCircleSharp } from "react-icons/io5";
 
 import {
   Select,
@@ -41,13 +42,29 @@ export const FlashSettings = () => {
     setSelectedMultiChapters,
     fetchByMultiChaptersData,
     handleSearchInput,
+    setIsFlippedMode,
+    toggleSetting,
   } = Hook();
   return (
-    <>
+    <section
+      className={`container relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 
+      ${isSettingOpen ? "visible opacity-100" : "invisible opacity-0"}
+     w-full mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-4 mb-4`}
+    >
+      <div className="flex w-full select-box flex-col gap-6">
+        <Input
+          onChange={(e) => {
+            setTimeout(() => {
+              handleSearchInput(e.target.value);
+            }, 500);
+          }}
+          color="blue"
+          className="bg-white"
+          label="Search"
+        />
+      </div>
       <div
-        className={`mb-5 flex flex-col lg:flex-row justify-center gap-4 items-center transition-all duration-200 ease-in ${
-          isSettingOpen ? "visible opacity-100" : "invisible opacity-0"
-        }`}
+        className={`flex flex-col lg:flex-row justify-center gap-4 items-center transition-all duration-200 ease-in `}
       >
         <div className="flex gap-4 w-full md:w-fit">
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
@@ -175,20 +192,28 @@ export const FlashSettings = () => {
           >
             <GiCardRandom size={20} />
           </Button>
-        </div>
-        <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
-          <Input
-            onChange={(e) => {
-              setTimeout(() => {
-                handleSearchInput(e.target.value);
-              }, 500);
+          <Button
+            onClick={() => {
+              dispatch(setIsFlippedMode());
             }}
-            color="blue"
-            className="bg-white"
-            label="Search"
-          />
+            variant="gradient"
+            className="bg-primary rounded-full"
+            title="Randomize"
+          >
+            <MdFlipCameraAndroid size={20} />
+          </Button>
         </div>
       </div>
-    </>
+
+      <div className="absolute right-7 top-0 ">
+        <Button
+          onClick={() => dispatch(toggleSetting())}
+          color="red"
+          className="p-2 rounded-full"
+        >
+          <IoCloseCircleSharp size={20} />
+        </Button>
+      </div>
+    </section>
   );
 };
