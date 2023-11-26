@@ -33,7 +33,7 @@ export const SwiperModal = () => {
         <section
           className={`${
             isFlashModalOpen ? "opacity-100 visible" : "invisible opacity-0"
-          } fixed top-0 left-0 transform duration-300 ease-out bottom-0 right-0 flex justify-center items-center`}
+          } fixed top-0 left-0 z-[6000] transform duration-300 ease-out bottom-0 right-0 flex justify-center items-center`}
         >
           <div
             onClick={() => dispatch(toggleFlashModal())}
