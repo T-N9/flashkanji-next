@@ -19,13 +19,13 @@ export default function FlashGround() {
 
   return (
     <section
-      className={` relative flex bg-light min-h-screen flex-col items-center p-4`}
+      className={` relative flex bg-light min-h-screen flex-col items-center md:p-4`}
     >
       <FlashSettings />
       <div
         className={`${
-          isSettingOpen ? "translate-y-0" : "-translate-y-[215px] lg:-translate-y-36"
-        } relative transition-all duration-200 ease-out`}
+          isSettingOpen ? "translate-y-0" : "-translate-y-[250px] lg:-translate-y-36"
+        } relative transition-all duration-200 ease-out container w-full p-3`}
       >
         {isLoading ? (
           <LoadingGround />

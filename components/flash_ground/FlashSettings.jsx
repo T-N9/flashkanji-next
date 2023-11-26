@@ -129,7 +129,7 @@ export const FlashSettings = () => {
             <PopoverHandler>
               <Button className="px-3">Custom</Button>
             </PopoverHandler>
-            <PopoverContent className="bg-gray-50">
+            <PopoverContent className="bg-gray-50 z-[5500]">
               <div className="grid grid-cols-5 gap-3 max-w-[300px]">
                 {noChapters?.map((item) => {
                   const isSelected = selectedMultiChapters.includes(item);
