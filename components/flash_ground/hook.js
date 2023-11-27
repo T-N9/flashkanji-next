@@ -22,7 +22,7 @@ import {
   setSearchValue,
   setIsFlippedMode,
   setNoChapters,
-  setIsPaginated
+  setIsPaginated,
 } from "@/store/flashGroundSlice";
 import { toggleFlashModal, toggleSetting } from "@/store/generalSlice";
 
@@ -42,7 +42,7 @@ const Hook = () => {
     selectedMultiChapters,
     searchValue,
     noChapters,
-    isPaginated
+    isPaginated,
   } = useSelector((state) => state.flashGroundReducer);
 
   const { isSettingOpen } = useSelector((state) => state.generalReducer);
@@ -107,13 +107,13 @@ const Hook = () => {
       case 5:
         dispatch(setNoChapters(n5NoChapters));
         dispatch(setLevel(5));
-        fetchByChapterData(1,5);
+        fetchByChapterData(1, 5);
         setSelectedChapter(1);
         break;
       case 4:
         dispatch(setNoChapters(n4NoChapters));
         dispatch(setLevel(4));
-        fetchByChapterData(1,4);
+        fetchByChapterData(1, 4);
         setSelectedChapter(1);
         break;
       default:
@@ -174,6 +174,7 @@ const Hook = () => {
 
   const handleSearchInput = async (value) => {
     dispatch(setSearchValue(value));
+    dispatch(setIsPaginated(false));
 
     if (value.length >= 2) {
       dispatch(setStartLoading());
@@ -189,7 +190,8 @@ const Hook = () => {
     }
 
     if (value === "") {
-      fetchAllData();
+      fetchByChapterData(1, level);
+      dispatch(setIsPaginated(true));
     }
   };
 

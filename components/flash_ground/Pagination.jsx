@@ -88,7 +88,7 @@ export function Pagination() {
     <div className="flex items-center gap-4 my-5">
       <Button
         variant="text"
-        className="flex items-center gap-2"
+        className="hidden md:flex items-center gap-2"
         onClick={prev}
         disabled={selectedChapter === 1}
       >
@@ -121,7 +121,7 @@ export function Pagination() {
       </div>
       <Button
         variant="text"
-        className="flex items-center gap-2"
+        className="items-center gap-2 hidden md:flex"
         onClick={next}
         disabled={selectedChapter === noChapters.length}
       >
