@@ -9,7 +9,8 @@ const initialState = {
   selectedMultiChapters : [],
   searchValue: '',
   isFlippedMode: false,
-  noChapters : Array.from({ length: 11 }, (_, index) => index + 1) /* no of chapters by Level */
+  noChapters : Array.from({ length: 11 }, (_, index) => index + 1), /* no of chapters by Level */
+  isPaginated : true
 };
 
 const FlashGroundSlice = createSlice({
@@ -45,6 +46,9 @@ const FlashGroundSlice = createSlice({
     },
     setNoChapters : (state, action) => {
       state.noChapters = action.payload;
+    },
+    setIsPaginated : (state, action) => {
+      state.isPaginated = action.payload;
     }
   },
 });
@@ -59,7 +63,8 @@ export const {
   setSelectedMultiChapters,
   setSearchValue,
   setIsFlippedMode,
-  setNoChapters
+  setNoChapters,
+  setIsPaginated
 } = FlashGroundSlice.actions;
 
 export default FlashGroundSlice.reducer;

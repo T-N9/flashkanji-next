@@ -198,7 +198,7 @@ export const FlashSettings = () => {
             }}
             variant="gradient"
             className="bg-primary rounded-full"
-            title="Randomize"
+            title="Flip All"
           >
             <MdFlipCameraAndroid size={20} />
           </Button>

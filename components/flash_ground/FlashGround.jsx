@@ -11,8 +11,14 @@ import { SpeedDialMenu } from "../common/SpeedDialMenu";
 import Hook from "./hook";
 
 export default function FlashGround() {
-  const { kanji, isLoading, toggleFlashModal, dispatch, isSettingOpen } =
-    Hook();
+  const {
+    kanji,
+    isLoading,
+    toggleFlashModal,
+    dispatch,
+    isSettingOpen,
+    isPaginated,
+  } = Hook();
 
   return (
     <section
@@ -21,7 +27,9 @@ export default function FlashGround() {
       <FlashSettings />
       <div
         className={`${
-          isSettingOpen ? "translate-y-0" : "-translate-y-[250px] lg:-translate-y-36"
+          isSettingOpen
+            ? "translate-y-0"
+            : "-translate-y-[250px] lg:-translate-y-36"
         } relative transition-all duration-200 ease-out container w-full p-3`}
       >
         {isLoading ? (
@@ -36,7 +44,9 @@ export default function FlashGround() {
           </div>
         )}
       </div>
-      <Pagination/>
+
+      {isPaginated && <Pagination />}
+
       <SpeedDialMenu />
     </section>
   );
