@@ -4,11 +4,12 @@ const initialState = {
   kanji: [],
   isLoading: false,
   level: 5,
-  selectedLevel: "",
-  selectedChapter: "",
+  selectedLevel: 5,
+  selectedChapter: 1,
   selectedMultiChapters : [],
   searchValue: '',
-  isFlippedMode: false
+  isFlippedMode: false,
+  noChapters : Array.from({ length: 11 }, (_, index) => index + 1) /* no of chapters by Level */
 };
 
 const FlashGroundSlice = createSlice({
@@ -41,6 +42,9 @@ const FlashGroundSlice = createSlice({
     },
     setIsFlippedMode : (state) =>{
       state.isFlippedMode = !state.isFlippedMode;
+    },
+    setNoChapters : (state, action) => {
+      state.noChapters = action.payload;
     }
   },
 });
@@ -54,7 +58,8 @@ export const {
   setKanji,
   setSelectedMultiChapters,
   setSearchValue,
-  setIsFlippedMode
+  setIsFlippedMode,
+  setNoChapters
 } = FlashGroundSlice.actions;
 
 export default FlashGroundSlice.reducer;

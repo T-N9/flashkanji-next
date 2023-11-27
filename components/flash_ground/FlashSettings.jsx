@@ -82,7 +82,7 @@ export const FlashSettings = () => {
                     fetchByLevelData(level);
                     dispatch(setSelectedLevel(`N${level}`));
                     dispatch(setSelectedMultiChapters([]));
-                    dispatch(setSelectedChapter(""));
+                    dispatch(setSelectedChapter(1));
                   }}
                   value={level.toString()}
                   disabled={level <= 3} // Assuming that levels 3 and above are disabled

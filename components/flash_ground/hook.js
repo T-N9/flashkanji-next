@@ -20,7 +20,8 @@ import {
   setKanji,
   setSelectedMultiChapters,
   setSearchValue,
-  setIsFlippedMode
+  setIsFlippedMode,
+  setNoChapters,
 } from "@/store/flashGroundSlice";
 import { toggleFlashModal, toggleSetting } from "@/store/generalSlice";
 
@@ -28,7 +29,7 @@ const Hook = () => {
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
   const n4NoChapters = Array.from({ length: 20 }, (_, index) => index + 1);
 
-  const [noChapters, setNoChapters] = useState(n5NoChapters);
+  // const [noChapters, setNoChapters] = useState(n5NoChapters);
   const dispatch = useDispatch();
 
   const {
@@ -39,9 +40,10 @@ const Hook = () => {
     isLoading,
     selectedMultiChapters,
     searchValue,
+    noChapters,
   } = useSelector((state) => state.flashGroundReducer);
 
-  const { isSettingOpen} = useSelector((state) => state.generalReducer);
+  const { isSettingOpen } = useSelector((state) => state.generalReducer);
 
   const fetchAllData = async () => {
     dispatch(setStartLoading());
@@ -54,7 +56,7 @@ const Hook = () => {
     }
   };
   useEffect(() => {
-    fetchAllData();
+    fetchByChapterData(1, 5);
   }, []);
 
   const shuffleNowData = async (data, count) => {
@@ -98,24 +100,28 @@ const Hook = () => {
     dispatch(setStartLoading());
     switch (level) {
       case 5:
-        setNoChapters(n5NoChapters);
+        dispatch(setNoChapters(n5NoChapters));
         dispatch(setLevel(5));
+        fetchByChapterData(1,5);
+        setSelectedChapter(1);
         break;
       case 4:
-        setNoChapters(n4NoChapters);
+        dispatch(setNoChapters(n4NoChapters));
         dispatch(setLevel(4));
+        fetchByChapterData(1,4);
+        setSelectedChapter(1);
         break;
       default:
         break;
     }
 
-    try {
-      let allData = await fetchByLevel(level);
-      dispatch(setKanji(allData));
-      dispatch(setStopLoading());
-    } catch (error) {
-      dispatch(setStopLoading());
-    }
+    // try {
+    //   let allData = await fetchByLevel(level);
+    //   dispatch(setKanji(allData));
+    //   dispatch(setStopLoading());
+    // } catch (error) {
+    //   dispatch(setStopLoading());
+    // }
 
     dispatch(setStopLoading());
   };
@@ -126,7 +132,7 @@ const Hook = () => {
     try {
       let allData = await fetchByMultiChapters(chapterString, level);
       dispatch(setKanji(allData));
-      dispatch(setSelectedChapter(""));
+      dispatch(setSelectedChapter(1));
       dispatch(setStopLoading());
     } catch (error) {
       dispatch(setStopLoading());
@@ -166,7 +172,7 @@ const Hook = () => {
       fetchBySearchValue(value)
         .then((allData) => {
           dispatch(setKanji(allData));
-          dispatch(setSelectedChapter(""));
+          dispatch(setSelectedChapter(1));
           dispatch(setStopLoading());
         })
         .catch((error) => {
@@ -208,7 +214,7 @@ const Hook = () => {
     fetchByMultiChaptersData,
     handleSearchInput,
     toggleSetting,
-    setIsFlippedMode
+    setIsFlippedMode,
   };
 };
 

@@ -4,11 +4,8 @@ import React from "react";
 import FlashCard from "@/components/flash_card/FlashCard";
 import { LoadingGround } from "../common/LoadingGround";
 import { FlashSettings } from "./FlashSettings";
-import { Button } from "@material-tailwind/react";
+import { Pagination } from "./Pagination";
 import { SpeedDialMenu } from "../common/SpeedDialMenu";
-
-/* Icons */
-import { PiSlideshowBold } from "react-icons/pi";
 
 /* Hook */
 import Hook from "./hook";
@@ -39,16 +36,7 @@ export default function FlashGround() {
           </div>
         )}
       </div>
-      {/* {!isLoading && (
-        <div className="fixed bottom-10 right-5 z-50">
-          <Button
-            onClick={() => dispatch(toggleFlashModal())}
-            className=" bg-gradient-radial flex justify-center items-center p-0 w-14 h-14 rounded-full shadow-lg"
-          >
-            <PiSlideshowBold size={20} />
-          </Button>
-        </div>
-      )} */}
+      <Pagination/>
       <SpeedDialMenu />
     </section>
   );
