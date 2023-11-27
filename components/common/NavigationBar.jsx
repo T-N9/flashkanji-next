@@ -1,6 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { Navbar, Collapse, Button, IconButton } from "@material-tailwind/react";
+import {
+  Navbar,
+  Collapse,
+  Button,
+  IconButton,
+  Typography,
+} from "@material-tailwind/react";
 import { Logo } from "./Logo";
 
 export function NavigationBar() {
@@ -19,10 +25,26 @@ export function NavigationBar() {
     <ul className="mt-2 mb-4 font-english flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {/* list */}
       <li>
-        <Link href={'/'}><span>Home</span></Link>
+        <Link href={"/"}>
+          <Typography
+            href="/"
+            color="blue-gray"
+            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+          >
+            Home
+          </Typography>
+        </Link>
       </li>
       <li>
-        <Link href={'/quiz'}><span>Quiz</span></Link>
+        <Link href={"/quiz"}>
+          <Typography
+            href="/"
+            color="blue-gray"
+            className=" rainbow-text font-extrabold drop-shadow-lg transition-colors hover:text-blue-500 focus:text-blue-500"
+          >
+            Quiz
+          </Typography>
+        </Link>
       </li>
     </ul>
   );

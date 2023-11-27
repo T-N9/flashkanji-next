@@ -31,7 +31,7 @@ export function Footer() {
             <Typography
               href="/quiz"
               color="blue-gray"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+              className="rainbow-text font-extrabold drop-shadow-lg transition-colors hover:text-blue-500 focus:text-blue-500"
             >
               Quiz
             </Typography>
