@@ -9,6 +9,7 @@ import {
   shuffleAll,
   fetchByMultiChapters,
   fetchBySearchValue,
+  shuffleByLevels,
 } from "@/services/fetchers";
 
 import {
@@ -23,6 +24,8 @@ import {
   setIsFlippedMode,
   setNoChapters,
   setIsPaginated,
+  setShuffleMode,
+  setShuffledData,
 } from "@/store/flashGroundSlice";
 import { toggleFlashModal, toggleSetting } from "@/store/generalSlice";
 
@@ -43,12 +46,15 @@ const Hook = () => {
     searchValue,
     noChapters,
     isPaginated,
+    shuffledData,
+    isShuffledMode
   } = useSelector((state) => state.flashGroundReducer);
 
   const { isSettingOpen } = useSelector((state) => state.generalReducer);
 
   const fetchAllData = async () => {
     dispatch(setStartLoading());
+    dispatch(setShuffleMode(false));
     try {
       let allData = await fetchAll();
       dispatch(setKanji(allData));
@@ -73,8 +79,28 @@ const Hook = () => {
     dispatch(setKanji(shuffledKanji.slice(0, count)));
   };
 
+  const shuffleByLevelsData = async (levels) => {
+    dispatch(setStartLoading());
+    dispatch(setIsPaginated(true));
+    dispatch(setShuffleMode(true));
+    try {
+      let allData = await shuffleByLevels(levels);
+      dispatch(setKanji(allData?.data.slice(0, 10)));
+      dispatch(setShuffledData(allData?.data));
+      dispatch(
+        setNoChapters(
+          Array.from({ length: allData?.pages }, (_, index) => index + 1)
+        )
+      );
+      dispatch(setStopLoading());
+    } catch (error) {
+      dispatch(setStopLoading());
+    }
+  };
+
   const shuffleAllData = async () => {
     dispatch(setStartLoading());
+    dispatch(setShuffleMode(false));
     dispatch(setIsPaginated(true));
     try {
       let allData = await shuffleAll();
@@ -87,6 +113,7 @@ const Hook = () => {
 
   const fetchByChapterData = async (chapter, level) => {
     dispatch(setStartLoading());
+    dispatch(setShuffleMode(false));
     dispatch(setIsPaginated(true));
     try {
       if (chapter > 0) {
@@ -102,6 +129,7 @@ const Hook = () => {
 
   const fetchByLevelData = async (level) => {
     dispatch(setStartLoading());
+    dispatch(setShuffleMode(false));
     dispatch(setIsPaginated(true));
     switch (level) {
       case 5:
@@ -133,6 +161,7 @@ const Hook = () => {
 
   const fetchByMultiChaptersData = async (chapters, level) => {
     dispatch(setStartLoading());
+    dispatch(setShuffleMode(false));
     dispatch(setIsPaginated(false));
     const chapterString = chapters.toString();
     try {
@@ -147,6 +176,7 @@ const Hook = () => {
 
   const getRandomData = async (count) => {
     dispatch(setStartLoading());
+    dispatch(setShuffleMode(false));
     dispatch(setIsPaginated(false));
     try {
       let allData = await randomData(count);
@@ -178,6 +208,7 @@ const Hook = () => {
 
     if (value.length >= 2) {
       dispatch(setStartLoading());
+      dispatch(setShuffleMode(false));
       fetchBySearchValue(value)
         .then((allData) => {
           dispatch(setKanji(allData));
@@ -208,6 +239,8 @@ const Hook = () => {
     selectedMultiChapters,
     isSettingOpen,
     isPaginated,
+    shuffledData,
+    isShuffledMode,
 
     /* actions */
     setLevel,
@@ -219,6 +252,7 @@ const Hook = () => {
     fetchByChapterData,
     fetchByLevelData,
     getRandomData,
+    setKanji,
     toggleFlashModal,
     handleIncludedChapterClick,
     setSelectedMultiChapters,
@@ -226,6 +260,7 @@ const Hook = () => {
     handleSearchInput,
     toggleSetting,
     setIsFlippedMode,
+    shuffleByLevelsData,
   };
 };
 

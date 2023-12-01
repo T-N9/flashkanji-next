@@ -14,6 +14,10 @@ export function Pagination() {
     fetchByChapterData,
     level,
     setSelectedChapter,
+    isPaginated,
+    shuffledData,
+    setKanji,
+    isShuffledMode,
   } = Hook();
 
   const [currentPages, setCurrentPages] = React.useState([]);
@@ -23,12 +27,22 @@ export function Pagination() {
     color: "gray",
     onClick: () => {
       dispatch(setSelectedChapter(index));
-      fetchByChapterData(index, level);
-      dispatch(setSelectedMultiChapters([]));
+      if (!isShuffledMode) {
+        fetchByChapterData(index, level);
+        dispatch(setSelectedMultiChapters([]));
+      }
     },
   });
 
   useEffect(() => {
+    if (isShuffledMode) {
+      dispatch(
+        setKanji(
+          shuffledData.slice((selectedChapter - 1) * 10, selectedChapter * 10)
+        )
+      );
+    }
+
     if (selectedChapter === 1) {
       setCurrentPages(noChapters.slice(0, selectedChapter + 4));
     } else if (selectedChapter === noChapters.length) {
@@ -37,22 +51,21 @@ export function Pagination() {
           noChapters.slice(selectedChapter - 5, noChapters.length)
         );
       } else {
-        if(noChapters.length % 5 === 4) {
+        if (noChapters.length % 5 === 4) {
           setCurrentPages(
             noChapters.slice(
-              selectedChapter - (noChapters.length % 5) -1,
+              selectedChapter - (noChapters.length % 5) - 1,
               noChapters.length
             )
-          );   
+          );
         } else {
           setCurrentPages(
             noChapters.slice(
-              selectedChapter - (noChapters.length % 5) -2,
+              selectedChapter - (noChapters.length % 5) - 2,
               noChapters.length
             )
           );
         }
-
       }
     } else if (
       currentPages.indexOf(selectedChapter) === currentPages.length - 1 &&
@@ -68,20 +81,27 @@ export function Pagination() {
     }
   }, [selectedChapter]);
 
-  console.log({ selectedChapter, currentPages, noChapters });
+  // console.log({ selectedChapter, currentPages, noChapters });
 
   const next = () => {
     if (selectedChapter === noChapters.length) return;
-    fetchByChapterData(selectedChapter + 1, level);
     dispatch(setSelectedChapter(selectedChapter + 1));
-    dispatch(setSelectedMultiChapters([]));
+
+    if (!isShuffledMode) {
+      fetchByChapterData(selectedChapter + 1, level);
+      dispatch(setSelectedMultiChapters([]));
+    }
   };
 
   const prev = () => {
     if (selectedChapter === 1) return;
-    fetchByChapterData(selectedChapter - 1, level);
+
     dispatch(setSelectedChapter(selectedChapter - 1));
-    dispatch(setSelectedMultiChapters([]));
+
+    if (!isShuffledMode) {
+      fetchByChapterData(selectedChapter - 1, level);
+      dispatch(setSelectedMultiChapters([]));
+    }
   };
 
   return (

@@ -44,6 +44,7 @@ export const FlashSettings = () => {
     handleSearchInput,
     setIsFlippedMode,
     toggleSetting,
+    shuffleByLevelsData
   } = Hook();
   return (
     <section
@@ -171,7 +172,7 @@ export const FlashSettings = () => {
           </Button>
           <Button
             onClick={() => {
-              shuffleAllData();
+              shuffleByLevelsData(level);
               dispatch(setSelectedMultiChapters([]));
             }}
             // variant="gradient"

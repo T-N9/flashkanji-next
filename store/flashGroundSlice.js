@@ -6,11 +6,16 @@ const initialState = {
   level: 5,
   selectedLevel: 5,
   selectedChapter: 1,
-  selectedMultiChapters : [],
-  searchValue: '',
+  selectedMultiChapters: [],
+  searchValue: "",
   isFlippedMode: false,
-  noChapters : Array.from({ length: 11 }, (_, index) => index + 1), /* no of chapters by Level */
-  isPaginated : true
+  noChapters: Array.from(
+    { length: 11 },
+    (_, index) => index + 1
+  ) /* no of chapters by Level */,
+  isPaginated: true,
+  isShuffledMode: false,
+  shuffledData : []
 };
 
 const FlashGroundSlice = createSlice({
@@ -32,23 +37,29 @@ const FlashGroundSlice = createSlice({
     setSelectedChapter: (state, action) => {
       state.selectedChapter = action.payload;
     },
-    setKanji : (state, action) => {
-        state.kanji = action.payload;
+    setKanji: (state, action) => {
+      state.kanji = action.payload;
     },
-    setSelectedMultiChapters : (state, action) => {
+    setSelectedMultiChapters: (state, action) => {
       state.selectedMultiChapters = action.payload;
     },
-    setSearchValue : (state, action) => {
-      state.searchValue = action.payload
+    setSearchValue: (state, action) => {
+      state.searchValue = action.payload;
     },
-    setIsFlippedMode : (state) =>{
+    setIsFlippedMode: (state) => {
       state.isFlippedMode = !state.isFlippedMode;
     },
-    setNoChapters : (state, action) => {
+    setNoChapters: (state, action) => {
       state.noChapters = action.payload;
     },
-    setIsPaginated : (state, action) => {
+    setIsPaginated: (state, action) => {
       state.isPaginated = action.payload;
+    },
+    setShuffleMode: (state, action) => {
+      state.isShuffledMode = action.payload;
+    },
+    setShuffledData : (state, action) => {
+      state.shuffledData = action.payload;
     }
   },
 });
@@ -64,7 +75,9 @@ export const {
   setSearchValue,
   setIsFlippedMode,
   setNoChapters,
-  setIsPaginated
+  setIsPaginated,
+  setShuffleMode,
+  setShuffledData
 } = FlashGroundSlice.actions;
 
 export default FlashGroundSlice.reducer;
