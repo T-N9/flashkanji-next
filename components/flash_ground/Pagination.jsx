@@ -24,7 +24,7 @@ export function Pagination() {
 
   const getItemProps = (index) => ({
     variant: parseInt(selectedChapter) === index ? "filled" : "text",
-    color: "gray",
+    color: "indigo",
     onClick: () => {
       dispatch(setSelectedChapter(index));
       if (!isShuffledMode) {
@@ -108,7 +108,7 @@ export function Pagination() {
     <div className="flex items-center gap-4 my-5">
       <Button
         variant="text"
-        className="hidden md:flex items-center gap-2"
+        className="hidden md:flex text-indigo-600 items-center gap-2"
         onClick={prev}
         disabled={selectedChapter === 1}
       >
@@ -118,7 +118,7 @@ export function Pagination() {
         {selectedChapter > 4 && (
           <>
             <IconButton {...getItemProps(1)}>{1}</IconButton>
-            <span>...</span>
+            <span className="text-indigo-600">...</span>
           </>
         )}
         {currentPages?.map((chapter, index) => {
@@ -132,7 +132,7 @@ export function Pagination() {
         {currentPages[currentPages.length - 1] !==
           noChapters[noChapters.length - 1] && (
           <>
-            <span>...</span>
+            <span className="text-indigo-600">...</span>
             <IconButton {...getItemProps(noChapters.length)}>
               {noChapters.length}
             </IconButton>
@@ -141,7 +141,7 @@ export function Pagination() {
       </div>
       <Button
         variant="text"
-        className="items-center gap-2 hidden md:flex"
+        className="items-center text-indigo-600 gap-2 hidden md:flex"
         onClick={next}
         disabled={selectedChapter === noChapters.length}
       >

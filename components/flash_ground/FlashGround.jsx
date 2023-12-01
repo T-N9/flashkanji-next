@@ -32,6 +32,7 @@ export default function FlashGround() {
             : "-translate-y-[250px] lg:-translate-y-36"
         } relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3`}
       >
+        {isPaginated && <Pagination />}
         {isLoading ? (
           <LoadingGround />
         ) : (

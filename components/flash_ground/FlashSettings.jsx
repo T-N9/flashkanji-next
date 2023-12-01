@@ -14,10 +14,12 @@ import {
   PopoverHandler,
   PopoverContent,
   Input,
+  Switch,
 } from "@material-tailwind/react";
 
 /* Hook */
 import Hook from "./hook";
+import { setShuffleMode } from "@/store/flashGroundSlice";
 
 export const FlashSettings = () => {
   const {
@@ -29,6 +31,7 @@ export const FlashSettings = () => {
     dispatch,
     selectedMultiChapters,
     isSettingOpen,
+    isShuffledMode,
 
     /* actions */
     setSelectedChapter,
@@ -44,7 +47,8 @@ export const FlashSettings = () => {
     handleSearchInput,
     setIsFlippedMode,
     toggleSetting,
-    shuffleByLevelsData
+    shuffleByLevelsData,
+    setIsPaginated,
   } = Hook();
   return (
     <section
@@ -170,16 +174,24 @@ export const FlashSettings = () => {
           >
             <BiShuffle size={20} />
           </Button>
-          <Button
-            onClick={() => {
-              shuffleByLevelsData(level);
-              dispatch(setSelectedMultiChapters([]));
-            }}
-            // variant="gradient"
-            className="bg-info rounded-full"
-          >
-            Shuffle All
-          </Button>
+          <div className="flex flex-col gap-1 justify-center items-center">
+            <p className="text-xs">Shuffle Mode : {isShuffledMode ? "ON" : "OFF"}</p>
+            <Switch
+              color="indigo"
+              onChange={() => {
+                if (isShuffledMode) {
+                  dispatch(setShuffleMode(false));
+                  dispatch(setIsPaginated(true));
+                  fetchByChapterData(1, level);
+                  dispatch(setSelectedChapter(1));
+                } else {
+                  shuffleByLevelsData(level);
+                  dispatch(setSelectedMultiChapters([]));
+                }
+              }}
+              checked={isShuffledMode}
+            />
+          </div>
           <Button
             onClick={() => {
               getRandomData(10);

@@ -87,6 +87,7 @@ const Hook = () => {
       let allData = await shuffleByLevels(levels);
       dispatch(setKanji(allData?.data.slice(0, 10)));
       dispatch(setShuffledData(allData?.data));
+      dispatch(setSelectedChapter(1));
       dispatch(
         setNoChapters(
           Array.from({ length: allData?.pages }, (_, index) => index + 1)
@@ -205,6 +206,7 @@ const Hook = () => {
   const handleSearchInput = async (value) => {
     dispatch(setSearchValue(value));
     dispatch(setIsPaginated(false));
+    dispatch(setShuffleMode(false));
 
     if (value.length >= 2) {
       dispatch(setStartLoading());
@@ -261,6 +263,7 @@ const Hook = () => {
     toggleSetting,
     setIsFlippedMode,
     shuffleByLevelsData,
+    setIsPaginated
   };
 };
 
