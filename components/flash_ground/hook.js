@@ -47,7 +47,7 @@ const Hook = () => {
     noChapters,
     isPaginated,
     shuffledData,
-    isShuffledMode
+    isShuffledMode,
   } = useSelector((state) => state.flashGroundReducer);
 
   const { isSettingOpen } = useSelector((state) => state.generalReducer);
@@ -143,6 +143,12 @@ const Hook = () => {
         dispatch(setNoChapters(n4NoChapters));
         dispatch(setLevel(4));
         fetchByChapterData(1, 4);
+        setSelectedChapter(1);
+        break;
+      case 3:
+        dispatch(setNoChapters(n4NoChapters));
+        dispatch(setLevel(3));
+        fetchByChapterData(1, 3);
         setSelectedChapter(1);
         break;
       default:
@@ -263,7 +269,7 @@ const Hook = () => {
     toggleSetting,
     setIsFlippedMode,
     shuffleByLevelsData,
-    setIsPaginated
+    setIsPaginated,
   };
 };
 

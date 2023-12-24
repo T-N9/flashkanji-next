@@ -54,11 +54,11 @@ export function DetailModal() {
         open={isDetailModalOpen}
         handler={() => handleOpen(null)}
       >
-        <DialogHeader className="flex justify-between items-center">
+        <DialogHeader className="flex justify-between items-center shadow">
           <h1 className="text-6xl">{currentDetail}</h1>
           <p>Kanji information</p>
         </DialogHeader>
-        <DialogBody className="h-[20rem] bg-light overflow-y-scroll">
+        <DialogBody className="h-[22rem] md:h-[20rem] bg-gray-100 overflow-y-scroll">
           {!isLoading ? (
             <div className="  font-primary-san">
               <div className="flex gap-3">
@@ -68,11 +68,14 @@ export function DetailModal() {
                     {renderStars()}
                   </span>
                 </div>
-                <div className="mb-4">
-                  <strong className="text-info">Stroke Count:</strong>{" "}
-                  <span className="text-gray-900 font-bold">
-                    {charData?.stroke_count}
-                  </span>
+                <div className="mb-4 flex flex-col">
+                  <div>
+                    <strong className="text-info">Stroke Count:</strong>{" "}
+                    <span className="text-gray-900 font-bold">
+                      {charData?.stroke_count}
+                    </span>
+                  </div>
+                  <a className="text-xs font-bold p-2 rounded bg-transparent underline" href={`https://kanjivg.tagaini.net/viewer.html?kanji=${currentDetail}`} target="_blank">Check stroke order</a>
                 </div>
                 <div className="mb-4">
                   <strong className="text-info">Unicode:</strong>{" "}
@@ -144,7 +147,7 @@ export function DetailModal() {
           )}
         </DialogBody>
         <DialogFooter className="flex justify-between items-center">
-          <p>
+          <p className="text-xs">
             Provided by <a className="text-info" href="http://www.kanjiapi.dev">www.kanjiapi.dev</a>{" "}
           </p>
           <Button

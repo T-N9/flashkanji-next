@@ -90,7 +90,7 @@ export const FlashSettings = () => {
                     dispatch(setSelectedChapter(1));
                   }}
                   value={level.toString()}
-                  disabled={level <= 3} // Assuming that levels 3 and above are disabled
+                  disabled={level <= 2} // Assuming that levels 3 and above are disabled
                 >
                   N{level}
                 </Option>
