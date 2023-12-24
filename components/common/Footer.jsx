@@ -38,6 +38,17 @@ export function Footer() {
           </Link>
         </li>
         <li>
+        <Link href={"/jukugo"}>
+          <Typography
+            href="/jukugo"
+            color="blue-gray"
+            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+          >
+            Jukugo
+          </Typography>
+        </Link>
+      </li>
+        <li>
           <Typography
             href="#"
             color="blue-gray"

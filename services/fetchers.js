@@ -151,3 +151,36 @@ export const fetchQuiz_charOn_rand = async (count, mode = 1) => {
     throw error;
   }
 };
+
+/* ---------------------------------------------
+
+Jukugo Fetchers
+
+---------------------------------------------*/
+/* Jukugo for Character to Onyomi by random */
+export const fetchJukugo_all= async () => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/jukugo.php`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};
+
+/* Jukugo for Character to Onyomi by random */
+export const fetchJukugo_byLevel= async (level = 5) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/jukugo.php?level=${level}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};

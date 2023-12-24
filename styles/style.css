@@ -47,6 +47,20 @@
   transform: rotateY(180deg);
 }
 
+.card.jukugo_card.flipped{
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.card.jukugo_card .back {
+  -webkit-transform: rotateY(180deg) rotate(180deg);
+  -moz-transform: rotateY(180deg) rotate(180deg);
+  -o-transform: rotateY(180deg) rotate(180deg);
+  transform: rotateY(180deg) rotate(180deg);
+}
+
 .select-box > div {
   min-width: unset !important;
 }
