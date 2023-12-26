@@ -158,7 +158,7 @@ Jukugo Fetchers
 
 ---------------------------------------------*/
 /* Jukugo for Character to Onyomi by random */
-export const fetchJukugo_all= async () => {
+export const fetchJukugo_all = async () => {
   try {
     const response = await fetch(
       `https://flashkanji.000webhostapp.com/api/jukugo.php`
@@ -172,10 +172,23 @@ export const fetchJukugo_all= async () => {
 };
 
 /* Jukugo for Character to Onyomi by random */
-export const fetchJukugo_byLevel= async (level = 5) => {
+export const fetchJukugo_byLevel = async (level = 5) => {
   try {
     const response = await fetch(
       `https://flashkanji.000webhostapp.com/api/jukugo.php?level=${level}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};
+
+export const fetchRandomJukugo_byLevel = async (count = 20, level = 3) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/jukugo.php?level=${level}&rand=${count}`
     );
     const data = await response.json();
     return data;
