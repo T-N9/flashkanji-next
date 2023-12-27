@@ -13,7 +13,7 @@ import { Spinner } from "@material-tailwind/react";
 import { Hook } from "./hook";
 
 const KanjiVariants = ({ variants }) => {
-  console.log({ variants });
+  // console.log({ variants });
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {variants.map((variant, index) => (
@@ -40,12 +40,15 @@ export function DetailModal() {
     currentDetail,
     charData,
     wordData,
+    jukugoData,
     isLoading,
     renderStars,
 
     /* action */
     handleOpen,
   } = Hook();
+
+  console.log({jukugoData})
 
   return (
     <>
@@ -75,7 +78,13 @@ export function DetailModal() {
                       {charData?.stroke_count}
                     </span>
                   </div>
-                  <a className="text-xs font-bold p-2 rounded bg-transparent underline" href={`https://kanjivg.tagaini.net/viewer.html?kanji=${currentDetail}`} target="_blank">Check stroke order</a>
+                  <a
+                    className="text-xs font-bold p-2 rounded bg-transparent underline"
+                    href={`https://kanjivg.tagaini.net/viewer.html?kanji=${currentDetail}`}
+                    target="_blank"
+                  >
+                    Check stroke order
+                  </a>
                 </div>
                 <div className="mb-4">
                   <strong className="text-info">Unicode:</strong>{" "}
@@ -114,6 +123,20 @@ export function DetailModal() {
               </div>
 
               <div className="mt-4">
+              <strong className="text-info">Related jukugo:</strong>
+
+              {
+                jukugoData?.map((item, index) => {
+                  return(
+                    <div key={index}>
+                      <p>{item.jukugo_char} - {item.english_meaning}</p>
+                    </div>
+                  )
+                })
+              }
+              </div>
+
+              <div className="mt-4">
                 <strong className="text-info">Example words:</strong>
 
                 <div className="flex gap-3 flex-wrap">
@@ -148,7 +171,10 @@ export function DetailModal() {
         </DialogBody>
         <DialogFooter className="flex justify-between items-center">
           <p className="text-xs">
-            Provided by <a className="text-info" href="http://www.kanjiapi.dev">www.kanjiapi.dev</a>{" "}
+            Provided by{" "}
+            <a className="text-info" href="http://www.kanjiapi.dev">
+              www.kanjiapi.dev
+            </a>{" "}
           </p>
           <Button
             variant="text"

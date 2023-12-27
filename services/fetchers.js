@@ -197,3 +197,16 @@ export const fetchRandomJukugo_byLevel = async (count = 20, level = 3) => {
     throw error;
   }
 };
+
+export const fetchJukugo_byKanjis = async(kanjis) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/jukugo.php?kanjis=${kanjis}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+}
