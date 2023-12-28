@@ -48,7 +48,7 @@ export function DetailModal() {
     handleOpen,
   } = Hook();
 
-  console.log({jukugoData})
+  console.log({ jukugoData });
 
   return (
     <>
@@ -122,19 +122,25 @@ export function DetailModal() {
                 </div>
               </div>
 
-              <div className="mt-4">
-              <strong className="text-info">Related jukugo:</strong>
+              {jukugoData?.length > 0 && (
+                <div className="mt-4">
+                  <strong className="text-info">Related jukugo:</strong>
 
-              {
-                jukugoData?.map((item, index) => {
-                  return(
-                    <div key={index}>
-                      <p>{item.jukugo_char} - {item.english_meaning}</p>
-                    </div>
-                  )
-                })
-              }
-              </div>
+                  <div className="flex gap-2 flex-wrap mt-3">
+                    {jukugoData?.map((item, index) => {
+                      return (
+                        <div className="bg-white p-2 rounded-md shadow-md" key={index}>
+                          <p className="flex justify-between flex-col">
+                            <span className="text-black text-2xl">{item.jukugo_char}</span>{" "}
+                            <span className="text-sm">{item.hiragana}</span>
+                            <span className="text-sm">{item.english_meaning}</span>
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-4">
                 <strong className="text-info">Example words:</strong>
