@@ -18,6 +18,7 @@ export function Pagination() {
     shuffledData,
     setKanji,
     isShuffledMode,
+    isLoading,
   } = Hook();
 
   const [currentPages, setCurrentPages] = React.useState([]);
@@ -105,7 +106,11 @@ export function Pagination() {
   };
 
   return (
-    <div className="flex items-center gap-4 my-5">
+    <div
+      className={`flex items-center gap-4 my-5 ${
+        isLoading && "select-none pointer-events-none opacity-70"
+      }`}
+    >
       <Button
         variant="text"
         className="hidden md:flex text-indigo-600 items-center gap-2"

@@ -24,7 +24,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
       >
         <p
           className={`${
-            isSwiped ? "text-[9rem] md:text-[18rem]" : "text-4xl"
+            isSwiped ? "text-[9rem] md:text-[18rem]" : "text-2xl md:text-4xl"
           } front absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}
         >
           {item.jukugo_char}
@@ -37,7 +37,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
           <p className="text-amber-900 flex flex-wrap justify-center">
             {item.hiragana}
           </p>
-          <p className="text-green-700  flex flex-wrap justify-center">
+          <p className="text-green-700 text-lg md:text-xl flex flex-wrap justify-center">
             {item.english_meaning}
           </p>
         </div>

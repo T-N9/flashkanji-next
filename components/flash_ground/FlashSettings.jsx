@@ -32,6 +32,7 @@ export const FlashSettings = () => {
     selectedMultiChapters,
     isSettingOpen,
     isShuffledMode,
+    isLoading,
 
     /* actions */
     setSelectedChapter,
@@ -54,7 +55,9 @@ export const FlashSettings = () => {
     <section
       className={`container z-[5000] relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 
       ${isSettingOpen ? "visible opacity-100" : "invisible opacity-0"}
-     w-full mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-4 mb-4`}
+     w-full mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-4 mb-4 ${
+       isLoading && "select-none pointer-events-none"
+     }`}
     >
       <div className="flex w-full select-box flex-col gap-6">
         <Input
@@ -175,7 +178,9 @@ export const FlashSettings = () => {
             <BiShuffle size={20} />
           </Button>
           <div className="flex flex-col gap-1 justify-center items-center">
-            <p className="text-xs">Shuffle Mode : {isShuffledMode ? "ON" : "OFF"}</p>
+            <p className="text-xs">
+              Shuffle Mode : {isShuffledMode ? "ON" : "OFF"}
+            </p>
             <Switch
               color="indigo"
               onChange={() => {
