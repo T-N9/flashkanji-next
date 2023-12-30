@@ -5,10 +5,17 @@ const initialState = {
   isLoading: false,
   isFlippedMode: false,
   isShuffledMode: false,
+  selectedLevel: 3,
+  selectedChapter: 1,
+  noChapters: Array.from(
+    { length: 42 },
+    (_, index) => index + 1
+  ),
+  level : 3
 };
 
 const JukugoGroundSlice = createSlice({
-  name: "flashGround",
+  name: "jukugoGround",
   initialState,
   reducers: {
     setStartLoading: (state) => {
@@ -26,6 +33,21 @@ const JukugoGroundSlice = createSlice({
     setShuffleMode: (state, action) => {
       state.isShuffledMode = action.payload;
     },
+    setSelectedLevel: (state, action) => {
+      state.selectedLevel = action.payload;
+    },
+    setSelectedChapter: (state, action) => {
+      state.selectedChapter = action.payload;
+    },
+    setNoChapters: (state, action) => {
+      state.noChapters = action.payload;
+    },
+    setIsPaginated: (state, action) => {
+      state.isPaginated = action.payload;
+    },
+    setLevel: (state, action) => {
+      state.level = action.payload;
+    },
   },
 });
 
@@ -35,7 +57,11 @@ export const {
   setJukugo,
   setIsFlippedMode,
   setShuffleMode,
-
+  setSelectedChapter,
+  setSelectedLevel,
+  setIsPaginated,
+  setNoChapters,
+  setLevel
 } = JukugoGroundSlice.actions;
 
 export default JukugoGroundSlice.reducer;

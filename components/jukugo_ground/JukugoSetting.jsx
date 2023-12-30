@@ -1,13 +1,31 @@
 import Hook from "./hook";
 
 /* Compoents */
-import { Button } from "@material-tailwind/react";
+import { Select, Option, Button } from "@material-tailwind/react";
 
 import { BiShuffle } from "react-icons/bi";
 import { GiCardRandom } from "react-icons/gi";
 
 export const JukugoSetting = () => {
-  const { shuffleNowData, jukugo, fetchRandomJukugoByLevelData } = Hook();
+  const {
+    jukugo,
+    isLoading,
+    isFlippedMode,
+    isShuffledMode,
+    selectedChapter,
+    selectedLevel,
+    noChapters,
+    isPaginated,
+    dispatch,
+    level,
+
+    shuffleNowData,
+    fetchRandomJukugoByLevelData,
+    setSelectedChapter,
+    setSelectedLevel,
+    fetchByLevelData,
+    fetchByChapterData
+  } = Hook();
 
   return (
     <section
@@ -17,6 +35,56 @@ export const JukugoSetting = () => {
       <div
         className={`flex flex-col lg:flex-row justify-center gap-4 items-center transition-all duration-200 ease-in `}
       >
+        <div className="flex gap-4 w-full md:w-fit">
+          <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
+            <Select
+              value={selectedLevel}
+              color="blue"
+              size="md"
+              className="bg-white"
+              label="Select Level"
+            >
+              {[5, 4, 3, 2, 1].map((level) => (
+                <Option
+                  key={level}
+                  onClick={() => {
+                    fetchByLevelData(level);
+                    dispatch(setSelectedLevel(`N${level}`));
+                    dispatch(setSelectedChapter(1));
+                  }}
+                  value={level.toString()}
+                  disabled={level <= 2} // Assuming that levels 3 and above are disabled
+                >
+                  N{level}
+                </Option>
+              ))}
+            </Select>
+          </div>
+          <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
+            <Select
+              value={selectedChapter}
+              color="blue"
+              size="md"
+              className="bg-white"
+              label="Select Chapter"
+            >
+              {noChapters?.map((item) => {
+                return (
+                  <Option
+                    onClick={() => {
+                      fetchByChapterData(item, level);
+                      dispatch(setSelectedChapter(item));
+                    }}
+                    key={item}
+                    value={item.toString()}
+                  >
+                    {item}
+                  </Option>
+                );
+              })}
+            </Select>
+          </div>
+        </div>
         <div className="flex-1 flex gap-2">
           <Button
             onClick={() => shuffleNowData(jukugo, jukugo.length)}

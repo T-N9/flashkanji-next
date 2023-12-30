@@ -32,6 +32,7 @@ import { toggleFlashModal, toggleSetting } from "@/store/generalSlice";
 const Hook = () => {
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
   const n4NoChapters = Array.from({ length: 20 }, (_, index) => index + 1);
+  const n3NoChapters = Array.from({ length: 42 }, (_, index) => index + 1);
 
   // const [noChapters, setNoChapters] = useState(n5NoChapters);
   const dispatch = useDispatch();
@@ -146,7 +147,7 @@ const Hook = () => {
         setSelectedChapter(1);
         break;
       case 3:
-        dispatch(setNoChapters(n4NoChapters));
+        dispatch(setNoChapters(n3NoChapters));
         dispatch(setLevel(3));
         fetchByChapterData(1, 3);
         setSelectedChapter(1);
