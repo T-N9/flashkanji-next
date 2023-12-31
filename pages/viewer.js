@@ -83,7 +83,7 @@ const Viewer = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/application.css" />
       </Head>
-      <div className="relative gap-5 flex bg-light min-h-screen flex-col items-center md:p-4">
+      <div className="relative gap-5 flex bg-light min-h-screen flex-col items-center p-4">
         <form
           id="kanjiViewerParams"
           action="#"
@@ -164,7 +164,7 @@ const Viewer = () => {
             <div id="radical-images"></div>
             <div
               id="group-images"
-              className="grid grid-cols-1 lg:grid-cols-3 gap-4"
+              className="grid grid-cols-2 lg:grid-cols-3 gap-4"
             ></div>
           </div>
         </div>
