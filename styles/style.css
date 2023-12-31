@@ -163,3 +163,7 @@
     line-height: 40px;
   }
 }
+
+.modal-kanji p {
+ display: none;
+}

@@ -24,7 +24,7 @@ export const Hook = () => {
 
   useEffect(() => {
     currentDetail && getCharData();
-    currentDetail && getWordData();
+    // currentDetail && getWordData();
     currentDetail && getJukugoData();
   }, [currentDetail]);
 

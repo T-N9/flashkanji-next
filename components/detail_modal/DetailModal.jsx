@@ -11,6 +11,7 @@ import { Spinner } from "@material-tailwind/react";
 
 /* Hook */
 import { Hook } from "./hook";
+import KanjiViewer from "../kanji_stroke_viewer/KanjiStrokeViewer";
 
 const KanjiVariants = ({ variants }) => {
   // console.log({ variants });
@@ -64,7 +65,7 @@ export function DetailModal() {
         <DialogBody className="h-[22rem] md:h-[20rem] bg-gray-100 overflow-y-scroll">
           {!isLoading ? (
             <div className="  font-primary-san">
-              <div className="flex gap-3">
+              <div className="flex flex-col lg:flex-row gap-3">
                 <div className="mb-4">
                   <strong className="text-info">Grade:</strong>{" "}
                   <span className="text-gray-900 font-bold">
@@ -78,13 +79,8 @@ export function DetailModal() {
                       {charData?.stroke_count}
                     </span>
                   </div>
-                  <a
-                    className="text-xs font-bold p-2 rounded bg-transparent underline"
-                    href={`/viewer?kanji=${currentDetail}`}
-                    target="_blank"
-                  >
-                    Check stroke order
-                  </a>
+                  <KanjiViewer kanji={currentDetail}/>
+
                 </div>
                 <div className="mb-4">
                   <strong className="text-info">Unicode:</strong>{" "}
@@ -142,7 +138,7 @@ export function DetailModal() {
                 </div>
               )}
 
-              <div className="mt-4">
+              <div className="mt-4 hidden">
                 <strong className="text-info">Example words:</strong>
 
                 <div className="flex gap-3 flex-wrap">
@@ -160,7 +156,7 @@ export function DetailModal() {
                 </div>
               </div>
 
-              <div className="mt-4">
+              <div className="mt-4 hidden">
                 <strong className="text-info">Notes:</strong>
                 <p className="text-gray-700">
                   {charData?.notes.length > 0
