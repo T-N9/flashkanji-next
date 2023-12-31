@@ -48,7 +48,7 @@ export function DetailModal() {
     handleOpen,
   } = Hook();
 
-  console.log({ jukugoData });
+  // console.log({ jukugoData });
 
   return (
     <>

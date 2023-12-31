@@ -19,17 +19,17 @@ const Hook = (rightAnswer) => {
 
   useEffect(() => {
     if (currentAnswer == rightAnswer && markOfItem === 0) {
-      console.log("right");
+      // console.log("right");
       dispatch(increaseMark());
       setMarkOfItem((prev) => prev + 1);
     } else if (markOfItem === 1 && currentMark > 0 && currentAnswer !== rightAnswer) {
-      console.log("wrong");
+      // console.log("wrong");
       dispatch(decreaseMark());
       setMarkOfItem((prev) => prev -1);
     }
   }, [currentAnswer]);
 
-  console.log({ currentMark, currentAnswer, rightAnswer, markOfItem})
+  // console.log({ currentMark, currentAnswer, rightAnswer, markOfItem})
 
   const handleIsAnswered = () => {
     if (!isAnswered) {
