@@ -80,7 +80,7 @@ export function DetailModal() {
                   </div>
                   <a
                     className="text-xs font-bold p-2 rounded bg-transparent underline"
-                    href={`https://kanjivg.tagaini.net/viewer.html?kanji=${currentDetail}`}
+                    href={`/viewer?kanji=${currentDetail}`}
                     target="_blank"
                   >
                     Check stroke order

@@ -83,7 +83,7 @@ const Viewer = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/application.css" />
       </Head>
-      <div className="relative flex bg-light min-h-screen flex-col items-center md:p-4">
+      <div className="relative gap-5 flex bg-light min-h-screen flex-col items-center md:p-4">
         <form
           id="kanjiViewerParams"
           action="#"
@@ -108,9 +108,10 @@ const Viewer = () => {
                   />
                 </div>
               </div>
-              <div id="kanji-options" className="flex flex-col gap-1">
+              <div id="kanji-options" className="flex flex-col">
                 <Checkbox
                   type="checkbox"
+                  color="blue"
                   name="displayOrders"
                   id="displayOrders"
                   checked={displayOrders}
@@ -120,6 +121,7 @@ const Viewer = () => {
 
                 <Checkbox
                   type="checkbox"
+                  color="blue"
                   name="radicals"
                   id="radicals"
                   checked={radicals}
@@ -129,6 +131,7 @@ const Viewer = () => {
 
                 <Checkbox
                   type="checkbox"
+                  color="blue"
                   name="colorGroups"
                   id="colorGroups"
                   checked={colorGroups}
