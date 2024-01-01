@@ -243,7 +243,7 @@ function displayGroups(svg, kanji) {
 			if (element && part) {
 				var p = parseInt(part);
 				msg("elem = "+element+" part= "+part);
-				prevPart = elePart[element];
+				let prevPart = elePart[element];
 				if (prevPart && prevPart < p) {
 					msg("continuing");
 					cont = true;

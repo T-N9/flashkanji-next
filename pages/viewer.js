@@ -37,10 +37,11 @@ const Viewer = () => {
       initialKanji,
       file
     );
-  }, []); // The empty dependency array ensures the effect runs once after the initial render
+  }, []);
 
   const handleKanjiChange = (event) => {
-    setKanji(event.target.value);
+    setKanji(event.target.value.split('')[0]);
+    // console.log(event.target.value.split('')[0]);
   };
 
   const handleCheckboxChange = (event) => {
@@ -93,7 +94,7 @@ const Viewer = () => {
           <fieldset>
             <div
               id="viewer-controls"
-              className="flex justify-between items-center gap-5"
+              className="flex flex-col lg:flex-row justify-between items-center gap-5"
             >
               <div id="kanji-etc">
                 <div>
@@ -139,10 +140,18 @@ const Viewer = () => {
                   label="Show component groups"
                 />
               </div>
-              <div id="kanji-actions">
+              <div id="kanji-actions" className="flex flex-row lg:flex-col gap-3">
                 {/* <input type="submit" value="Redraw" /> */}
                 {/* &nbsp; */}
 
+                <Button
+                  id="submit"
+                  variant="gradient"
+                  className="kanjivg-button bg-info rounded-full"
+                  type="submit"
+                >
+                  Load
+                </Button>
                 <Button
                   id="animate"
                   data-kanjivg-target="#kanji-svg"
