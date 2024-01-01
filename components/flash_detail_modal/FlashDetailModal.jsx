@@ -34,7 +34,7 @@ const KanjiVariants = ({ variants }) => {
   );
 };
 
-export function DetailModal() {
+export function FlashDetailModal() {
   const {
     dispatch,
     isDetailModalOpen,

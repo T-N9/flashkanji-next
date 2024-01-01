@@ -1,5 +1,6 @@
 import Head from "next/head";
 import FlashGround from "@/components/flash_ground/FlashGround";
+import { FlashDetailModal } from "@/components/flash_detail_modal/FlashDetailModal";
 
 export default function Home() {
   return (
@@ -67,6 +68,7 @@ export default function Home() {
         <title>FlashKanji - Learn Japanese Kanji with Interactive Flashcards</title>
       </Head>
       <FlashGround />
+      <FlashDetailModal/>
     </>
   );
 }
