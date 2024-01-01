@@ -65,7 +65,7 @@ const Hook = () => {
     }
   };
   useEffect(() => {
-    fetchByChapterData(1, 5);
+    fetchByChapterData(selectedChapter, level);
   }, []);
 
   const shuffleNowData = async (data, count) => {
