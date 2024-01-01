@@ -7,7 +7,7 @@ export function msg(s) {
 	if (! debug) {
 		return;
 	}
-	console.log(s);
+	// console.log(s);
 }
 
 export function githubURL(kanji) {
