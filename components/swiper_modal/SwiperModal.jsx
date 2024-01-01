@@ -29,7 +29,7 @@ export const SwiperModal = () => {
 
   return (
     <>
-      {!isLoading && (
+      {!isLoading && isFlashModalOpen && (
         <section
           className={`${
             isFlashModalOpen ? "opacity-100 visible" : "invisible opacity-0"
