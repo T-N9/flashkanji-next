@@ -4,7 +4,7 @@ const initialState = {
   kanji: [],
   isLoading: false,
   level: 5,
-  selectedLevel: 5,
+  selectedLevel: 'N5',
   selectedChapter: 1,
   selectedMultiChapters: [],
   searchValue: "",

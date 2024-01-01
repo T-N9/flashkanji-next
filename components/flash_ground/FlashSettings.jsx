@@ -82,6 +82,10 @@ export const FlashSettings = () => {
               size="md"
               className="bg-white"
               label="Select Level"
+              onChange={() => {
+                dispatch(setSelectedMultiChapters([]));
+                dispatch(setSelectedChapter(1));
+              }}
             >
               {[5, 4, 3, 2, 1].map((level) => (
                 <Option
@@ -89,10 +93,8 @@ export const FlashSettings = () => {
                   onClick={() => {
                     fetchByLevelData(level);
                     dispatch(setSelectedLevel(`N${level}`));
-                    dispatch(setSelectedMultiChapters([]));
-                    dispatch(setSelectedChapter(1));
                   }}
-                  value={level.toString()}
+                  value={'N'+level.toString()}
                   disabled={level <= 2} // Assuming that levels 3 and above are disabled
                 >
                   N{level}
@@ -107,6 +109,9 @@ export const FlashSettings = () => {
               size="md"
               className="bg-white"
               label="Select Chapter"
+              onChange={() => {
+                dispatch(setSelectedMultiChapters([]));
+              }}
             >
               {noChapters?.map((item) => {
                 return (
@@ -114,7 +119,6 @@ export const FlashSettings = () => {
                     onClick={() => {
                       fetchByChapterData(item, level);
                       dispatch(setSelectedChapter(item));
-                      dispatch(setSelectedMultiChapters([]));
                     }}
                     key={item}
                     value={item.toString()}
