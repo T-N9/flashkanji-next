@@ -70,7 +70,7 @@ const FlashCard = ({ item, isSwiped = false }) => {
 
       {!isSwiped && (
         <div className="absolute -right-2 top-0">
-          <Button onClick={() =>handleOpen(item.kanji_character)} size="sm" className="mt-2 mx-auto text-xs bg-gray-700 table">
+          <Button onClick={() =>handleOpen(item.kanji_character)} size="sm" className="mt-2 mx-auto text-xs p-2 rounded-full bg-gray-700 table">
             <FaInfoCircle size={20}/>
           </Button>
         </div>
