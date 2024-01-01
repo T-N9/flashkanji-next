@@ -43,6 +43,7 @@ const Hook = () => {
     selectedChapter,
     selectedLevel,
     isLoading,
+    isFlippedMode,
     selectedMultiChapters,
     searchValue,
     noChapters,
@@ -77,6 +78,7 @@ const Hook = () => {
         shuffledKanji[i],
       ];
     }
+    isFlippedMode && dispatch(setIsFlippedMode());
     dispatch(setKanji(shuffledKanji.slice(0, count)));
   };
 
