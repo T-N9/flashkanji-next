@@ -79,8 +79,7 @@ export function DetailModal() {
                       {charData?.stroke_count}
                     </span>
                   </div>
-                  <KanjiViewer kanji={currentDetail}/>
-
+                  <KanjiViewer kanji={currentDetail} />
                 </div>
                 <div className="mb-4">
                   <strong className="text-info">Unicode:</strong>{" "}
@@ -102,18 +101,22 @@ export function DetailModal() {
                 <div className="mb-4">
                   <strong className="text-info">On Readings:</strong>
                   <ul className="list-disc pl-4   text-gray-900 font-bold">
-                    {charData?.on_readings.map((onReading, index) => (
-                      <li key={index}>{onReading}</li>
-                    ))}
+                    {charData?.on_readings.length > 0
+                      ? charData?.on_readings.map((onReading, index) => (
+                          <li key={index}>{onReading}</li>
+                        ))
+                      : "-"}
                   </ul>
                 </div>
 
                 <div className="mb-4">
                   <strong className="text-info">Kun Readings:</strong>
                   <ul className="list-disc pl-4  text-gray-900 font-bold">
-                    {charData?.kun_readings.map((kunReading, index) => (
-                      <li key={index}>{kunReading}</li>
-                    ))}
+                    {charData?.kun_readings.length > 0
+                      ? charData?.kun_readings.map((kunReading, index) => (
+                          <li key={index}>{kunReading}</li>
+                        ))
+                      : "-"}
                   </ul>
                 </div>
               </div>
@@ -125,11 +128,18 @@ export function DetailModal() {
                   <div className="flex gap-2 flex-wrap mt-3">
                     {jukugoData?.map((item, index) => {
                       return (
-                        <div className="bg-white p-2 rounded-md shadow-md" key={index}>
+                        <div
+                          className="bg-white p-2 rounded-md shadow-md"
+                          key={index}
+                        >
                           <p className="flex justify-between flex-col">
-                            <span className="text-black text-2xl">{item.jukugo_char}</span>{" "}
+                            <span className="text-black text-2xl">
+                              {item.jukugo_char}
+                            </span>{" "}
                             <span className="text-sm">{item.hiragana}</span>
-                            <span className="text-sm">{item.english_meaning}</span>
+                            <span className="text-sm">
+                              {item.english_meaning}
+                            </span>
                           </p>
                         </div>
                       );
