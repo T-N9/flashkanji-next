@@ -1,6 +1,7 @@
 import Head from "next/head";
 import FlashGround from "@/components/flash_ground/FlashGround";
 import { FlashDetailModal } from "@/components/flash_detail_modal/FlashDetailModal";
+import { FlashSwiperModal } from "@/components/flash_swiper_modal/FlashSwiperModal";
 
 export default function Home() {
   return (
@@ -69,6 +70,7 @@ export default function Home() {
       </Head>
       <FlashGround />
       <FlashDetailModal/>
+      <FlashSwiperModal/>
     </>
   );
 }

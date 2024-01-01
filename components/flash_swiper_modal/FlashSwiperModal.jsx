@@ -17,7 +17,7 @@ import { Hook } from "./hook";
 /* Component */
 import FlashCard from "../flash_card/FlashCard";
 
-export const SwiperModal = () => {
+export const FlashSwiperModal = () => {
   const {
     kanji,
     isLoading,
