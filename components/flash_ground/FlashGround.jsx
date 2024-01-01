@@ -35,7 +35,7 @@ export default function FlashGround() {
       >
         {isPaginated && <Pagination />}
         {isLoading ? (
-          <LoadingGround />
+          <LoadingGround mode={1} />
         ) : (
           <div
             className={`grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4`}
