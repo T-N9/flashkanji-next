@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false,
   isFlippedMode: false,
   isShuffledMode: false,
-  selectedLevel: 3,
+  selectedLevel: 'N3',
   selectedChapter: 1,
   noChapters: Array.from(
     { length: 42 },

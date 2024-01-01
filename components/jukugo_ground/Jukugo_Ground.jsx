@@ -13,8 +13,8 @@ export const Jukugo_Ground = () => {
         <div
           className={`grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4`}
         >
-          {jukugo?.map((item) => {
-            return <JukugoCard item={item} />;
+          {jukugo?.map((item, index) => {
+            return <JukugoCard key={index} item={item} />;
           })}
         </div>
       </div>

@@ -38,11 +38,14 @@ export const JukugoSetting = () => {
         <div className="flex gap-4 w-full md:w-fit">
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
-              value={selectedLevel}
+              value={selectedLevel.toString()}
               color="blue"
               size="md"
               className="bg-white"
               label="Select Level"
+              onChange={() =>{
+                
+              }}
             >
               {[5, 4, 3, 2, 1].map((level) => (
                 <Option
@@ -52,7 +55,7 @@ export const JukugoSetting = () => {
                     dispatch(setSelectedLevel(`N${level}`));
                     dispatch(setSelectedChapter(1));
                   }}
-                  value={level.toString()}
+                  value={"N"+level.toString()}
                   disabled={level <= 2} // Assuming that levels 3 and above are disabled
                 >
                   N{level}
@@ -62,11 +65,14 @@ export const JukugoSetting = () => {
           </div>
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
-              value={selectedChapter}
+              value={selectedChapter.toString()}
               color="blue"
               size="md"
               className="bg-white"
               label="Select Chapter"
+              onChange={() =>{
+
+              }}
             >
               {noChapters?.map((item) => {
                 return (
