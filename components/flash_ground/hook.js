@@ -65,8 +65,11 @@ const Hook = () => {
       dispatch(setStopLoading());
     }
   };
+
   useEffect(() => {
-    fetchByChapterData(selectedChapter, level);
+
+      fetchByChapterData(selectedChapter, level);
+      // console.log("running effect");
   }, []);
 
   const shuffleNowData = async (data, count) => {
@@ -124,6 +127,7 @@ const Hook = () => {
         let allData = await fetchByChapter(chapter, level);
         dispatch(setKanji(allData));
         dispatch(setStopLoading());
+        console.log({ chapter, level });
       } else {
         fetchAllData();
         dispatch(setStopLoading());
@@ -132,41 +136,30 @@ const Hook = () => {
   };
 
   const fetchByLevelData = async (level) => {
-    dispatch(setStartLoading());
     dispatch(setShuffleMode(false));
     dispatch(setIsPaginated(true));
     switch (level) {
       case 5:
         dispatch(setNoChapters(n5NoChapters));
         dispatch(setLevel(5));
+        dispatch(setSelectedChapter(1));
         fetchByChapterData(1, 5);
-        setSelectedChapter(1);
         break;
       case 4:
         dispatch(setNoChapters(n4NoChapters));
         dispatch(setLevel(4));
+        dispatch(setSelectedChapter(1));
         fetchByChapterData(1, 4);
-        setSelectedChapter(1);
         break;
       case 3:
         dispatch(setNoChapters(n3NoChapters));
         dispatch(setLevel(3));
+        dispatch(setSelectedChapter(1));
         fetchByChapterData(1, 3);
-        setSelectedChapter(1);
         break;
       default:
         break;
     }
-
-    // try {
-    //   let allData = await fetchByLevel(level);
-    //   dispatch(setKanji(allData));
-    //   dispatch(setStopLoading());
-    // } catch (error) {
-    //   dispatch(setStopLoading());
-    // }
-
-    dispatch(setStopLoading());
   };
 
   const fetchByMultiChaptersData = async (chapters, level) => {
