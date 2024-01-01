@@ -166,7 +166,7 @@ const Viewer = () => {
         </form>
         <div
           id="kanji-visuals"
-          className=" flex flex-col md:flex-row gap-5 justify-center"
+          className=" flex flex-col md:flex-row gap-5 justify-center bg-white rounded shadow-lg py-4"
         >
           <div id="kanji-image" className="flex-4"></div>
           <div id="sub-images" className="flex-4 flex flex-col gap-3">

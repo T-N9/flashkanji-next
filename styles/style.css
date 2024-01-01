@@ -171,3 +171,7 @@
 #kanji-image p {
   display: none;
 }
+
+.group-image figcaption{
+  color: #ef5350;
+}
