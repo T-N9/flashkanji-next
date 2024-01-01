@@ -77,7 +77,7 @@ export const FlashSettings = () => {
         <div className="flex gap-4 w-full md:w-fit">
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
-              value={selectedLevel}
+              value={selectedLevel.toString()}
               color="blue"
               size="md"
               className="bg-white"
@@ -102,7 +102,7 @@ export const FlashSettings = () => {
           </div>
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
-              value={selectedChapter}
+              value={selectedChapter.toString()}
               color="blue"
               size="md"
               className="bg-white"
