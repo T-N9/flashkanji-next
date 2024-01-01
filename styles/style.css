@@ -167,3 +167,7 @@
 .modal-kanji p {
  display: none;
 }
+
+#kanji-image p {
+  display: none;
+}
