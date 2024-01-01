@@ -126,7 +126,7 @@ const Hook = () => {
 
   useEffect(() => {
     // fetchAllJukugoData();
-    fetchByChapterData(1, 3);
+    fetchByChapterData(selectedChapter, level);
   }, []);
   return {
     jukugo,
