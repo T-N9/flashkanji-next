@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Button } from "@material-tailwind/react";
+
+/* Icons */
+import { FaInfoCircle } from "react-icons/fa";
+
+import { Hook } from "./hook";
 
 const JukugoCard = ({ item, isSwiped = false }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const { isFlippedMode } = useSelector((state) => state.flashGroundReducer);
+  const { handleOpen } = Hook();
 
   useEffect(() => {
     setIsFlipped(false);
   }, [item]);
-
-  useEffect(() => {
-    setIsFlipped(isFlippedMode);
-  }, [isFlippedMode]);
 
   return (
     <div className="relative">
@@ -42,6 +44,18 @@ const JukugoCard = ({ item, isSwiped = false }) => {
           </p>
         </div>
       </div>
+
+      {!isSwiped && (
+        <div className="absolute -right-2 top-0">
+          <Button
+            onClick={() => handleOpen(item.jukugo_char)}
+            size="sm"
+            className="mt-2 mx-auto text-xs p-2 rounded-full bg-gray-700 table"
+          >
+            <FaInfoCircle size={20} />
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
