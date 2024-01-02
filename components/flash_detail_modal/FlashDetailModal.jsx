@@ -184,7 +184,7 @@ export function FlashDetailModal() {
         <DialogFooter className="flex justify-between items-center">
           <p className="text-xs">
             Provided by{" "}
-            <a className="text-info" href="http://www.kanjiapi.dev">
+            <a className="text-info" target="_blank" href="http://www.kanjiapi.dev">
               www.kanjiapi.dev
             </a>{" "}
           </p>
