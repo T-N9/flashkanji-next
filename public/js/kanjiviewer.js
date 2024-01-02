@@ -338,7 +338,7 @@ const KanjiViewer = {
   // This function is called back after a successful load of a kanji
   // image.
   loadKanjiVG: function (el) {
-    document.title = this.kanji + " - KanjiVG";
+    // document.title = this.kanji + " - KanjiVG";
     var img = document.getElementById("kanji-image");
     img.innerHTML = "";
     var svg = el.documentElement;
