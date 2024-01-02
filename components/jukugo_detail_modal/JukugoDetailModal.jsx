@@ -64,7 +64,7 @@ export const JukugoDetailModal = () => {
         <DialogFooter className="flex justify-center md:justify-between items-center">
           <p className="text-xs">
             Provided by{" "}
-            <a className="text-info" href="https://kanjivg.tagaini.net">
+            <a className="text-info" target="_blank" href="https://kanjivg.tagaini.net">
               www.kanjivg.tagaini.net
             </a>{" "}
           </p>
