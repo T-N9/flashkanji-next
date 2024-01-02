@@ -33,7 +33,7 @@ export const JukugoSetting = () => {
    w-full mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-4 mb-4`}
     >
       <div
-        className={`flex flex-col lg:flex-row justify-center gap-4 items-center transition-all duration-200 ease-in `}
+        className={`flex w-full lg:w-auto mx-auto flex-col lg:flex-row justify-center gap-4 items-center transition-all duration-200 ease-in `}
       >
         <div className="flex gap-4 w-full md:w-fit">
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">

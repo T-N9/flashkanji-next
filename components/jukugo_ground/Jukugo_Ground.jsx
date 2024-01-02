@@ -10,7 +10,7 @@ export const Jukugo_Ground = () => {
   return (
     <section className="relative flex bg-light min-h-screen flex-col items-center p-4">
       <JukugoSetting />
-      <div className="relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3">
+      <div className="relative transition-all duration-200 ease-out container w-full flex flex-col items-center py-3">
         {isLoading ? (
           <LoadingGround mode={2} />
         ) : (
