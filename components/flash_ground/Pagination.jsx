@@ -46,6 +46,7 @@ export function Pagination() {
 
     if (selectedChapter === 1) {
       setCurrentPages(noChapters.slice(0, selectedChapter + 4));
+      console.log('option 1')
     } else if (selectedChapter === noChapters.length) {
       if (noChapters.length % 5 === 0) {
         setCurrentPages(
@@ -68,6 +69,7 @@ export function Pagination() {
           );
         }
       }
+      console.log('option 2')
     } else if (
       currentPages.indexOf(selectedChapter) === currentPages.length - 1 &&
       selectedChapter !== noChapters[noChapters.length - 1]
@@ -75,9 +77,16 @@ export function Pagination() {
       setCurrentPages(
         noChapters.slice(selectedChapter - 1, selectedChapter + 4)
       );
+      console.log('option 3')
     } else if (selectedChapter < currentPages[0]) {
       setCurrentPages(
         noChapters.slice(selectedChapter - 4, selectedChapter + 1)
+      );
+      console.log('option 4')
+    }else if(selectedChapter > currentPages[currentPages.length -1]) {
+      console.log('option 5')
+      setCurrentPages(
+        noChapters.slice(selectedChapter - 1, selectedChapter + 4)
       );
     }
   }, [selectedChapter]);
