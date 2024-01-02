@@ -12,7 +12,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
 
   const { isFlippedMode } = useSelector((state) => state.jukugoGroundReducer);
 
-  const { handleOpen } = Hook();
+  const { handleOpen, isShowMeaning } = Hook();
 
   useEffect(() => {
     setIsFlipped(false);
@@ -26,9 +26,9 @@ const JukugoCard = ({ item, isSwiped = false }) => {
     <div className="relative">
       <div
         onClick={() => setIsFlipped((prev) => !prev)}
-        className={`bg-white relative font-writing-1 text-black p-5 rounded-md card jukugo_card min-w-[150px] lg:min-w-[200px] ${isSwiped && 'h-[200px]'} shadow-md ${
-          isFlipped && "flipped"
-        }`}
+        className={`bg-white relative font-writing-1 text-black p-5 rounded-md card jukugo_card min-w-[150px] lg:min-w-[200px] ${
+          isSwiped && "h-[200px]"
+        } shadow-md ${isFlipped && "flipped"}`}
       >
         <p
           className={`${
@@ -45,9 +45,11 @@ const JukugoCard = ({ item, isSwiped = false }) => {
           <p className="text-amber-900 flex flex-wrap justify-center">
             {item.hiragana}
           </p>
-          <p className="text-green-700 text-lg md:text-xl flex flex-wrap justify-center">
-            {item.english_meaning}
-          </p>
+          {isShowMeaning && (
+            <p className="text-green-700 text-lg md:text-xl flex flex-wrap justify-center">
+              {item.english_meaning}
+            </p>
+          )}
         </div>
       </div>
 

@@ -5,6 +5,7 @@ export const Hook = () => {
   const dispatch = useDispatch();
 
   const { isJukugoDetailModalOpen } = useSelector((state) => state.generalReducer);
+  const { isShowMeaning } = useSelector((state) => state.jukugoGroundReducer);
 
   const handleOpen = (word) => {
     dispatch(toggleJukugoDetailModal());
@@ -15,6 +16,7 @@ export const Hook = () => {
   return {
     dispatch,
     isJukugoDetailModalOpen,
+    isShowMeaning,
 
     /* action */
     handleOpen
