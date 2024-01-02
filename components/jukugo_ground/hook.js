@@ -17,7 +17,8 @@ import {
   setSelectedLevel,
   setNoChapters,
   setIsPaginated,
-  setLevel
+  setLevel,
+  toggleShowMeaning
 } from "@/store/jukugoGroundSlice";
 
 const Hook = () => {
@@ -32,7 +33,8 @@ const Hook = () => {
     selectedLevel,
     noChapters,
     isPaginated,
-    level
+    level,
+    isShowMeaning
   } = useSelector((state) => state.jukugoGroundReducer);
 
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
@@ -139,6 +141,7 @@ const Hook = () => {
     isPaginated,
     dispatch,
     level,
+    isShowMeaning,
 
     shuffleNowData,
     fetchRandomJukugoByLevelData,
@@ -146,7 +149,8 @@ const Hook = () => {
     setSelectedLevel,
     fetchByLevelData,
     fetchByChapterData,
-    setIsFlippedMode
+    setIsFlippedMode,
+    toggleShowMeaning
   };
 };
 

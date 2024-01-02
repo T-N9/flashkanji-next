@@ -1,7 +1,7 @@
 import Hook from "./hook";
 
 /* Compoents */
-import { Select, Option, Button } from "@material-tailwind/react";
+import { Select, Option, Button, Switch } from "@material-tailwind/react";
 
 import { BiShuffle } from "react-icons/bi";
 import { GiCardRandom } from "react-icons/gi";
@@ -19,6 +19,7 @@ export const JukugoSetting = () => {
     isPaginated,
     dispatch,
     level,
+    isShowMeaning,
 
     shuffleNowData,
     fetchRandomJukugoByLevelData,
@@ -26,7 +27,8 @@ export const JukugoSetting = () => {
     setSelectedLevel,
     fetchByLevelData,
     fetchByChapterData,
-    setIsFlippedMode
+    setIsFlippedMode,
+    toggleShowMeaning,
   } = Hook();
 
   return (
@@ -45,9 +47,7 @@ export const JukugoSetting = () => {
               size="md"
               className="bg-white"
               label="Select Level"
-              onChange={() =>{
-                
-              }}
+              onChange={() => {}}
             >
               {[5, 4, 3, 2, 1].map((level) => (
                 <Option
@@ -57,7 +57,7 @@ export const JukugoSetting = () => {
                     dispatch(setSelectedLevel(`N${level}`));
                     dispatch(setSelectedChapter(1));
                   }}
-                  value={"N"+level.toString()}
+                  value={"N" + level.toString()}
                   disabled={level <= 2} // Assuming that levels 3 and above are disabled
                 >
                   N{level}
@@ -72,9 +72,7 @@ export const JukugoSetting = () => {
               size="md"
               className="bg-white"
               label="Select Chapter"
-              onChange={() =>{
-
-              }}
+              onChange={() => {}}
             >
               {noChapters?.map((item) => {
                 return (
@@ -115,6 +113,18 @@ export const JukugoSetting = () => {
           >
             <GiCardRandom size={20} />
           </Button>
+          <div className="flex flex-col gap-1 justify-center items-center">
+            <p className="text-xs">
+              Show Meaning : {isShowMeaning ? "ON" : "OFF"}
+            </p>
+            <Switch
+              color="indigo"
+              onChange={() => {
+                dispatch(toggleShowMeaning());
+              }}
+              checked={isShowMeaning}
+            />
+          </div>
           <Button
             onClick={() => {
               dispatch(setIsFlippedMode());
