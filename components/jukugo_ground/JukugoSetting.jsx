@@ -5,6 +5,7 @@ import { Select, Option, Button } from "@material-tailwind/react";
 
 import { BiShuffle } from "react-icons/bi";
 import { GiCardRandom } from "react-icons/gi";
+import { MdFlipCameraAndroid } from "react-icons/md";
 
 export const JukugoSetting = () => {
   const {
@@ -24,7 +25,8 @@ export const JukugoSetting = () => {
     setSelectedChapter,
     setSelectedLevel,
     fetchByLevelData,
-    fetchByChapterData
+    fetchByChapterData,
+    setIsFlippedMode
   } = Hook();
 
   return (
@@ -112,6 +114,16 @@ export const JukugoSetting = () => {
             title="Randomize"
           >
             <GiCardRandom size={20} />
+          </Button>
+          <Button
+            onClick={() => {
+              dispatch(setIsFlippedMode());
+            }}
+            variant="gradient"
+            className="bg-primary rounded-full"
+            title="Flip All"
+          >
+            <MdFlipCameraAndroid size={20} />
           </Button>
         </div>
       </div>

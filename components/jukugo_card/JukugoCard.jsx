@@ -10,11 +10,17 @@ import { Hook } from "./hook";
 const JukugoCard = ({ item, isSwiped = false }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const { isFlippedMode } = useSelector((state) => state.jukugoGroundReducer);
+
   const { handleOpen } = Hook();
 
   useEffect(() => {
     setIsFlipped(false);
   }, [item]);
+
+  useEffect(() => {
+    setIsFlipped(isFlippedMode);
+  }, [isFlippedMode]);
 
   return (
     <div className="relative">

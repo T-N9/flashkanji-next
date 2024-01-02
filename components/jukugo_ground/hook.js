@@ -98,7 +98,6 @@ const Hook = () => {
   };
 
   const fetchByLevelData = async (level) => {
-    dispatch(setStartLoading());
     // dispatch(setShuffleMode(false));
     dispatch(setIsPaginated(true));
     switch (level) {
@@ -123,8 +122,6 @@ const Hook = () => {
       default:
         break;
     }
-
-    dispatch(setStopLoading());
   };
 
   useEffect(() => {
@@ -148,7 +145,8 @@ const Hook = () => {
     setSelectedChapter,
     setSelectedLevel,
     fetchByLevelData,
-    fetchByChapterData
+    fetchByChapterData,
+    setIsFlippedMode
   };
 };
 
