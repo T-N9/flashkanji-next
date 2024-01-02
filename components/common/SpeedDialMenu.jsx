@@ -14,8 +14,9 @@ import { GoPlus } from "react-icons/go";
 /* Hook */
 import Hook from "../flash_ground/hook";
 
-export function SpeedDialMenu() {
-  const { dispatch, toggleFlashModal, toggleSetting } = Hook();
+export function SpeedDialMenu({ mode = 1 }) {
+  const { dispatch, toggleFlashModal, toggleSetting, toggleDetailModal } =
+    Hook();
 
   return (
     <>
@@ -30,12 +31,28 @@ export function SpeedDialMenu() {
             </IconButton>
           </SpeedDialHandler>
           <SpeedDialContent>
-            <SpeedDialAction onClick={() => dispatch(toggleFlashModal())}>
+            <SpeedDialAction
+              onClick={() => {
+                switch (mode) {
+                  case 1:
+                    dispatch(toggleFlashModal());
+                    break;
+                  case 2:
+                    dispatch(toggleDetailModal());
+                    break;
+                  default:
+                    break;
+                }
+              }}
+            >
               <PiSlideshowBold size={20} />
             </SpeedDialAction>
-            <SpeedDialAction onClick={() => dispatch(toggleSetting())}>
-              <IoMdSettings size={20} />
-            </SpeedDialAction>
+
+            {mode === 1 && (
+              <SpeedDialAction onClick={() => dispatch(toggleSetting())}>
+                <IoMdSettings size={20} />
+              </SpeedDialAction>
+            )}
           </SpeedDialContent>
         </SpeedDial>
       </div>

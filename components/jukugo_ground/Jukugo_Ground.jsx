@@ -3,6 +3,7 @@ import Hook from "./hook";
 import { JukugoSetting } from "./JukugoSetting";
 import JukugoCard from "../jukugo_card/JukugoCard";
 import { LoadingGround } from "../common/LoadingGround";
+import { SpeedDialMenu } from "../common/SpeedDialMenu";
 
 export const Jukugo_Ground = () => {
   const { jukugo, isLoading } = Hook();
@@ -23,6 +24,8 @@ export const Jukugo_Ground = () => {
           </div>
         )}
       </div>
+
+      <SpeedDialMenu mode={2}/>
     </section>
   );
 };

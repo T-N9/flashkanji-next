@@ -27,7 +27,7 @@ import {
   setShuffleMode,
   setShuffledData,
 } from "@/store/flashGroundSlice";
-import { toggleFlashModal, toggleSetting } from "@/store/generalSlice";
+import { toggleFlashModal, toggleSetting, toggleDetailModal } from "@/store/generalSlice";
 
 const Hook = () => {
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
@@ -266,6 +266,7 @@ const Hook = () => {
     setIsFlippedMode,
     shuffleByLevelsData,
     setIsPaginated,
+    toggleDetailModal
   };
 };
 
