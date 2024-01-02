@@ -113,6 +113,8 @@ export const JukugoSetting = () => {
           >
             <GiCardRandom size={20} />
           </Button>
+        </div>
+        <div className="flex-1 flex gap-2">
           <div className="flex flex-col gap-1 justify-center items-center">
             <p className="text-xs">
               Show Meaning : {isShowMeaning ? "ON" : "OFF"}

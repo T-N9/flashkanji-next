@@ -38,7 +38,9 @@ const JukugoCard = ({ item, isSwiped = false }) => {
           {item.jukugo_char}
         </p>
         <div
-          className={`back absolute w-full top-[30%] -left-[0%] -translate-x-1/2 -translate-y-1/2 flex flex-col gap-5 p-2 ${
+          className={`back absolute w-full ${
+            !isShowMeaning ? "top-[40%]" : "top-[30%]"
+          }  -left-[0%] -translate-x-1/2 -translate-y-1/2 flex flex-col gap-5 p-2 ${
             isSwiped ? "text-2xl md:text-[3rem]" : "text-xl"
           }`}
         >
