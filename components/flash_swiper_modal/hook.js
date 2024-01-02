@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleFlashModal } from "@/store/generalSlice";
 
 export const Hook = () => {
-  const { kanji, level, selectedChapter, selectedLevel, isLoading } =
+  const { kanji, isLoading } =
     useSelector((state) => state.flashGroundReducer);
 
   const { isFlashModalOpen } = useSelector((state) => state.generalReducer);

@@ -20,13 +20,13 @@ const JukugoCard = ({ item, isSwiped = false }) => {
     <div className="relative">
       <div
         onClick={() => setIsFlipped((prev) => !prev)}
-        className={`bg-white relative font-writing-1 text-black p-5 rounded-md card jukugo_card min-w-[150px] lg:min-w-[200px] shadow-md ${
+        className={`bg-white relative font-writing-1 text-black p-5 rounded-md card jukugo_card min-w-[150px] lg:min-w-[200px] ${isSwiped && 'h-[200px]'} shadow-md ${
           isFlipped && "flipped"
         }`}
       >
         <p
           className={`${
-            isSwiped ? "text-[9rem] md:text-[18rem]" : "text-2xl md:text-4xl"
+            isSwiped ? "text-[2rem] md:text-[4rem]" : "text-2xl md:text-4xl"
           } front absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}
         >
           {item.jukugo_char}

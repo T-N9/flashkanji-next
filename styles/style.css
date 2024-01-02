@@ -100,6 +100,42 @@
   color: white;
 }
 
+
+.jukugoSwiper {
+  width: 50vw;
+  padding: 3rem 0rem !important;
+  /* background-color: #33333320; */
+  border-radius: 20px;
+}
+
+.jukugoSwiper .card {
+  width: 500px;
+  height: 300px;
+}
+
+.jukugoSwiper .card .back {
+  text-align: center;
+  line-height: 70px;
+}
+
+.jukugoSwiper .swiper-slide-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jukugoSwiper .swiper-button-left {
+  left: 0;
+}
+
+.jukugoSwiper .swiper-button-next {
+  right: 0;
+}
+
+.jukugoSwiper .swiper-pagination {
+  color: white;
+}
+
 .option-item .font-light.select-none.cursor-pointer.mt-px {
   display: flex;
   flex-wrap: wrap;
@@ -124,7 +160,7 @@
 }
 
 @media screen and (max-width: 830px) {
-  .flashSwiper {
+  .flashSwiper,.jukugoSwiper {
     width: 90vw;
   }
 
@@ -133,14 +169,24 @@
     height: 500px;
   }
 
+  .jukugoSwiper .card {
+    width: 500px;
+    height: 300px;
+  }
+
   .flashSwiper .card .back {
+    text-align: center;
+    line-height: 70px;
+  }
+
+  .jukugoSwiper .card .back {
     text-align: center;
     line-height: 70px;
   }
 }
 
 @media screen and (max-width: 620px) {
-  .flashSwiper {
+  .flashSwiper, .jukugoSwiper {
     width: 90vw;
     padding: 6rem 0 !important;
   }
@@ -159,6 +205,24 @@
   }
 
   .flashSwiper .card .back {
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .jukugoSwiper .swiper-button-prev {
+    top: 23rem;
+  }
+
+  .jukugoSwiper .swiper-button-next {
+    top: 23rem;
+  }
+
+  .jukugoSwiper .card {
+    width: 300px;
+    height: 200px;
+  }
+
+  .jukugoSwiper .card .back {
     text-align: center;
     line-height: 40px;
   }

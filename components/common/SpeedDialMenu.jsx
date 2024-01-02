@@ -15,7 +15,7 @@ import { GoPlus } from "react-icons/go";
 import Hook from "../flash_ground/hook";
 
 export function SpeedDialMenu({ mode = 1 }) {
-  const { dispatch, toggleFlashModal, toggleSetting, toggleDetailModal } =
+  const { dispatch, toggleFlashModal, toggleSetting, toggleJukugoModal } =
     Hook();
 
   return (
@@ -38,7 +38,7 @@ export function SpeedDialMenu({ mode = 1 }) {
                     dispatch(toggleFlashModal());
                     break;
                   case 2:
-                    dispatch(toggleDetailModal());
+                    dispatch(toggleJukugoModal());
                     break;
                   default:
                     break;

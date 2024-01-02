@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { Jukugo_Ground } from "@/components/jukugo_ground/Jukugo_Ground";
 import { JukugoDetailModal } from "@/components/jukugo_detail_modal/JukugoDetailModal";
+import { JukugoSwiperModal } from "@/components/jukugo_swiper_modal/JukugoSwiperModal";
+
 
 const Jukugo = () => {
   return (
@@ -76,6 +78,7 @@ const Jukugo = () => {
       </Head>
       <Jukugo_Ground/>
       <JukugoDetailModal/>
+      <JukugoSwiperModal/>
     </>
   );
 };
