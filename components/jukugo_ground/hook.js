@@ -58,11 +58,14 @@ const Hook = () => {
   };
 
   const fetchRandomJukugoByLevelData = async (count) => {
+    dispatch(setStartLoading());
     try {
       let allData = await fetchRandomJukugo_byLevel(count);
       dispatch(setJukugo(allData));
+      dispatch(setStopLoading());
     } catch (error) {
       console.log("error happened.");
+      dispatch(setStopLoading());
     }
   };
 

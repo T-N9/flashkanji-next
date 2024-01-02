@@ -104,6 +104,8 @@ export const JukugoSetting = () => {
           <Button
             onClick={() => {
               fetchRandomJukugoByLevelData(20);
+              dispatch(setSelectedChapter(""));
+              dispatch(setSelectedLevel(""));
             }}
             variant="gradient"
             className="bg-gradient-radial rounded-full"
