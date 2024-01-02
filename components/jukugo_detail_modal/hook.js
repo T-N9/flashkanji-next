@@ -17,10 +17,14 @@ export const Hook = () => {
   const [currentStrokeWord, setCurrentStrokeWord] = useState("");
 
   useEffect(() => {
-    setCurrentStrokeWord(jukugoDetail?.split("")[0]);
+    if (jukugoDetail?.split("")[0] === "～") {
+      setCurrentStrokeWord(jukugoDetail?.split("")[1]);
+    } else {
+      setCurrentStrokeWord(jukugoDetail?.split("")[0]);
+    }
   }, [jukugoDetail]);
 
-  console.log({ i:jukugoDetail?.split("")[0] });
+  // console.log({ i:jukugoDetail?.split("")[0] });
 
   return {
     isJukugoDetailModalOpen,

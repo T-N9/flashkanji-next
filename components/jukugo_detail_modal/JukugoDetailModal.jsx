@@ -39,15 +39,18 @@ export const JukugoDetailModal = () => {
               <div className="flex gap-2">
                 {jukugoDetail?.split("").map((item, index) => {
                   return (
-                    <div className="flex gap-3" key={index}>
-                      <h3
-                        className="text-xl text-deep-orange-700 cursor-pointer"
-                        onClick={() => setCurrentStrokeWord(item)}
-                      >
-                        {item}
-                      
-                      </h3>
-                      {jukugoDetail.split("").length - 1 !== index && "+"}
+                    <div key={index}>
+                      {item !== '～' && (
+                        <div className="flex gap-3">
+                          <h3
+                            className="text-xl text-deep-orange-700 cursor-pointer"
+                            onClick={() => setCurrentStrokeWord(item)}
+                          >
+                            {item}
+                          </h3>
+                          {jukugoDetail.split("").length - 1 !== index && "+"}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
