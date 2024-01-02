@@ -127,7 +127,7 @@ const Hook = () => {
         let allData = await fetchByChapter(chapter, level);
         dispatch(setKanji(allData));
         dispatch(setStopLoading());
-        console.log({ chapter, level });
+        // console.log({ chapter, level });
       } else {
         fetchAllData();
         dispatch(setStopLoading());
