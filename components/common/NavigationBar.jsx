@@ -29,7 +29,7 @@ export function NavigationBar() {
           <Typography
             href="/"
             color="blue-gray"
-            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500 font-english"
           >
             Home
           </Typography>
@@ -51,7 +51,7 @@ export function NavigationBar() {
           <Typography
             href="/jukugo"
             color="blue-gray"
-            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500 font-english"
           >
             Jukugo
           </Typography>
