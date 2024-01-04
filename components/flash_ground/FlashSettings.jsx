@@ -53,7 +53,7 @@ export const FlashSettings = () => {
   } = Hook();
   return (
     <section
-      className={`container z-[5000] relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 
+      className={`container bg-gradient-orange-card z-[5000] relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 
       ${isSettingOpen ? "visible opacity-100" : "invisible opacity-0"}
      w-full mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-4 mb-4 ${
        isLoading && "select-none pointer-events-none"
@@ -66,7 +66,7 @@ export const FlashSettings = () => {
               handleSearchInput(e.target.value);
             }, 500);
           }}
-          color="blue"
+          color="orange"
           className="bg-white"
           label="Search"
         />
@@ -78,7 +78,7 @@ export const FlashSettings = () => {
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
               value={selectedLevel.toString()}
-              color="blue"
+              color="orange"
               size="md"
               className="bg-white"
               label="Select Level"
@@ -105,7 +105,7 @@ export const FlashSettings = () => {
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
               value={selectedChapter.toString()}
-              color="blue"
+              color="orange"
               size="md"
               className="bg-white"
               label="Select Chapter"
@@ -139,7 +139,7 @@ export const FlashSettings = () => {
             placement="bottom"
           >
             <PopoverHandler>
-              <Button className="px-3">Custom</Button>
+              <Button className="px-3 bg-dark">Custom</Button>
             </PopoverHandler>
             <PopoverContent className="bg-gray-50 z-[5500]">
               <div className="grid grid-cols-5 gap-3 max-w-[300px]">
@@ -218,8 +218,8 @@ export const FlashSettings = () => {
             onClick={() => {
               dispatch(setIsFlippedMode());
             }}
-            variant="gradient"
-            className="bg-primary rounded-full"
+            // variant="gradient"
+            className="bg-dark rounded-full"
             title="Flip All"
           >
             <MdFlipCameraAndroid size={20} />
