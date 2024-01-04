@@ -23,6 +23,7 @@ module.exports = withMT({
         success: "#8AB17D",
         info: "#23427C",
         border_orange: "#E19A63",
+        dark: "#2F4858"
       },
       fontFamily: {
         "primary-san": ["Noto Sans JP", "sans-serif"],

@@ -25,7 +25,8 @@ export function Pagination() {
 
   const getItemProps = (index) => ({
     variant: parseInt(selectedChapter) === index ? "filled" : "text",
-    color: "indigo",
+    // color: "indigo",
+    className : parseInt(selectedChapter) === index ? "bg-dark" : "bg-transparent",
     onClick: () => {
       dispatch(setSelectedChapter(index));
       if (!isShuffledMode) {
@@ -116,23 +117,23 @@ export function Pagination() {
 
   return (
     <div
-      className={`flex items-center gap-4 my-5 ${
+      className={`flex items-center gap-2 my-5 ${
         isLoading && "select-none pointer-events-none opacity-70"
       }`}
     >
       <Button
         variant="text"
-        className="hidden md:flex text-indigo-600 items-center gap-2"
+        className="hidden md:flex text-dark items-center"
         onClick={prev}
         disabled={selectedChapter === 1}
       >
         <IoIosArrowRoundBack className="h-4 w-4" />
       </Button>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center">
         {selectedChapter > 4 && (
           <>
             <IconButton {...getItemProps(1)}>{1}</IconButton>
-            <span className="text-indigo-600">...</span>
+            <span className="text-dark">...</span>
           </>
         )}
         {currentPages?.map((chapter, index) => {
@@ -146,7 +147,7 @@ export function Pagination() {
         {currentPages[currentPages.length - 1] !==
           noChapters[noChapters.length - 1] && (
           <>
-            <span className="text-indigo-600">...</span>
+            <span className="text-dark">...</span>
             <IconButton {...getItemProps(noChapters.length)}>
               {noChapters.length}
             </IconButton>
@@ -155,7 +156,7 @@ export function Pagination() {
       </div>
       <Button
         variant="text"
-        className="items-center text-indigo-600 gap-2 hidden md:flex"
+        className="items-center text-dark hidden md:flex"
         onClick={next}
         disabled={selectedChapter === noChapters.length}
       >
