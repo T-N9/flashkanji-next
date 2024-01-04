@@ -24,10 +24,12 @@ const FlashCard = ({ item, isSwiped = false }) => {
   }, [isFlippedMode]);
 
   return (
-    <div className="relative">
+    <div
+      className={`relative`}
+    >
       <div
         onClick={() => setIsFlipped((prev) => !prev)}
-        className={`bg-white relative font-writing-1 text-black p-5 rounded-md card min-w-[150px] lg:min-w-[200px] shadow-md ${
+        className={` bg-gradient-orange-card relative w-[97%] h-[97%] font-writing-1 text-black p-5 rounded-md card min-w-[150px] border-4 border-border_orange border-opacity-50 lg:min-w-[200px] shadow-md ${
           isFlipped && "flipped"
         }`}
       >
@@ -70,8 +72,12 @@ const FlashCard = ({ item, isSwiped = false }) => {
 
       {!isSwiped && (
         <div className="absolute -right-2 top-0">
-          <Button onClick={() =>handleOpen(item.kanji_character)} size="sm" className="mt-2 mx-auto text-xs p-2 rounded-full bg-gray-700 table">
-            <FaInfoCircle size={20}/>
+          <Button
+            onClick={() => handleOpen(item.kanji_character)}
+            size="sm"
+            className="mt-2 mx-auto text-xs p-2 rounded-full bg-[#FA8245] table"
+          >
+            <FaInfoCircle size={20} />
           </Button>
         </div>
       )}

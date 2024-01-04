@@ -22,7 +22,7 @@ export default function FlashGround() {
 
   return (
     <section
-      className={` relative flex bg-light min-h-screen flex-col items-center md:p-4`}
+      className={` relative flex bg-white min-h-screen flex-col items-center md:p-4`}
     >
       <FlashSettings />
 
