@@ -7,6 +7,9 @@ module.exports = withMT({
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['Tektur', "sans-serif"],
+    },
     extend: {
       backgroundImage: {
         "gradient-radial":
@@ -28,7 +31,7 @@ module.exports = withMT({
       fontFamily: {
         "primary-san": ["Noto Sans JP", "sans-serif"],
         "primary-serif": ["Noto Serif JP", "serif"],
-        english: ["Kanit", "sans-serif"],
+        english: ['Tektur', "sans-serif"],
         "writing-1": ["Shippori Mincho", "serif"],
       },
     },
