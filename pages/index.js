@@ -189,7 +189,7 @@ export default function Landing() {
                 </div>
                 <div className="mx-auto grid items-start gap-4 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-3xl lg:grid-cols-3 grid-cols-2">
                   {exampleKanji?.map((kanji, index) => {
-                    return <FlashCard key={index} item={kanji} />;
+                    return <FlashCard key={index} item={kanji} isInfoShow={false}/>;
                   })}
                 </div>
               </div>

@@ -8,7 +8,7 @@ import { FaInfoCircle } from "react-icons/fa";
 /* Hook */
 import { Hook } from "./hook";
 
-const FlashCard = ({ item, isSwiped = false }) => {
+const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const { isFlippedMode } = useSelector((state) => state.flashGroundReducer);
@@ -70,7 +70,7 @@ const FlashCard = ({ item, isSwiped = false }) => {
         </div>
       </div>
 
-      {!isSwiped && (
+      {isInfoShow && (
         <div className="absolute -right-2 top-0">
           <Button
             onClick={() => handleOpen(item.kanji_character)}
