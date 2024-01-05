@@ -20,7 +20,7 @@ export function Footer() {
             <Typography
               href="/"
               color="blue-gray"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+              className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
             >
               Home
             </Typography>
@@ -31,7 +31,7 @@ export function Footer() {
             <Typography
               href="/quiz"
               color="blue-gray"
-              className="rainbow-text font-extrabold drop-shadow-lg transition-colors hover:text-blue-500 focus:text-blue-500"
+              className="rainbow-text font-extrabold drop-shadow-lg transition-colors hover:text-orange-500 focus:text-orange-500"
             >
               Quiz
             </Typography>
@@ -42,7 +42,7 @@ export function Footer() {
           <Typography
             href="/jukugo"
             color="blue-gray"
-            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
           >
             Jukugo
           </Typography>
@@ -52,7 +52,7 @@ export function Footer() {
           <Typography
             href="#"
             color="blue-gray"
-            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
           >
             Contribute
           </Typography>
@@ -61,7 +61,7 @@ export function Footer() {
           <Typography
             href="#"
             color="blue-gray"
-            className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
+            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
           >
             Contact Us
           </Typography>

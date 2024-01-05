@@ -14,7 +14,7 @@ export const LoadingGround = ({mode}) => {
               return (
                 <div
                   key={index}
-                  className={`bg-blue-50 relative font-primary-serif text-black p-5 rounded-md card min-w-[150px] lg:min-w-[200px] flex justify-center items-center shadow-md `}
+                  className={`bg-orange-50 relative font-primary-serif text-black p-5 rounded-md card min-w-[150px] lg:min-w-[200px] flex justify-center items-center shadow-md `}
                 >
                   <ImSpinner3 size={20} className="animate-spin" />
                 </div>
@@ -30,7 +30,7 @@ export const LoadingGround = ({mode}) => {
               return (
                 <div
                   key={index}
-                  className={`bg-blue-50 relative font-primary-serif text-black p-5 rounded-md card min-w-[150px] lg:min-w-[200px] flex justify-center items-center shadow-md `}
+                  className={`bg-orange-50 relative font-primary-serif text-black p-5 rounded-md card min-w-[150px] lg:min-w-[200px] flex justify-center items-center shadow-md `}
                 >
                   <ImSpinner3 size={20} className="animate-spin" />
                 </div>
