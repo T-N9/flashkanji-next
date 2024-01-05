@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <ThemeProvider>
-        <main className="bg-white">
+        <main className="bg-white text-dark">
           <NavigationBar />
           <Component {...pageProps} />
           <Footer/>
