@@ -100,7 +100,7 @@ export default function Landing() {
           <section className="w-full py-12 md:py-14 lg:py-16">
             <div className="container mx-auto px-4 md:px-6">
               <div className="grid gap-10 px-10 md:gap-16 lg:grid-cols-2">
-                <div className="space-y-4">
+                <div className="space-y-4 flex flex-col justify-center">
                   <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
                     Master Kanji with{" "}
                     <span className="text-orange-600">
@@ -126,7 +126,7 @@ export default function Landing() {
                     alt="jukugo"
                     className="mx-auto shadow-md border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
                     height="500"
-                    src="assets/hero-2.jpg"
+                    src="assets/hero-1.jpg"
                     width="500"
                   />
                 </div>
