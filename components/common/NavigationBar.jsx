@@ -36,6 +36,17 @@ export function NavigationBar() {
         </Link>
       </li>
       <li>
+        <Link href={"/kanji"}>
+          <Typography
+            href="/kanji"
+            color="blue-gray"
+            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500 font-english"
+          >
+            Kanji
+          </Typography>
+        </Link>
+      </li>
+      <li>
         <Link href={"/quiz"}>
           <Typography
             href="/"
