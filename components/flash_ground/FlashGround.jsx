@@ -37,13 +37,21 @@ export default function FlashGround() {
         {isLoading ? (
           <LoadingGround mode={1} />
         ) : (
-          <div
-            className={`grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4`}
-          >
-            {kanji?.map((item, index) => (
-              <FlashCard key={index} item={item} />
-            ))}
-          </div>
+          <>
+            {kanji?.length !== 0 ? (
+              <div
+                className={`grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4`}
+              >
+                {kanji?.map((item, index) => (
+                  <FlashCard key={index} item={item} />
+                ))}
+              </div>
+            ) : (
+              <div className="w-full h-[415px] flex justify-center items-center">
+                <h1 className="text-orange-600 text-3xl">Coming Soon</h1>
+              </div>
+            )}
+          </>
         )}
 
         {isPaginated && <Pagination />}
