@@ -99,7 +99,7 @@ export default function Landing() {
         <main className="flex-1">
           <section className="w-full py-12 md:py-14 lg:py-16">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="grid gap-10 px-10 md:gap-16 lg:grid-cols-2">
+              <div className="grid gap-10 md:gap-16 lg:grid-cols-2">
                 <div className="space-y-4 flex flex-col justify-center">
                   <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
                     Master Kanji with{" "}
@@ -216,7 +216,7 @@ export default function Landing() {
           </section>
           <section className="w-full py-12 md:py-14 lg:py-16">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="grid gap-10 px-10 md:gap-16 lg:grid-cols-2">
+              <div className="grid gap-10 md:gap-16 lg:grid-cols-2">
                 <div className="space-y-4">
                   <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
                     Jukugo
@@ -252,7 +252,7 @@ export default function Landing() {
 
           <section className="w-full bg-orange-50 py-12 md:py-14 lg:py-16">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="flex gap-10 px-10 md:gap-16 flex-col-reverse lg:flex-row">
+              <div className="flex gap-10 md:gap-16 flex-col-reverse lg:flex-row">
                 <div className="flex-1">
                   <img
                     alt="quiz"
