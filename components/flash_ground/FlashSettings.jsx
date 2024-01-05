@@ -53,7 +53,7 @@ export const FlashSettings = () => {
   } = Hook();
   return (
     <section
-      className={`container bg-gradient-orange-card z-[5000] relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 
+      className={`container bg-gradient-orange-card z-[5000] border-2 border-orange-400 relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 
       ${isSettingOpen ? "visible opacity-100" : "invisible opacity-0"}
      w-full mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-4 mb-4 ${
        isLoading && "select-none pointer-events-none"
