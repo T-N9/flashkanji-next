@@ -8,10 +8,12 @@ import {
   getNoShowSO,
 } from "@/public/js/kanjiviewer";
 
-const KanjiStrokeViewer = ({ kanji }) => {
+const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
   const [displayOrders, setDisplayOrders] = useState(true);
   const [radicals, setRadicals] = useState(false);
   const [colorGroups, setColorGroups] = useState(false);
+
+  const [inputtedKanji, setInputtedKanji] = useState(kanji);
 
   useEffect(() => {
     const urlVars = getUrlVars();
@@ -24,15 +26,23 @@ const KanjiStrokeViewer = ({ kanji }) => {
     if (rad) setRadicals(true);
     if (noso) setDisplayOrders(false);
 
+
+
     KanjiViewer.initialize(
       "kanjiViewer",
       displayOrders,
       radicals,
       colorGroups,
-      kanji,
+      inputtedKanji,
       file
     );
-  }, [kanji, displayOrders, radicals, colorGroups]);
+  }, [kanji,inputtedKanji, displayOrders, radicals, colorGroups]);
+
+
+
+  const handleInputKanji = (input) => {
+    setInputtedKanji(input);
+  };
 
   const handleCheckboxChange = (event) => {
     const checkboxName = event.target.name;
@@ -57,12 +67,12 @@ const KanjiStrokeViewer = ({ kanji }) => {
     KanjiViewer.setStrokeOrdersVisible(displayOrders);
     KanjiViewer.setRadicals(radicals);
     KanjiViewer.setColorGroups(colorGroups);
-    KanjiViewer.setKanji(kanji);
+    KanjiViewer.setKanji(inputtedKanji);
     KanjiViewer.refreshKanji();
   };
 
   return (
-    <div className="flex flex-row-reverse items-center justify-center">
+    <div className="flex flex-col-reverse lg:flex-row-reverse items-center justify-center">
       <form
         id="kanjiViewerParams"
         action="#"
@@ -72,18 +82,20 @@ const KanjiStrokeViewer = ({ kanji }) => {
         <fieldset>
           <div
             id="viewer-controls"
-            className="flex justify-center items-center gap-5"
+            className="flex justify-center flex-col items-center gap-5"
           >
             <div id="kanji-etc">
-              <div className="hidden">
-                <label htmlFor="kanji">Kanji</label>
+              <div className={`${isSearch ? "" : "hidden"}`}>
+                <label htmlFor="kanji">Search Kanji</label>
                 <Input
                   className="viewer-input bg-white"
                   type="text"
-                  value={kanji}
+                  value={inputtedKanji}
                   id="kanji"
                   label="e.g. 線"
-                  readOnly
+                  // readOnly
+                  color="orange"
+                  onChange={() => handleInputKanji(event.target.value.split('')[0])}
                 />
               </div>
               <div id="kanji-options" className=" flex-col hidden">
@@ -124,6 +136,7 @@ const KanjiStrokeViewer = ({ kanji }) => {
                 data-kanjivg-target="#kanji-svg"
                 variant="outlined"
                 size="sm"
+                color="orange"
                 className="kanjivg-button w-fit rounded-full"
               >
                 Animate
@@ -144,7 +157,10 @@ const KanjiStrokeViewer = ({ kanji }) => {
         id="kanji-visuals"
         className="flex flex-col md:flex-row gap-5 justify-center"
       >
-        <div id="kanji-image" className="flex-4 modal-kanji"></div>
+        <div
+          id="kanji-image"
+          className={`flex-4 modal-kanji ${isSearch && "search-view-form"}`}
+        ></div>
       </div>
       <div
         id="kanji-visuals"

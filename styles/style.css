@@ -240,3 +240,25 @@
 .group-image figcaption{
   color: #ef5350;
 }
+
+.outlined_title {
+  color: white!important;
+  -webkit-text-stroke: rgb(251 140 0);
+  -webkit-text-stroke-width: 2px;
+}
+
+button {
+  letter-spacing: 2px;
+}
+
+.search-view-form svg{
+  width: 400px;
+  height: 400px;
+}
+
+@media screen and (max-width : 380px) {
+  .search-view-form svg{
+    width: 330px;
+    height: 330px;
+  }
+}

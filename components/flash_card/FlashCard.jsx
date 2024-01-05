@@ -29,7 +29,7 @@ const FlashCard = ({ item, isSwiped = false }) => {
     >
       <div
         onClick={() => setIsFlipped((prev) => !prev)}
-        className={` ${isSwiped ? 'bg-white border-border_orange' : 'bg-gradient-orange-card border-border_orange border-opacity-50'} relative w-[97%] h-[97%] font-writing-1 text-black p-5 rounded-md card min-w-[150px] border-4   lg:min-w-[200px] shadow-md ${
+        className={` ${isSwiped ? 'bg-white border-border_orange' : 'bg-gradient-orange-card border-border_orange border-opacity-50'} relative font-writing-1 text-black p-5 rounded-md card min-w-[150px] border-4   lg:min-w-[200px] shadow-md ${
           isFlipped && "flipped"
         }`}
       >
