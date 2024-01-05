@@ -37,7 +37,7 @@ const FlashCard = ({ item, isSwiped = false }) => {
         <p
           className={`${
             isSwiped ? "text-[9rem] md:text-[18rem]" : "text-7xl"
-          } front absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}
+          } front text-dark absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}
         >
           {item.kanji_character}
         </p>
@@ -56,7 +56,7 @@ const FlashCard = ({ item, isSwiped = false }) => {
               );
             })}{" "}
           </p>
-          <p className="text-green-700  flex flex-wrap justify-center">
+          <p className="text-success  flex flex-wrap justify-center">
             {item.onyomi?.split(",").map((i, index) => {
               return (
                 <React.Fragment key={index}>

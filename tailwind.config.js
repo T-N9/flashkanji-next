@@ -23,7 +23,7 @@ module.exports = withMT({
       },
       colors: {
         light: "#E9EEEA",
-        success: "#8AB17D",
+        success: "#00755F",
         info: "#23427C",
         border_orange: "#E19A63",
         dark: "#2F4858"
