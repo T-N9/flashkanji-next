@@ -7,7 +7,7 @@ export function Footer() {
       <Typography color="blue-gray" className="font-normal">
         &copy; 2023 Flash Kanji by{" "}
         <a
-          className="text-blue-600 font-bold"
+          className="text-orange-400 blue-600 font-bold"
           href="https://www.tenyain.com"
           target="_blank"
         >
