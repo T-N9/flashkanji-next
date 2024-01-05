@@ -130,7 +130,7 @@ export const FlashSettings = () => {
             </Select>
           </div>
         </div>
-        <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
+        <div className="flex w-full md:w-20 min-w-20 select-box flex-col gap-6">
           <Popover
             animate={{
               mount: { scale: 1, y: 0 },
@@ -139,7 +139,7 @@ export const FlashSettings = () => {
             placement="bottom"
           >
             <PopoverHandler>
-              <Button className="px-3 bg-dark">Custom</Button>
+              <Button className="px-0 bg-dark">Custom</Button>
             </PopoverHandler>
             <PopoverContent className="bg-gray-50 z-[5500]">
               <div className="grid grid-cols-5 gap-3 max-w-[300px]">
@@ -165,7 +165,7 @@ export const FlashSettings = () => {
                 onClick={() =>
                   fetchByMultiChaptersData(selectedMultiChapters, level)
                 }
-                className="mt-3 mx-auto table"
+                className="mt-3 mx-auto bg-orange-600 table"
               >
                 Confirm
               </Button>
