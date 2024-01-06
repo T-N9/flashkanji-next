@@ -153,7 +153,7 @@ export default function Landing() {
                   </p>
                 </div>
               </div>
-              <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
+              <div className="mx-auto text-center grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
                 <div className="grid gap-1">
                   <h3 className="text-lg font-bold text-orange-600">
                     Interactive Learning
