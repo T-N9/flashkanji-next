@@ -33,7 +33,7 @@ export const JukugoSetting = () => {
 
   return (
     <section
-      className={`container z-[5000] relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 
+      className={`container z-[5000] border-2 bg-gradient-orange-card border-orange-400 relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 
    w-full mx-auto max-w-screen-xl px-4 py-4 lg:px-8 lg:py-4 mb-4`}
     >
       <div
@@ -43,7 +43,7 @@ export const JukugoSetting = () => {
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
               value={selectedLevel.toString()}
-              color="blue"
+              color="orange"
               size="md"
               className="bg-white"
               label="Select Level"
@@ -68,7 +68,7 @@ export const JukugoSetting = () => {
           <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
             <Select
               value={selectedChapter.toString()}
-              color="blue"
+              color="orange"
               size="md"
               className="bg-white"
               label="Select Chapter"
@@ -116,11 +116,9 @@ export const JukugoSetting = () => {
         </div>
         <div className="flex-1 flex gap-2">
           <div className="flex flex-col gap-1 justify-center items-center">
-            <p className="text-xs">
-              Show Meaning : {isShowMeaning ? "ON" : "OFF"}
-            </p>
+            <p className="text-xs">Show Meaning</p>
             <Switch
-              color="indigo"
+              color="orange"
               onChange={() => {
                 dispatch(toggleShowMeaning());
               }}
@@ -132,7 +130,7 @@ export const JukugoSetting = () => {
               dispatch(setIsFlippedMode());
             }}
             variant="gradient"
-            className="bg-primary rounded-full"
+            className="bg-dark rounded-full"
             title="Flip All"
           >
             <MdFlipCameraAndroid size={20} />
