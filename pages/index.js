@@ -284,7 +284,7 @@ export default function Landing() {
               </div>
             </div>
           </section>
-          <section className="w-full py-12 md:py-14 lg:py-16 bg-gray-100 dark:bg-gray-800">
+          <section className="w-full py-12 md:py-14 lg:py-16 dark:bg-gray-800">
             <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
               <div className="space-y-3">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
