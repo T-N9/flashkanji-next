@@ -26,7 +26,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
     <div className="relative">
       <div
         onClick={() => setIsFlipped((prev) => !prev)}
-        className={`bg-white relative font-writing-1 text-black p-5 rounded-md card jukugo_card min-w-[150px] lg:min-w-[200px] ${
+        className={` ${isSwiped ? 'bg-white border-border_orange' : 'bg-gradient-orange-card border-border_orange border-opacity-50'} relative font-writing-1 text-black border-4 p-5 rounded-md card jukugo_card min-w-[150px] lg:min-w-[200px] ${
           isSwiped && "h-[200px]"
         } shadow-md ${isFlipped && "flipped"}`}
       >
@@ -48,7 +48,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
             {item.hiragana}
           </p>
           {isShowMeaning && (
-            <p className="text-green-700 text-lg md:text-xl flex flex-wrap justify-center">
+            <p className="text-success text-lg md:text-xl flex flex-wrap justify-center">
               {item.english_meaning}
             </p>
           )}
@@ -60,7 +60,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
           <Button
             onClick={() => handleOpen(item.jukugo_char)}
             size="sm"
-            className="mt-2 mx-auto text-xs p-2 rounded-full bg-gray-700 table"
+            className="mt-2 mx-auto text-xs p-2 rounded-full bg-orange-700 table"
           >
             <FaInfoCircle size={20} />
           </Button>
