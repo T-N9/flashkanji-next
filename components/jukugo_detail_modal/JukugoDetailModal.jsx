@@ -27,10 +27,10 @@ export const JukugoDetailModal = () => {
         handler={() => handleOpen(null)}
         size="sm"
       >
-        <DialogHeader className="flex justify-between items-center shadow">
+        <DialogHeader className="flex justify-between text-orange-600 items-center shadow">
           <p>Jukugo information</p>
         </DialogHeader>
-        <DialogBody className=" bg-gray-100 overflow-y-scroll">
+        <DialogBody className=" bg-gradient-orange-card overflow-y-auto">
           <h1 className="text-4xl">{jukugoDetail}</h1>
 
           <div>
@@ -62,9 +62,9 @@ export const JukugoDetailModal = () => {
           </div>
         </DialogBody>
         <DialogFooter className="flex justify-center md:justify-between items-center">
-          <p className="text-xs">
+          <p className="text-xs font-english">
             Provided by{" "}
-            <a className="text-info" target="_blank" href="https://kanjivg.tagaini.net">
+            <a className="text-orange-500" target="_blank" href="https://kanjivg.tagaini.net">
               www.kanjivg.tagaini.net
             </a>{" "}
           </p>
