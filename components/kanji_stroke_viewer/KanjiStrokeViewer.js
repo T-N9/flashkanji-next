@@ -144,7 +144,7 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
               </Button>
 
               <a
-                className="text-xs font-bold p-2 mt-5 rounded bg-transparent text-center underline"
+                className="text-xs font-bold font-english p-2 mt-5 rounded bg-transparent text-center underline"
                 href={`/viewer?kanji=${kanji}`}
                 target="_blank"
               >
