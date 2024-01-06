@@ -27,14 +27,18 @@ import {
   setShuffleMode,
   setShuffledData,
 } from "@/store/flashGroundSlice";
-import { toggleFlashModal, toggleSetting, toggleJukugoModal } from "@/store/generalSlice";
+import {
+  toggleFlashModal,
+  toggleSetting,
+  toggleJukugoModal,
+} from "@/store/generalSlice";
 
 const Hook = () => {
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
   const n4NoChapters = Array.from({ length: 20 }, (_, index) => index + 1);
   const n3NoChapters = Array.from({ length: 42 }, (_, index) => index + 1);
 
-  // const [noChapters, setNoChapters] = useState(n5NoChapters);
+  const [isIgnite, setIsIgnite] = useState(true);
   const dispatch = useDispatch();
 
   const {
@@ -67,9 +71,12 @@ const Hook = () => {
   };
 
   useEffect(() => {
+    fetchByChapterData(selectedChapter, level);
+    // console.log("running effect");
 
-      fetchByChapterData(selectedChapter, level);
-      // console.log("running effect");
+    setTimeout(() => {
+      setIsIgnite(false);
+    }, 3000);
   }, []);
 
   const shuffleNowData = async (data, count) => {
@@ -245,6 +252,7 @@ const Hook = () => {
     isPaginated,
     shuffledData,
     isShuffledMode,
+    isIgnite,
 
     /* actions */
     setLevel,
@@ -266,7 +274,7 @@ const Hook = () => {
     setIsFlippedMode,
     shuffleByLevelsData,
     setIsPaginated,
-    toggleJukugoModal
+    toggleJukugoModal,
   };
 };
 

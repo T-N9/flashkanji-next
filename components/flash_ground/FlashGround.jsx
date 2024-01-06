@@ -18,11 +18,12 @@ export default function FlashGround() {
     dispatch,
     isSettingOpen,
     isPaginated,
+    isIgnite
   } = Hook();
 
   return (
     <section
-      className={` relative flex bg-white min-h-screen flex-col items-center md:p-4`}
+      className={`${isIgnite && 'select-none pointer-events-none'} relative flex bg-white min-h-screen flex-col items-center md:p-4`}
     >
       <FlashSettings />
 
@@ -34,7 +35,7 @@ export default function FlashGround() {
         } relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3`}
       >
         {isPaginated && <Pagination />}
-        {isLoading ? (
+        {isLoading || isIgnite ? (
           <LoadingGround mode={1} />
         ) : (
           <>
