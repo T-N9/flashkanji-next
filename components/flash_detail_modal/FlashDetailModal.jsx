@@ -58,32 +58,32 @@ export function FlashDetailModal() {
         open={isDetailModalOpen}
         handler={() => handleOpen(null)}
       >
-        <DialogHeader className="flex justify-between items-center shadow">
+        <DialogHeader className="flex justify-between text-orange-600 items-center shadow">
           <h1 className="text-6xl">{currentDetail}</h1>
           <p>Kanji information</p>
         </DialogHeader>
-        <DialogBody className="h-[22rem] md:h-[20rem] bg-gray-100 overflow-y-scroll">
+        <DialogBody className="h-[22rem] md:h-[20rem] bg-gradient-orange-card overflow-y-scroll">
           {!isLoading ? (
             <div className="  font-primary-san">
               <div className="flex flex-col lg:flex-row gap-3">
                 <div className="mb-4">
-                  <strong className="text-info">Grade:</strong>{" "}
-                  <span className="text-gray-900 font-bold">
+                  <strong className="text-info font-english">Grade:</strong>{" "}
+                  <span className="text-dark font-bold">
                     {renderStars()}
                   </span>
                 </div>
                 <div className="mb-4 flex flex-col">
                   <div>
-                    <strong className="text-info">Stroke Count:</strong>{" "}
-                    <span className="text-gray-900 font-bold">
+                    <strong className="text-info font-english">Stroke Count:</strong>{" "}
+                    <span className="text-dark font-bold">
                       {charData?.stroke_count}
                     </span>
                   </div>
                   <KanjiViewer kanji={currentDetail} />
                 </div>
                 <div className="mb-4">
-                  <strong className="text-info">Unicode:</strong>{" "}
-                  <span className="text-gray-900 font-bold">
+                  <strong className="text-info font-english">Unicode:</strong>{" "}
+                  <span className="text-dark font-bold">
                     {charData?.unicode}
                   </span>
                 </div>
@@ -91,16 +91,16 @@ export function FlashDetailModal() {
 
               <div className="flex gap-4 flex-wrap">
                 <div className="mb-4">
-                  <strong className="text-info">Meanings:</strong>
-                  <ul className="list-disc pl-4 text-gray-900 font-bold">
+                  <strong className="text-info font-english">Meanings:</strong>
+                  <ul className="list-disc pl-4 text-dark font-bold">
                     {charData?.meanings.map((meaning, index) => (
                       <li key={index}>{meaning}</li>
                     ))}
                   </ul>
                 </div>
                 <div className="mb-4">
-                  <strong className="text-info">On Readings:</strong>
-                  <ul className="list-disc pl-4   text-gray-900 font-bold">
+                  <strong className="text-info font-english">On Readings:</strong>
+                  <ul className="list-disc pl-4   text-dark font-bold">
                     {charData?.on_readings.length > 0
                       ? charData?.on_readings.map((onReading, index) => (
                           <li key={index}>{onReading}</li>
@@ -110,8 +110,8 @@ export function FlashDetailModal() {
                 </div>
 
                 <div className="mb-4">
-                  <strong className="text-info">Kun Readings:</strong>
-                  <ul className="list-disc pl-4  text-gray-900 font-bold">
+                  <strong className="text-info font-english">Kun Readings:</strong>
+                  <ul className="list-disc pl-4  text-dark font-bold">
                     {charData?.kun_readings.length > 0
                       ? charData?.kun_readings.map((kunReading, index) => (
                           <li key={index}>{kunReading}</li>
@@ -123,7 +123,7 @@ export function FlashDetailModal() {
 
               {jukugoData?.length > 0 && (
                 <div className="mt-4">
-                  <strong className="text-info">Related jukugo:</strong>
+                  <strong className="text-info font-english">Related jukugo:</strong>
 
                   <div className="flex gap-2 flex-wrap mt-3">
                     {jukugoData?.map((item, index) => {
@@ -133,7 +133,7 @@ export function FlashDetailModal() {
                           key={index}
                         >
                           <p className="flex justify-between flex-col">
-                            <span className="text-black text-2xl">
+                            <span className="text-dark text-2xl">
                               {item.jukugo_char}
                             </span>{" "}
                             <span className="text-sm">{item.hiragana}</span>
@@ -148,8 +148,8 @@ export function FlashDetailModal() {
                 </div>
               )}
 
-              <div className="mt-4 hidden">
-                <strong className="text-info">Example words:</strong>
+              {/* <div className="mt-4 hidden">
+                <strong className="text-info font-english">Example words:</strong>
 
                 <div className="flex gap-3 flex-wrap">
                   {wordData?.map((kanjiVariant, index) => (
@@ -164,10 +164,10 @@ export function FlashDetailModal() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               <div className="mt-4 hidden">
-                <strong className="text-info">Notes:</strong>
+                <strong className="text-info font-english">Notes:</strong>
                 <p className="text-gray-700">
                   {charData?.notes.length > 0
                     ? charData?.notes
@@ -181,10 +181,10 @@ export function FlashDetailModal() {
             </div>
           )}
         </DialogBody>
-        <DialogFooter className="flex justify-between items-center">
+        <DialogFooter className="flex font-english justify-between items-center">
           <p className="text-xs">
             Provided by{" "}
-            <a className="text-info" target="_blank" href="http://www.kanjiapi.dev">
+            <a className="text-orange-500 " target="_blank" href="http://www.kanjiapi.dev">
               www.kanjiapi.dev
             </a>{" "}
           </p>
