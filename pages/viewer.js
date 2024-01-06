@@ -12,8 +12,8 @@ import { Input, Button, Checkbox } from "@material-tailwind/react";
 const Viewer = () => {
   const [kanji, setKanji] = useState("");
   const [displayOrders, setDisplayOrders] = useState(true);
-  const [radicals, setRadicals] = useState(false);
-  const [colorGroups, setColorGroups] = useState(false);
+  const [radicals, setRadicals] = useState(true);
+  const [colorGroups, setColorGroups] = useState(true);
 
   useEffect(() => {
     const urlVars = getUrlVars();
@@ -84,7 +84,7 @@ const Viewer = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/application.css" />
       </Head>
-      <div className="relative gap-5 flex bg-light min-h-screen flex-col items-center p-4">
+      <div className="relative gap-5 flex min-h-screen flex-col items-center p-4">
         <form
           id="kanjiViewerParams"
           action="#"
@@ -103,6 +103,7 @@ const Viewer = () => {
                     className="viewer-input bg-white"
                     type="text"
                     value={kanji}
+                    color="orange"
                     id="kanji"
                     label="e.g. 線"
                     onChange={handleKanjiChange}
@@ -112,7 +113,7 @@ const Viewer = () => {
               <div id="kanji-options" className="flex flex-col">
                 <Checkbox
                   type="checkbox"
-                  color="blue"
+                  color="orange"
                   name="displayOrders"
                   id="displayOrders"
                   checked={displayOrders}
@@ -122,7 +123,7 @@ const Viewer = () => {
 
                 <Checkbox
                   type="checkbox"
-                  color="blue"
+                  color="orange"
                   name="radicals"
                   id="radicals"
                   checked={radicals}
@@ -132,7 +133,7 @@ const Viewer = () => {
 
                 <Checkbox
                   type="checkbox"
-                  color="blue"
+                  color="orange"
                   name="colorGroups"
                   id="colorGroups"
                   checked={colorGroups}
@@ -166,7 +167,7 @@ const Viewer = () => {
         </form>
         <div
           id="kanji-visuals"
-          className=" flex flex-col md:flex-row gap-5 justify-center bg-white rounded shadow-lg py-4"
+          className=" flex flex-col md:flex-row gap-5 justify-center bg-white border-4 border-orange-400 rounded shadow-lg p-4"
         >
           <div id="kanji-image" className="flex-4"></div>
           <div id="sub-images" className="flex-4 flex flex-col gap-3">
