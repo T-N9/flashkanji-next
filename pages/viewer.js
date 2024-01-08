@@ -40,7 +40,7 @@ const Viewer = () => {
   }, []);
 
   const handleKanjiChange = (event) => {
-    setKanji(event.target.value.split('')[0]);
+    setKanji(event.target.value.split("")[0]);
     // console.log(event.target.value.split('')[0]);
   };
 
@@ -141,7 +141,10 @@ const Viewer = () => {
                   label="Show component groups"
                 />
               </div>
-              <div id="kanji-actions" className="flex flex-row lg:flex-col gap-3">
+              <div
+                id="kanji-actions"
+                className="flex flex-row lg:flex-col gap-3"
+              >
                 {/* <input type="submit" value="Redraw" /> */}
                 {/* &nbsp; */}
 
@@ -179,6 +182,17 @@ const Viewer = () => {
           </div>
         </div>
       </div>
+
+      <p className="text-xs text-center my-4 font-english">
+            Provided by{" "}
+            <a
+              className="text-orange-500 "
+              target="_blank"
+              href="https://kanjivg.tagaini.net/index.html"
+            >
+              KanjiVG
+            </a>{" "}
+          </p>
     </>
   );
 };
