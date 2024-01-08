@@ -40,7 +40,7 @@ export const JukugoDetailModal = () => {
                 {jukugoDetail?.split("").map((item, index) => {
                   return (
                     <div key={index}>
-                      {item !== '～' && (
+                      {item !== "～" && (
                         <div className="flex gap-3">
                           <h3
                             className="text-xl text-deep-orange-700 cursor-pointer"
@@ -64,8 +64,20 @@ export const JukugoDetailModal = () => {
         <DialogFooter className="flex justify-center md:justify-between items-center">
           <p className="text-xs font-english">
             Provided by{" "}
-            <a className="text-orange-500" target="_blank" href="https://kanjivg.tagaini.net">
-              www.kanjivg.tagaini.net
+            <a
+              className="text-orange-500 "
+              target="_blank"
+              href="http://www.kanjiapi.dev"
+            >
+              kanjiapi
+            </a>{" "}
+            ,{" "}
+            <a
+              className="text-orange-500 "
+              target="_blank"
+              href="https://kanjivg.tagaini.net/index.html"
+            >
+              KanjiVG
             </a>{" "}
           </p>
           <Button

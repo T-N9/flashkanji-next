@@ -68,13 +68,13 @@ export function FlashDetailModal() {
               <div className="flex flex-col lg:flex-row gap-3">
                 <div className="mb-4">
                   <strong className="text-info font-english">Grade:</strong>{" "}
-                  <span className="text-dark font-bold">
-                    {renderStars()}
-                  </span>
+                  <span className="text-dark font-bold">{renderStars()}</span>
                 </div>
                 <div className="mb-4 flex flex-col">
                   <div>
-                    <strong className="text-info font-english">Stroke Count:</strong>{" "}
+                    <strong className="text-info font-english">
+                      Stroke Count:
+                    </strong>{" "}
                     <span className="text-dark font-bold">
                       {charData?.stroke_count}
                     </span>
@@ -99,7 +99,9 @@ export function FlashDetailModal() {
                   </ul>
                 </div>
                 <div className="mb-4">
-                  <strong className="text-info font-english">On Readings:</strong>
+                  <strong className="text-info font-english">
+                    On Readings:
+                  </strong>
                   <ul className="list-disc pl-4   text-dark font-bold">
                     {charData?.on_readings.length > 0
                       ? charData?.on_readings.map((onReading, index) => (
@@ -110,7 +112,9 @@ export function FlashDetailModal() {
                 </div>
 
                 <div className="mb-4">
-                  <strong className="text-info font-english">Kun Readings:</strong>
+                  <strong className="text-info font-english">
+                    Kun Readings:
+                  </strong>
                   <ul className="list-disc pl-4  text-dark font-bold">
                     {charData?.kun_readings.length > 0
                       ? charData?.kun_readings.map((kunReading, index) => (
@@ -123,7 +127,9 @@ export function FlashDetailModal() {
 
               {jukugoData?.length > 0 && (
                 <div className="mt-4">
-                  <strong className="text-info font-english">Related jukugo:</strong>
+                  <strong className="text-info font-english">
+                    Related jukugo:
+                  </strong>
 
                   <div className="flex gap-2 flex-wrap mt-3">
                     {jukugoData?.map((item, index) => {
@@ -184,8 +190,19 @@ export function FlashDetailModal() {
         <DialogFooter className="flex font-english justify-between items-center">
           <p className="text-xs">
             Provided by{" "}
-            <a className="text-orange-500 " target="_blank" href="http://www.kanjiapi.dev">
-              www.kanjiapi.dev
+            <a
+              className="text-orange-500 "
+              target="_blank"
+              href="http://www.kanjiapi.dev"
+            >
+              kanjiapi
+            </a>{" "},{" "}
+            <a
+              className="text-orange-500 "
+              target="_blank"
+              href="https://kanjivg.tagaini.net/index.html"
+            >
+              KanjiVG
             </a>{" "}
           </p>
           <Button
