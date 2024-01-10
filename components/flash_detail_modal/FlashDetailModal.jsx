@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Button,
   Dialog,
@@ -11,7 +10,7 @@ import { Spinner } from "@material-tailwind/react";
 
 /* Hook */
 import { Hook } from "./hook";
-import KanjiViewer from "../kanji_stroke_viewer/KanjiStrokeViewer";
+import { KanjiGif } from "../kanji_gif/KanjiGif";
 
 const KanjiVariants = ({ variants }) => {
   // console.log({ variants });
@@ -67,10 +66,18 @@ export function FlashDetailModal() {
             <div className="  font-primary-san">
               <div className="flex flex-col lg:flex-row gap-3">
                 <div className="mb-4">
-                  <strong className="text-info font-english">Grade:</strong>{" "}
-                  <span className="text-dark font-bold">{renderStars()}</span>
+                  <div>
+                    <strong className="text-info font-english">Grade:</strong>{" "}
+                    <span className="text-dark font-bold">{renderStars()}</span>
+                  </div>
+                  <div>
+                  <strong className="text-info font-english">Unicode:</strong>{" "}
+                  <span className="text-dark font-bold">
+                    {charData?.unicode}
+                  </span>
                 </div>
-                <div className="mb-4 flex flex-col">
+                </div>
+                <div className="mb-4 flex flex-col gap-3">
                   <div>
                     <strong className="text-info font-english">
                       Stroke Count:
@@ -79,14 +86,10 @@ export function FlashDetailModal() {
                       {charData?.stroke_count}
                     </span>
                   </div>
-                  <KanjiViewer kanji={currentDetail} />
+                  <KanjiGif kanji={currentDetail}/>
+                  
                 </div>
-                <div className="mb-4">
-                  <strong className="text-info font-english">Unicode:</strong>{" "}
-                  <span className="text-dark font-bold">
-                    {charData?.unicode}
-                  </span>
-                </div>
+          
               </div>
 
               <div className="flex gap-4 flex-wrap">
@@ -187,7 +190,7 @@ export function FlashDetailModal() {
             </div>
           )}
         </DialogBody>
-        <DialogFooter className="flex font-english justify-between items-center">
+        <DialogFooter className="flex font-english justify-center gap-2 md:justify-between items-center">
           <p className="text-xs">
             Provided by{" "}
             <a
@@ -196,20 +199,28 @@ export function FlashDetailModal() {
               href="http://www.kanjiapi.dev"
             >
               kanjiapi
-            </a>{" "},{" "}
+            </a>{" "}
+            ,{" "}
             <a
               className="text-orange-500 "
               target="_blank"
               href="https://kanjivg.tagaini.net/index.html"
             >
               KanjiVG
+            </a>{" "},{" "}
+            <a
+              className="text-orange-500 "
+              target="_blank"
+              href="https://github.com/jcsirot/kanji.gif"
+            >
+              KanjiGIF
             </a>{" "}
           </p>
           <Button
             variant="text"
             color="red"
             onClick={() => handleOpen(null)}
-            className="mr-1"
+            className=""
           >
             <span>Close</span>
           </Button>
