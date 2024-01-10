@@ -343,6 +343,14 @@ export default function Landing() {
                         Kanjiapi.dev
                       </Button>
                     </a>
+                    <a
+                      href="https://github.com/jcsirot/kanji.gif"
+                      target="_blank"
+                    >
+                      <Button color="orange" variant="outlined" size="sm">
+                        KanjiGIF
+                      </Button>
+                    </a>
                   </div>
                   <div className="mx-auto flex flex-col gap-3 w-full p-4 sm:p-8">
                     <p className="">
