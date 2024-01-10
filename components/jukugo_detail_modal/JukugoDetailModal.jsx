@@ -9,6 +9,7 @@ import {
 import { Hook } from "./hook";
 
 import KanjiStrokeViewer from "../kanji_stroke_viewer/KanjiStrokeViewer";
+import { KanjiGif } from "../kanji_gif/KanjiGif";
 
 export const JukugoDetailModal = () => {
   const {
@@ -56,9 +57,7 @@ export const JukugoDetailModal = () => {
                 })}
               </div>
             </div>
-            <div>
-              <KanjiStrokeViewer kanji={currentStrokeWord} />
-            </div>
+            <KanjiGif kanji={currentStrokeWord}/>
           </div>
         </DialogBody>
         <DialogFooter className="flex justify-center md:justify-between items-center">
@@ -78,6 +77,13 @@ export const JukugoDetailModal = () => {
               href="https://kanjivg.tagaini.net/index.html"
             >
               KanjiVG
+            </a>{" "},{" "}
+            <a
+              className="text-orange-500 "
+              target="_blank"
+              href="https://github.com/jcsirot/kanji.gif"
+            >
+              KanjiGIF
             </a>{" "}
           </p>
           <Button
