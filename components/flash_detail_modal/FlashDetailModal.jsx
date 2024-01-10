@@ -64,18 +64,18 @@ export function FlashDetailModal() {
         <DialogBody className="h-[22rem] md:h-[20rem] bg-gradient-orange-card overflow-y-scroll">
           {!isLoading ? (
             <div className="  font-primary-san">
-              <div className="flex flex-col lg:flex-row gap-3">
+              <div className="flex flex-col lg:flex-row gap-y-3 gap-x-5">
                 <div className="mb-4">
                   <div>
                     <strong className="text-info font-english">Grade:</strong>{" "}
                     <span className="text-dark font-bold">{renderStars()}</span>
                   </div>
                   <div>
-                  <strong className="text-info font-english">Unicode:</strong>{" "}
-                  <span className="text-dark font-bold">
-                    {charData?.unicode}
-                  </span>
-                </div>
+                    <strong className="text-info font-english">Unicode:</strong>{" "}
+                    <span className="text-dark font-bold">
+                      {charData?.unicode}
+                    </span>
+                  </div>
                 </div>
                 <div className="mb-4 flex flex-col gap-3">
                   <div>
@@ -86,13 +86,8 @@ export function FlashDetailModal() {
                       {charData?.stroke_count}
                     </span>
                   </div>
-                  <KanjiGif kanji={currentDetail}/>
-                  
+                  <KanjiGif kanji={currentDetail} />
                 </div>
-          
-              </div>
-
-              <div className="flex gap-4 flex-wrap">
                 <div className="mb-4">
                   <strong className="text-info font-english">Meanings:</strong>
                   <ul className="list-disc pl-4 text-dark font-bold">
@@ -101,6 +96,9 @@ export function FlashDetailModal() {
                     ))}
                   </ul>
                 </div>
+              </div>
+
+              <div className="flex gap-4 flex-wrap">
                 <div className="mb-4">
                   <strong className="text-info font-english">
                     On Readings:
@@ -207,7 +205,8 @@ export function FlashDetailModal() {
               href="https://kanjivg.tagaini.net/index.html"
             >
               KanjiVG
-            </a>{" "},{" "}
+            </a>{" "}
+            ,{" "}
             <a
               className="text-orange-500 "
               target="_blank"
