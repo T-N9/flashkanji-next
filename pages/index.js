@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { Button } from "@material-tailwind/react";
@@ -122,11 +123,11 @@ export default function Landing() {
                   </div>
                 </div>
                 <div>
-                  <img
+                  <Image
                     alt="jukugo"
-                    className="mx-auto shadow-md border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
+                    className="mx-auto shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
                     height="500"
-                    src="assets/hero-1.jpg"
+                    src="/assets/hero-1.jpg"
                     width="500"
                   />
                 </div>
@@ -238,11 +239,11 @@ export default function Landing() {
                   </div>
                 </div>
                 <div>
-                  <img
+                  <Image
                     alt="jukugo"
-                    className="mx-auto shadow-md border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
+                    className="mx-auto shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
                     height="500"
-                    src="assets/hero-2.jpg"
+                    src="/assets/hero-2.jpg"
                     width="500"
                   />
                 </div>
@@ -254,11 +255,11 @@ export default function Landing() {
             <div className="container mx-auto px-4 md:px-6">
               <div className="flex gap-10 md:gap-16 flex-col-reverse lg:flex-row">
                 <div className="flex-1">
-                  <img
+                  <Image
                     alt="quiz"
-                    className="mx-auto shadow-md border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
+                    className="mx-auto shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
                     height="500"
-                    src="assets/hero-3.jpg"
+                    src="/assets/hero-3.jpg"
                     width="500"
                   />
                 </div>
