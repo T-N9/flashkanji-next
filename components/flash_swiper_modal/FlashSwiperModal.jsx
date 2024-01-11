@@ -56,7 +56,7 @@ export const FlashSwiperModal = () => {
             >
               {kanji?.map((item, index) => (
                 <SwiperSlide key={index}>
-                  <FlashCard key={index} item={item} isSwiped={true} />
+                  <FlashCard key={index} item={item} isSwiped={true} isInfoShow={false} />
                 </SwiperSlide>
               ))}
             </Swiper>
