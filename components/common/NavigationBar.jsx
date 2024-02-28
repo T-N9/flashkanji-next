@@ -80,16 +80,15 @@ export function NavigationBar() {
 
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
-          <Button variant="text" size="sm" className="hidden lg:inline-block">
-            <span>Log In</span>
-          </Button>
-          <Button
-            variant="gradient"
-            size="sm"
-            className="hidden lg:inline-block"
-          >
-            <span>Sign in</span>
-          </Button>
+          <Link href={"/log-in"} legacyBehavior>
+            <Button
+              variant="gradient"
+              size="sm"
+              className="hidden lg:inline-block"
+            >
+              <span>Log In</span>
+            </Button>
+          </Link>
         </div>
         <IconButton
           variant="text"
@@ -133,12 +132,11 @@ export function NavigationBar() {
         <div className="container mx-auto">
           <div className="text-gray-700 text-center">{navList}</div>
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Sign in</span>
-            </Button>
+            <Link href={"/log-in"} legacyBehavior>
+              <Button fullWidth variant="gradient" size="sm" className="">
+                <span>Log In</span>
+              </Button>
+            </Link>
           </div>
         </div>
       </Collapse>
