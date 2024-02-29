@@ -1,30 +1,68 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+
+import { setUserInfo } from "@/store/generalSlice";
 
 import { auth, provider } from "@/firebase";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  fetchSignInMethodsForEmail,
+} from "firebase/auth";
+
+import { handleUserSignUp } from "@/services/fetchers";
+import { useSelector } from "react-redux";
 
 const hook = () => {
   const [logInDone, setLogInDone] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+
+  const { userInfo } = useSelector((state) => state.generalReducer);
+
+  const router = useRouter();
+  const dispatch = useDispatch();
 
   const handleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
+
       const user = result.user;
 
-      setUserInfo({
-        id : user.uid,
+      const donePhp = await handleUserSignUp({
+        id: user.uid,
         email: user.email,
         name: user.displayName,
       });
 
+      if (donePhp) {
+        setLogInDone(true);
+
+        localStorage.setItem(
+          "flashkanji_user",
+          JSON.stringify({
+            id: user.uid,
+            email: user.email,
+            name: user.displayName,
+            avatar: user.photoURL,
+          })
+        );
+
+        dispatch(
+          setUserInfo({
+            id: user.uid,
+            email: user.email,
+            name: user.displayName,
+            avatar: user.photoURL,
+          })
+        );
+        router.push("/profile");
+      } else {
+        setLogInDone(false);
+      }
+
       // You can store the user information in your application's state or in local storage
-      setLogInDone(true);
-      console.log({ user });
     } catch (error) {
       setLogInDone(false);
       console.error(error);

@@ -38,7 +38,7 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
     );
   }, [kanji,inputtedKanji, displayOrders, radicals, colorGroups]);
 
-  console.log({kanji, inputtedKanji})
+  // console.log({kanji, inputtedKanji})
 
 
   const handleInputKanji = (input) => {

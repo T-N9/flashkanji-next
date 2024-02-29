@@ -223,3 +223,37 @@ export const fetchJukugo_byLevelChapter = async (chapter, level) => {
     throw error;
   }
 };
+
+/* handling User Sign Up */
+export const handleUserSignUp = async (userInfo) => {
+  const url = "https://flashkanji.000webhostapp.com/api/auth.php";
+  const data = {
+    user_id: userInfo?.id,
+    user_name: userInfo?.name,
+    user_mail: userInfo?.email,
+  };
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      mode: 'cors',  
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded", // or 'application/json' if sending JSON
+      },
+      body: new URLSearchParams(data).toString(),
+    });
+
+    if (res.ok) {
+      // const result = await res; // Assuming your PHP script returns JSON
+      console.log({res})
+
+      return true;
+    } else {
+      console.error("Failed to fetch");
+      return false;
+    }
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    return false;
+  }
+};

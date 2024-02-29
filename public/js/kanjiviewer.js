@@ -118,7 +118,7 @@ function findRadicals(svg) {
     }
     rads[r].push(group.id);
   }
-  console.log(rads);
+  // console.log(rads);
   return rads;
 }
 

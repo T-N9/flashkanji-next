@@ -1,5 +1,7 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Navbar,
   Collapse,
@@ -9,15 +11,27 @@ import {
 } from "@material-tailwind/react";
 import { Logo } from "./Logo";
 
-export function NavigationBar() {
-  const [openNav, setOpenNav] = React.useState(false);
+import { setUserInfo } from "@/store/generalSlice";
 
-  React.useEffect(() => {
+export function NavigationBar() {
+  const [openNav, setOpenNav] = useState(false);
+
+  const { userInfo } = useSelector((state) => state.generalReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       window?.addEventListener(
         "resize",
         () => window?.innerWidth >= 960 && setOpenNav(false)
       );
+
+      if (!userInfo) {
+        const user =
+          window && JSON.parse(localStorage.getItem("flashkanji_user"));
+
+        dispatch(setUserInfo(user));
+      }
     }
   }, []);
 
@@ -80,15 +94,27 @@ export function NavigationBar() {
 
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
-          <Link href={"/log-in"} legacyBehavior>
-            <Button
-              variant="gradient"
-              size="sm"
-              className="hidden lg:inline-block"
-            >
-              <span>Log In</span>
-            </Button>
-          </Link>
+          {userInfo ? (
+            <Link href={"/profile"} legacyBehavior>
+              <Image
+                className="rounded-full cursor-pointer border-2 border-border_orange"
+                width={40}
+                height={40}
+                src={userInfo.avatar}
+                alt="user avatar"
+              />
+            </Link>
+          ) : (
+            <Link href={"/login"} legacyBehavior>
+              <Button
+                variant="gradient"
+                size="sm"
+                className="hidden lg:inline-block"
+              >
+                <span>Log In</span>
+              </Button>
+            </Link>
+          )}
         </div>
         <IconButton
           variant="text"
@@ -132,7 +158,7 @@ export function NavigationBar() {
         <div className="container mx-auto">
           <div className="text-gray-700 text-center">{navList}</div>
           <div className="flex items-center gap-x-1">
-            <Link href={"/log-in"} legacyBehavior>
+            <Link href={"/login"} legacyBehavior>
               <Button fullWidth variant="gradient" size="sm" className="">
                 <span>Log In</span>
               </Button>

@@ -11,6 +11,7 @@ const initialState = {
   isJukugoModalOpen: false,
   isJukugoDetailModalOpen: false,
   jukugoDetail: null,
+  userInfo : null
 };
 
 const GeneralSlice = createSlice({
@@ -41,6 +42,9 @@ const GeneralSlice = createSlice({
     setJukugoDetail: (state, action) => {
       state.jukugoDetail = action.payload;
     },
+    setUserInfo : (state, action) => {
+      state.userInfo = action.payload;
+    }
   },
 });
 
@@ -50,6 +54,7 @@ export const {
   toggleSetting,
   toggleDetailModal,
   setCurrentDetail,
+  setUserInfo,
 
   /* JukugoGround */
   toggleJukugoModal,
