@@ -4,6 +4,8 @@ import { Button } from "@material-tailwind/react";
 
 /* Icons */
 import { FaInfoCircle } from "react-icons/fa";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
+import { VscTarget } from "react-icons/vsc";
 
 /* Hook */
 import { Hook } from "./hook";
@@ -13,7 +15,17 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
 
   const { isFlippedMode } = useSelector((state) => state.flashGroundReducer);
 
-  const { handleOpen } = Hook();
+  const {
+    dispatch,
+    isDetailModalOpen,
+    isFavourite,
+    isNeedMore,
+
+    /* action */
+    handleOpen,
+    handleClickFavourite,
+    handleClickTarget,
+  } = Hook(item);
 
   useEffect(() => {
     setIsFlipped(false);
@@ -24,12 +36,14 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
   }, [isFlippedMode]);
 
   return (
-    <div
-      className={`relative`}
-    >
+    <div className={`relative`}>
       <div
         onClick={() => setIsFlipped((prev) => !prev)}
-        className={` ${isSwiped ? 'bg-white border-border_orange' : 'bg-gradient-orange-card border-border_orange border-opacity-50'} relative font-writing-1 text-black p-5 rounded-md card min-w-[150px] border-4   lg:min-w-[200px] shadow-md ${
+        className={` ${
+          isSwiped
+            ? "bg-white border-border_orange"
+            : "bg-gradient-orange-card border-border_orange border-opacity-50"
+        } relative font-writing-1 text-black p-5 rounded-md card min-w-[150px] border-4   lg:min-w-[200px] shadow-md ${
           isFlipped && "flipped"
         }`}
       >
@@ -81,6 +95,39 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
           </Button>
         </div>
       )}
+      <div className="absolute -right-1 top-12">
+        <Button
+          onClick={() => handleClickFavourite(item.id)}
+          size="sm"
+          className={`mt-2 mx-auto text-xs p-1 rounded-full ${
+            isFavourite ? "bg-[#ff6363]" : "bg-white"
+          } table`}
+          title="Mark Favourite"
+        >
+          {isFavourite ? (
+            <IoIosHeart size={20} color="#white" />
+          ) : (
+            <IoIosHeartEmpty size={20} color="#ff6363" />
+          )}
+        </Button>
+      </div>
+
+      <div className="absolute -right-1 top-[5.3rem]">
+        <Button
+          onClick={() => handleClickTarget(item.id)}
+          size="sm"
+          className={`mt-2 mx-auto text-xs p-1 rounded-full ${
+            isNeedMore ? "bg-[#ff6363]" : "bg-white"
+          } table`}
+          title="Mark Target"
+        >
+          {isNeedMore ? (
+            <VscTarget size={20} color="white" />
+          ) : (
+            <VscTarget size={20} color="#ff6363" />
+          )}
+        </Button>
+      </div>
     </div>
   );
 };

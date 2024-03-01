@@ -15,7 +15,8 @@ const initialState = {
   ) /* no of chapters by Level */,
   isPaginated: true,
   isShuffledMode: false,
-  shuffledData : []
+  shuffledData : [],
+  kanjiPracticeData : []
 };
 
 const FlashGroundSlice = createSlice({
@@ -60,6 +61,9 @@ const FlashGroundSlice = createSlice({
     },
     setShuffledData : (state, action) => {
       state.shuffledData = action.payload;
+    },
+    setKanjiPracticeData : (state, action) => {
+      state.kanjiPracticeData = action.payload;
     }
   },
 });
@@ -77,7 +81,8 @@ export const {
   setNoChapters,
   setIsPaginated,
   setShuffleMode,
-  setShuffledData
+  setShuffledData,
+  setKanjiPracticeData
 } = FlashGroundSlice.actions;
 
 export default FlashGroundSlice.reducer;

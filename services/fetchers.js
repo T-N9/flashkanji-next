@@ -226,7 +226,7 @@ export const fetchJukugo_byLevelChapter = async (chapter, level) => {
 
 /* handling User Sign Up */
 export const handleUserSignUp = async (userInfo) => {
-  const url = "https://flashkanji.000webhostapp.com/api/auth.php";
+  const url = "http://localhost/api/auth.php";
   const data = {
     user_id: userInfo?.id,
     user_name: userInfo?.name,
@@ -236,18 +236,71 @@ export const handleUserSignUp = async (userInfo) => {
   try {
     const res = await fetch(url, {
       method: "POST",
-      mode: 'cors',  
+      mode: "cors",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded", // or 'application/json' if sending JSON
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       body: new URLSearchParams(data).toString(),
     });
 
     if (res.ok) {
-      // const result = await res; // Assuming your PHP script returns JSON
-      console.log({res})
+      console.log({ res });
 
       return true;
+    } else {
+      console.error("Failed to fetch");
+      return false;
+    }
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    return false;
+  }
+};
+
+// handling User Practice Interaction
+
+export const handleUserPractice = async (actionInfo) => {
+  const url = "http://localhost/api/user_practice.php";
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(actionInfo).toString(),
+    });
+
+    if (res.ok) {
+      console.log({ res });
+
+      return true;
+    } else {
+      console.error("Failed to fetch");
+      return false;
+    }
+  } catch (error) {
+    console.error("Error during fetch:", error);
+    return false;
+  }
+};
+
+export const getUserPractice = async (id, type) => {
+  const url = `http://localhost/api/user_practice.php?user_id=${id}&item_type=${type}`;
+
+  try {
+    const res = await fetch(url, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      return data;
     } else {
       console.error("Failed to fetch");
       return false;

@@ -10,6 +10,7 @@ import {
   fetchByMultiChapters,
   fetchBySearchValue,
   shuffleByLevels,
+  getUserPractice,
 } from "@/services/fetchers";
 
 import {
@@ -26,6 +27,7 @@ import {
   setIsPaginated,
   setShuffleMode,
   setShuffledData,
+  setKanjiPracticeData,
 } from "@/store/flashGroundSlice";
 import {
   toggleFlashModal,
@@ -56,7 +58,9 @@ const Hook = () => {
     isShuffledMode,
   } = useSelector((state) => state.flashGroundReducer);
 
-  const { isSettingOpen } = useSelector((state) => state.generalReducer);
+  const { isSettingOpen, userInfo } = useSelector(
+    (state) => state.generalReducer
+  );
 
   const fetchAllData = async () => {
     dispatch(setStartLoading());
@@ -70,9 +74,21 @@ const Hook = () => {
     }
   };
 
+  const fetchUserPracticeKanji = async () => {
+    if (userInfo) {
+      const getUserPracticeKanji = await getUserPractice(userInfo?.id, "kanji");
+
+      dispatch(setKanjiPracticeData(getUserPracticeKanji));
+      // console.log({ getUserPracticeKanji });
+    }
+  };
+
+  useEffect(() => {
+    fetchUserPracticeKanji();
+  }, [userInfo, kanji]);
+
   useEffect(() => {
     fetchByChapterData(selectedChapter, level);
-    // console.log("running effect");
 
     setTimeout(() => {
       setIsIgnite(false);
