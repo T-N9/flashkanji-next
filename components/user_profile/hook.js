@@ -24,9 +24,15 @@ const hook = () => {
     }
   }, []);
 
-  useEffect(() => {}, []);
+  const handleLogOut = () => {
+    localStorage.removeItem('flashkanji_user');
+
+    location.reload();
+  }
   return {
     userInfo,
+
+    handleLogOut
   };
 };
 

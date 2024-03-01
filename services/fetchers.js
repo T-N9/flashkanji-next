@@ -226,7 +226,7 @@ export const fetchJukugo_byLevelChapter = async (chapter, level) => {
 
 /* handling User Sign Up */
 export const handleUserSignUp = async (userInfo) => {
-  const url = "http://localhost/api/auth.php";
+  const url = "https://flashkanji.000webhostapp.com/api/auth.php";
   const data = {
     user_id: userInfo?.id,
     user_name: userInfo?.name,
@@ -260,7 +260,7 @@ export const handleUserSignUp = async (userInfo) => {
 // handling User Practice Interaction
 
 export const handleUserPractice = async (actionInfo) => {
-  const url = "http://localhost/api/user_practice.php";
+  const url = "https://flashkanji.000webhostapp.com/api/user_practice.php";
 
   try {
     const res = await fetch(url, {
@@ -287,7 +287,7 @@ export const handleUserPractice = async (actionInfo) => {
 };
 
 export const getUserPractice = async (id, type) => {
-  const url = `http://localhost/api/user_practice.php?user_id=${id}&item_type=${type}`;
+  const url = `https://flashkanji.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}`;
 
   try {
     const res = await fetch(url, {
