@@ -58,7 +58,7 @@ const Hook = () => {
     isShuffledMode,
   } = useSelector((state) => state.flashGroundReducer);
 
-  const { isSettingOpen, userInfo } = useSelector(
+  const { isSettingOpen, userInfo, isFlashModalOpen } = useSelector(
     (state) => state.generalReducer
   );
 
@@ -82,6 +82,13 @@ const Hook = () => {
       // console.log({ getUserPracticeKanji });
     }
   };
+
+  useEffect(() => {
+    if(!isFlashModalOpen){
+      fetchUserPracticeKanji();
+    }
+
+  },[isFlashModalOpen])
 
   useEffect(() => {
     fetchUserPracticeKanji();
