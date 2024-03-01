@@ -72,10 +72,14 @@ export const Hook = (item) => {
 
         if (practice_item_data?.isFavourite === "1") {
           setIsFavourite(true);
+        } else {
+          setIsFavourite(false);
         }
 
         if (practice_item_data?.practice_status === "need_more") {
           setIsNeedMore(true);
+        } else {
+          setIsNeedMore(false);
         }
       }
     }

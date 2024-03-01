@@ -54,7 +54,7 @@ const JukugoGroundSlice = createSlice({
       state.isShowMeaning = !state.isShowMeaning;
     },
     setJukugoPracticeData : (state, action) => {
-      state.JukugoPracticeData = action.payload;
+      state.jukugoPracticeData = action.payload;
     }
   },
 });

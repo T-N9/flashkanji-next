@@ -9,7 +9,9 @@ export const Hook = (item) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const { isDetailModalOpen, userInfo } = useSelector((state) => state.generalReducer);
+  const { isDetailModalOpen, userInfo } = useSelector(
+    (state) => state.generalReducer
+  );
   const { kanjiPracticeData } = useSelector(
     (state) => state.flashGroundReducer
   );
@@ -19,7 +21,6 @@ export const Hook = (item) => {
 
   const handleOpen = (character) => {
     dispatch(toggleDetailModal());
-
     dispatch(setCurrentDetail(character));
   };
 
@@ -29,7 +30,7 @@ export const Hook = (item) => {
         user_id: userInfo.id,
         item_id: item_id,
         item_type: "kanji",
-        is_favourite: !isFavourite === true ? 1 : 0,
+        is_favourite: isFavourite === true ? 0 : 1,
       };
 
       const processUserPractice = await handleUserPractice(passInfo);
@@ -71,14 +72,17 @@ export const Hook = (item) => {
     if (userInfo) {
       if (isItemIdIncluded(kanjiPracticeData, item.id)) {
         const practice_item_data = getItemById(kanjiPracticeData, item.id);
-        // console.log({ practice_item_data });
 
         if (practice_item_data?.isFavourite === "1") {
           setIsFavourite(true);
+        } else {
+          setIsFavourite(false);
         }
 
         if (practice_item_data?.practice_status === "need_more") {
           setIsNeedMore(true);
+        } else {
+          setIsNeedMore(false);
         }
       }
     }

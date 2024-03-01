@@ -5,6 +5,7 @@ import {
   fetchJukugo_byLevel,
   fetchRandomJukugo_byLevel,
   fetchJukugo_byLevelChapter,
+  getUserPractice
 } from "@/services/fetchers";
 
 import {
@@ -21,6 +22,8 @@ import {
   toggleShowMeaning
 } from "@/store/jukugoGroundSlice";
 
+import { setJukugoPracticeData } from "@/store/jukugoGroundSlice";
+
 const Hook = () => {
   const dispatch = useDispatch();
 
@@ -36,6 +39,8 @@ const Hook = () => {
     level,
     isShowMeaning
   } = useSelector((state) => state.jukugoGroundReducer);
+
+  const { isJukugoModalOpen, userInfo } = useSelector((state) => state.generalReducer);
 
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
   const n4NoChapters = Array.from({ length: 20 }, (_, index) => index + 1);
@@ -125,6 +130,25 @@ const Hook = () => {
         break;
     }
   };
+
+  const fetchUserPracticeJukugo = async () => {
+    if (userInfo) {
+      const getUserPracticeJukugo = await getUserPractice(userInfo?.id, "jukugo");
+
+      dispatch(setJukugoPracticeData(getUserPracticeJukugo));
+      // console.log({ getUserPracticeJukugo });
+    }
+  };
+
+  useEffect(() => {
+    if(!isJukugoModalOpen){
+      fetchUserPracticeJukugo();
+    }
+  },[isJukugoModalOpen])
+
+  useEffect(() => {
+    fetchUserPracticeJukugo();
+  }, [userInfo, jukugo]);
 
   useEffect(() => {
     // fetchAllJukugoData();

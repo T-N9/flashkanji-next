@@ -79,20 +79,20 @@ const Hook = () => {
       const getUserPracticeKanji = await getUserPractice(userInfo?.id, "kanji");
 
       dispatch(setKanjiPracticeData(getUserPracticeKanji));
-      // console.log({ getUserPracticeKanji });
+      console.log('fetching');
     }
   };
 
-  useEffect(() => {
-    if(!isFlashModalOpen){
-      fetchUserPracticeKanji();
-    }
+  // useEffect(() => {
+  //   if(!isFlashModalOpen){
+  //     fetchUserPracticeKanji();
+  //   }
 
-  },[isFlashModalOpen])
+  // },[isFlashModalOpen])
 
   useEffect(() => {
     fetchUserPracticeKanji();
-  }, [userInfo, kanji]);
+  }, [userInfo, kanji, isFlashModalOpen]);
 
   useEffect(() => {
     fetchByChapterData(selectedChapter, level);
