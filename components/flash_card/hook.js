@@ -9,12 +9,11 @@ export const Hook = (item) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const { isDetailModalOpen } = useSelector((state) => state.generalReducer);
+  const { isDetailModalOpen, userInfo } = useSelector((state) => state.generalReducer);
   const { kanjiPracticeData } = useSelector(
     (state) => state.flashGroundReducer
   );
 
-  const { userInfo } = useSelector((state) => state.generalReducer);
   const [isFavourite, setIsFavourite] = useState(false);
   const [isNeedMore, setIsNeedMore] = useState(false);
 

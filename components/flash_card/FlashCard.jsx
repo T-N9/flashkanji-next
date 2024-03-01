@@ -16,8 +16,6 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
   const { isFlippedMode } = useSelector((state) => state.flashGroundReducer);
 
   const {
-    dispatch,
-    isDetailModalOpen,
     isFavourite,
     isNeedMore,
 

@@ -13,6 +13,7 @@ const initialState = {
   ),
   level : 3,
   isShowMeaning : true,
+  jukugoPracticeData : []
 };
 
 const JukugoGroundSlice = createSlice({
@@ -51,6 +52,9 @@ const JukugoGroundSlice = createSlice({
     },
     toggleShowMeaning : (state) => {
       state.isShowMeaning = !state.isShowMeaning;
+    },
+    setJukugoPracticeData : (state, action) => {
+      state.JukugoPracticeData = action.payload;
     }
   },
 });
@@ -66,7 +70,8 @@ export const {
   setIsPaginated,
   setNoChapters,
   setLevel,
-  toggleShowMeaning
+  toggleShowMeaning,
+  setJukugoPracticeData
 } = JukugoGroundSlice.actions;
 
 export default JukugoGroundSlice.reducer;
