@@ -97,10 +97,10 @@ export function NavigationBar() {
           {userInfo ? (
             <Link href={"/profile"} legacyBehavior>
               <Image
-                className="rounded-full cursor-pointer border-2 border-border_orange"
+                className="hidden lg:inline-block rounded-full cursor-pointer border-2 border-border_orange"
                 width={40}
                 height={40}
-                src={userInfo.avatar}
+                src={userInfo?.avatar}
                 alt="user avatar"
               />
             </Link>
@@ -157,12 +157,27 @@ export function NavigationBar() {
       <Collapse open={openNav}>
         <div className="container mx-auto">
           <div className="text-gray-700 text-center">{navList}</div>
-          <div className="flex items-center gap-x-1">
-            <Link href={"/login"} legacyBehavior>
-              <Button fullWidth variant="gradient" size="sm" className="">
-                <span>Log In</span>
-              </Button>
-            </Link>
+          <div className="flex justify-center items-center gap-x-1">
+            {userInfo ? (
+              <Link href={"/profile"} legacyBehavior>
+                <div className="flex justify-center items-center gap-2">
+                  <Image
+                    className="inline-block lg:hidden rounded-full cursor-pointer border-2 border-border_orange"
+                    width={40}
+                    height={40}
+                    src={userInfo?.avatar}
+                    alt="user avatar"
+                  />
+                  <p className="text-orange-500">{userInfo?.name}</p>
+                </div>
+              </Link>
+            ) : (
+              <Link href={"/login"} legacyBehavior>
+                <Button fullWidth variant="gradient" size="sm" className="">
+                  <span>Log In</span>
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </Collapse>
