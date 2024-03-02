@@ -244,7 +244,7 @@ export const handleUserSignUp = async (userInfo) => {
     });
 
     if (res.ok) {
-      console.log({ res });
+      // console.log({ res });
 
       return true;
     } else {
@@ -273,7 +273,7 @@ export const handleUserPractice = async (actionInfo) => {
     });
 
     if (res.ok) {
-      console.log({ res });
+      // console.log({ res });
 
       return true;
     } else {

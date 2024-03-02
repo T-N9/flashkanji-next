@@ -79,7 +79,7 @@ const Hook = () => {
       const getUserPracticeKanji = await getUserPractice(userInfo?.id, "kanji");
 
       dispatch(setKanjiPracticeData(getUserPracticeKanji));
-      console.log('fetching');
+      // console.log('fetching');
     }
   };
 
