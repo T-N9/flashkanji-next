@@ -10,7 +10,7 @@ const UserProfile = () => {
   // console.log({userInfo})
 
   return (
-    <section className="min-h-screen flex flex-col gap-2 justify-center items-center">
+    <section className="min-h-[70vh] flex flex-col gap-2 justify-center items-center">
       <div className="bg-gray-100 p-8 rounded-lg shadow-md max-w-md mx-auto">
         <Image
           src={userInfo?.avatar}
