@@ -287,26 +287,14 @@ export const handleUserPractice = async (actionInfo) => {
 };
 
 export const getUserPractice = async (id, type) => {
-  const url = `https://flashkanji.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}`;
-
   try {
-    const res = await fetch(url, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      return data;
-    } else {
-      console.error("Failed to fetch");
-      return false;
-    }
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}`
+    );
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error("Error during fetch:", error);
-    return false;
+    console.error("Error fetching Kanji data:", error);
+    throw error;
   }
 };

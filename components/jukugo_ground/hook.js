@@ -5,7 +5,7 @@ import {
   fetchJukugo_byLevel,
   fetchRandomJukugo_byLevel,
   fetchJukugo_byLevelChapter,
-  getUserPractice
+  getUserPractice,
 } from "@/services/fetchers";
 
 import {
@@ -19,7 +19,7 @@ import {
   setNoChapters,
   setIsPaginated,
   setLevel,
-  toggleShowMeaning
+  toggleShowMeaning,
 } from "@/store/jukugoGroundSlice";
 
 import { setJukugoPracticeData } from "@/store/jukugoGroundSlice";
@@ -37,10 +37,12 @@ const Hook = () => {
     noChapters,
     isPaginated,
     level,
-    isShowMeaning
+    isShowMeaning,
   } = useSelector((state) => state.jukugoGroundReducer);
 
-  const { isJukugoModalOpen, userInfo } = useSelector((state) => state.generalReducer);
+  const { isJukugoModalOpen, userInfo } = useSelector(
+    (state) => state.generalReducer
+  );
 
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
   const n4NoChapters = Array.from({ length: 20 }, (_, index) => index + 1);
@@ -132,28 +134,24 @@ const Hook = () => {
   };
 
   const fetchUserPracticeJukugo = async () => {
-    if (userInfo) {
-      const getUserPracticeJukugo = await getUserPractice(userInfo?.id, "jukugo");
-
-      dispatch(setJukugoPracticeData(getUserPracticeJukugo));
-      // console.log({ getUserPracticeJukugo });
+    try {
+      let allData = await getUserPractice(userInfo?.id, "jukugo");
+      dispatch(setJukugoPracticeData(allData));
+      // console.log("fetching");
+      // dispatch(setStopLoading());
+    } catch (error) {
+      // dispatch(setStopLoading());
     }
   };
 
   useEffect(() => {
-    if(!isJukugoModalOpen){
-      fetchUserPracticeJukugo();
-    }
-  },[isJukugoModalOpen])
+    userInfo && fetchUserPracticeJukugo();
+  }, [userInfo, isJukugoModalOpen, selectedChapter, selectedLevel]);
 
   useEffect(() => {
-    fetchUserPracticeJukugo();
-  }, [userInfo, jukugo]);
-
-  useEffect(() => {
-    // fetchAllJukugoData();
     fetchByChapterData(selectedChapter, level);
   }, []);
+
   return {
     jukugo,
     isLoading,
@@ -174,7 +172,7 @@ const Hook = () => {
     fetchByLevelData,
     fetchByChapterData,
     setIsFlippedMode,
-    toggleShowMeaning
+    toggleShowMeaning,
   };
 };
 

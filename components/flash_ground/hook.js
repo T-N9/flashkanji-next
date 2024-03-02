@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { debounce } from "lodash";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -75,28 +76,22 @@ const Hook = () => {
   };
 
   const fetchUserPracticeKanji = async () => {
-    if (userInfo) {
-      const getUserPracticeKanji = await getUserPractice(userInfo?.id, "kanji");
-
-      dispatch(setKanjiPracticeData(getUserPracticeKanji));
-      // console.log('fetching');
+    try {
+      let allData = await getUserPractice(userInfo?.id, "kanji");
+      dispatch(setKanjiPracticeData(allData));
+      // console.log('fetching')
+      // dispatch(setStopLoading());
+    } catch (error) {
+      // dispatch(setStopLoading());
     }
   };
 
-  // useEffect(() => {
-  //   if(!isFlashModalOpen){
-  //     fetchUserPracticeKanji();
-  //   }
-
-  // },[isFlashModalOpen])
-
   useEffect(() => {
-    fetchUserPracticeKanji();
-  }, [userInfo, kanji, isFlashModalOpen]);
+    userInfo && fetchUserPracticeKanji();
+  }, [userInfo,isFlashModalOpen, selectedChapter, selectedLevel]);
 
   useEffect(() => {
     fetchByChapterData(selectedChapter, level);
-
     setTimeout(() => {
       setIsIgnite(false);
     }, 3000);
@@ -156,6 +151,7 @@ const Hook = () => {
       if (chapter > 0) {
         let allData = await fetchByChapter(chapter, level);
         dispatch(setKanji(allData));
+        // console.log("kanji");
         dispatch(setStopLoading());
         // console.log({ chapter, level });
       } else {
