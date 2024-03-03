@@ -7,6 +7,8 @@ import { Button } from "@material-tailwind/react";
 /* Components */
 import { FlashDetailModal } from "../flash_detail_modal/FlashDetailModal";
 import FavouriteItems from "../favourite_items/FavouriteItems";
+import TargetedItems from "../targeted_items/TargetedItems";
+import { JukugoDetailModal } from "../jukugo_detail_modal/JukugoDetailModal";
 
 const UserProfile = () => {
   const { userInfo, handleLogOut } = hook();
@@ -37,7 +39,9 @@ const UserProfile = () => {
         </div>
       </section>
       <FavouriteItems />
+      <TargetedItems />
       <FlashDetailModal />
+      <JukugoDetailModal />
     </>
   );
 };

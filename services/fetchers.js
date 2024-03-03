@@ -311,3 +311,16 @@ export const getUserFavourite = async (id, type) => {
     throw error;
   }
 };
+
+export const getUserTarget = async (id, type) => {
+  try {
+    const response = await fetch(
+      `https://flashkanji.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}&for_target`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Kanji data:", error);
+    throw error;
+  }
+};
