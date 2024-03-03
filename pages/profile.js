@@ -1,8 +1,16 @@
+import Head from "next/head"
 import UserProfile from "@/components/user_profile/UserProfile"
 
 const profile = () => {
   return (
-    <div><UserProfile/></div>
+    <>
+      <Head>
+        <title>
+          Your Profile
+        </title>
+      </Head>
+      <div><UserProfile/></div>
+    </>
   )
 }
 
