@@ -110,6 +110,7 @@ export function NavigationBar() {
                 variant="gradient"
                 size="sm"
                 className="hidden lg:inline-block"
+                color="blue-gray"
               >
                 <span>Log In</span>
               </Button>
@@ -173,7 +174,7 @@ export function NavigationBar() {
               </Link>
             ) : (
               <Link href={"/login"} legacyBehavior>
-                <Button fullWidth variant="gradient" size="sm" className="">
+                <Button color="blue-gray" fullWidth variant="gradient" size="sm" className="">
                   <span>Log In</span>
                 </Button>
               </Link>

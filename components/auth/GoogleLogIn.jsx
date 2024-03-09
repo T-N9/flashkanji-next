@@ -20,7 +20,7 @@ const GoogleLogIn = () => {
 
   return (
     <div>
-      {!userInfo && <Button onClick={handleLogin}>Log in with Google</Button>}
+      {!userInfo && <Button color="blue-gray" onClick={handleLogin}>Log in with Google</Button>}
     </div>
   );
 };
