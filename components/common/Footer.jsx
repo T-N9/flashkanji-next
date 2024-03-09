@@ -27,11 +27,22 @@ export function Footer() {
           </Link>
         </li>
         <li>
+        <Link href={"/kanji"}>
+          <Typography
+            href="/kanji"
+            color="blue-gray"
+            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500 font-english"
+          >
+            Kanji
+          </Typography>
+        </Link>
+      </li>
+        <li>
           <Link href={"/quiz"}>
             <Typography
               href="/quiz"
               color="blue-gray"
-              className="rainbow-text font-extrabold drop-shadow-lg transition-colors hover:text-orange-500 focus:text-orange-500"
+              className="font-extrabold drop-shadow-lg transition-colors hover:text-orange-500 focus:text-orange-500"
             >
               Quiz
             </Typography>

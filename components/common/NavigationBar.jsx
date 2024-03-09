@@ -65,7 +65,7 @@ export function NavigationBar() {
           <Typography
             href="/"
             color="blue-gray"
-            className=" rainbow-text font-extrabold drop-shadow-lg transition-colors hover:text-blue-500 focus:text-blue-500"
+            className=" font-extrabold drop-shadow-lg transition-colors hover:text-blue-500 focus:text-blue-500"
           >
             Quiz
           </Typography>
