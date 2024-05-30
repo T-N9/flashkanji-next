@@ -1,4 +1,4 @@
-import hook from "./hook";
+import useContainer from "./useContainer";
 import Link from "next/link";
 
 /* components */
@@ -6,7 +6,7 @@ import FlashCard from "../flash_card/FlashCard";
 import JukugoCard from "../jukugo_card/JukugoCard";
 
 const TargetedItems = () => {
-  const { kanjiItems, jukugoItems } = hook();
+  const { kanjiItems, jukugoItems } = useContainer();
 
   return (
     <section className="bg-orange-50/50 py-5">

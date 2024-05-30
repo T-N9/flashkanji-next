@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleJukugoDetailModal, setJukugoDetail } from "@/store/generalSlice";
 
-export const Hook = () => {
+export const useContainer = () => {
   const dispatch = useDispatch();
 
   const handleOpen = (character) => {

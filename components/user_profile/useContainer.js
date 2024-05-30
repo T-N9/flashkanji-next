@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { setUserInfo } from "@/store/generalSlice";
 
-const hook = () => {
+const useContainer = () => {
   const { userInfo } = useSelector((state) => state.generalReducer);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -36,4 +36,4 @@ const hook = () => {
   };
 };
 
-export default hook;
+export default useContainer;

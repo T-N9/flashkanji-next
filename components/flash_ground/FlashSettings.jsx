@@ -18,7 +18,7 @@ import {
 } from "@material-tailwind/react";
 
 /* Hook */
-import Hook from "./hook";
+import useContainer from "./useContainer";
 import { setShuffleMode } from "@/store/flashGroundSlice";
 
 export const FlashSettings = () => {
@@ -50,7 +50,7 @@ export const FlashSettings = () => {
     toggleSetting,
     shuffleByLevelsData,
     setIsPaginated,
-  } = Hook();
+  } = useContainer();
   return (
     <section
       className={`container bg-gradient-orange-card z-[5000] border-2 border-orange-400 relative flex flex-col gap-3 justify-center items-center bg-white rounded-md shadow transform duration-300 

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 /* actions */
 import { toggleJukugoModal } from "@/store/generalSlice";
 
-export const Hook = () => {
+export const useContainer = () => {
   const { jukugo, isLoading } =
     useSelector((state) => state.jukugoGroundReducer);
 

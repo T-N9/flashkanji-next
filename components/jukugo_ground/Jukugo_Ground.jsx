@@ -1,4 +1,4 @@
-import Hook from "./hook";
+import useContainer from "./useContainer";
 
 import { JukugoSetting } from "./JukugoSetting";
 import JukugoCard from "../jukugo_card/JukugoCard";
@@ -6,7 +6,7 @@ import { LoadingGround } from "../common/LoadingGround";
 import { SpeedDialMenu } from "../common/SpeedDialMenu";
 
 export const Jukugo_Ground = () => {
-  const { jukugo, isLoading } = Hook();
+  const { jukugo, isLoading } = useContainer();
 
   return (
     <section className="relative flex min-h-screen flex-col items-center p-4">

@@ -1,4 +1,4 @@
-import Hook from "./hook";
+import useContainer from "./useContainer";
 
 /* Compoents */
 import { Select, Option, Button, Switch } from "@material-tailwind/react";
@@ -29,7 +29,7 @@ export const JukugoSetting = () => {
     fetchByChapterData,
     setIsFlippedMode,
     toggleShowMeaning,
-  } = Hook();
+  } = useContainer();
 
   return (
     <section

@@ -8,7 +8,7 @@ const Jukugo = () => {
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#8AB17D" />
@@ -25,7 +25,7 @@ const Jukugo = () => {
           content="learn Kanji, Japanese characters, FlashKanji, memorization, interactive flashcards, reading Kanji"
         />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charSet=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content="Te Nyain Moe Lwin" />
         <meta property="og:locale" content="en-US" />

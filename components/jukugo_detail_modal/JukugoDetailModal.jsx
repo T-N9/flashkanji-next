@@ -6,7 +6,7 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 
-import { Hook } from "./hook";
+import { useContainer } from "./useContainer";
 
 import KanjiStrokeViewer from "../kanji_stroke_viewer/KanjiStrokeViewer";
 import { KanjiGif } from "../kanji_gif/KanjiGif";
@@ -18,7 +18,7 @@ export const JukugoDetailModal = () => {
     currentStrokeWord,
     setCurrentStrokeWord,
     handleOpen,
-  } = Hook();
+  } = useContainer();
 
   return (
     <>

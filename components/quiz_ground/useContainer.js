@@ -19,7 +19,7 @@ import {
   setQuizMode,
 } from "@/store/quizGroundSlice";
 
-const Hook = () => {
+const useContainer = () => {
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
   const n4NoChapters = Array.from({ length: 20 }, (_, index) => index + 1);
 
@@ -125,4 +125,4 @@ const Hook = () => {
   };
 };
 
-export default Hook;
+export default useContainer;

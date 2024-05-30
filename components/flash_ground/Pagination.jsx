@@ -3,7 +3,7 @@ import { Button, IconButton } from "@material-tailwind/react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
 /* Hook */
-import Hook from "./hook";
+import useContainer from "./useContainer";
 
 export function Pagination() {
   const {
@@ -19,7 +19,7 @@ export function Pagination() {
     setKanji,
     isShuffledMode,
     isLoading,
-  } = Hook();
+  } = useContainer();
 
   const [currentPages, setCurrentPages] = React.useState([]);
 

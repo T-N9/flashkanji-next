@@ -7,7 +7,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { VscTarget } from "react-icons/vsc";
 
-import { Hook } from "./hook";
+import { useContainer } from "./useContainer";
 
 const JukugoCard = ({ item, isSwiped = false }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -23,7 +23,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
     handleOpen,
     handleClickFavourite,
     handleClickTarget,
-  } = Hook(item);
+  } = useContainer(item);
 
   useEffect(() => {
     setIsFlipped(false);

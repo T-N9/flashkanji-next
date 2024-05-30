@@ -1,4 +1,3 @@
-import { debounce } from "lodash";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -36,7 +35,7 @@ import {
   toggleJukugoModal,
 } from "@/store/generalSlice";
 
-const Hook = () => {
+const useContainer = () => {
   const n5NoChapters = Array.from({ length: 11 }, (_, index) => index + 1);
   const n4NoChapters = Array.from({ length: 20 }, (_, index) => index + 1);
   const n3NoChapters = Array.from({ length: 42 }, (_, index) => index + 1);
@@ -297,4 +296,4 @@ const Hook = () => {
   };
 };
 
-export default Hook;
+export default useContainer;

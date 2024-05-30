@@ -24,7 +24,7 @@ import {
 
 import { setJukugoPracticeData } from "@/store/jukugoGroundSlice";
 
-const Hook = () => {
+const useContainer = () => {
   const dispatch = useDispatch();
 
   const {
@@ -176,4 +176,4 @@ const Hook = () => {
   };
 };
 
-export default Hook;
+export default useContainer;

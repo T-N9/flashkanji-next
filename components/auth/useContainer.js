@@ -14,7 +14,7 @@ import {
 import { handleUserSignUp } from "@/services/fetchers";
 import { useSelector } from "react-redux";
 
-const hook = () => {
+const useContainer = () => {
   const [logInDone, setLogInDone] = useState(false);
 
   const { userInfo } = useSelector((state) => state.generalReducer);
@@ -77,4 +77,4 @@ const hook = () => {
   };
 };
 
-export default hook;
+export default useContainer;

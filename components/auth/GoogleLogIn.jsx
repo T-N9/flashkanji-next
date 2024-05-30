@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import hook from "./hook";
+import useContainer from "./useContainer";
 import { Button } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
 
@@ -8,7 +8,7 @@ const GoogleLogIn = () => {
     userInfo,
 
     handleLogin,
-  } = hook();
+  } = useContainer();
 
   const router = useRouter();
 

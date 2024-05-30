@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation, Keyboard } from "swiper/modules";
 
 /* Hook */
-import { Hook } from "./hook";
+import { useContainer } from "./useContainer";
 
 /* Component */
 import JukugoCard from "../jukugo_card/JukugoCard";
@@ -24,7 +24,7 @@ export const JukugoSwiperModal = () => {
 
     /* action */
     toggleJukugoModal
-  } = Hook();
+  } = useContainer();
 
   return (
     <>

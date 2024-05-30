@@ -28,7 +28,7 @@ export default function Landing() {
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#E19A63" />
@@ -45,7 +45,7 @@ export default function Landing() {
           content="learn Kanji, Japanese characters, FlashKanji, memorization, interactive flashcards, reading Kanji"
         />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charSet=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content="Te Nyain Moe Lwin" />
         <meta property="og:locale" content="en-US" />
@@ -169,7 +169,7 @@ export default function Landing() {
                     Track Your Progress
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Mark cards as "learned" or "need more practice" to track
+                    Mark cards as &quot;learned&quot; or &quot;need more practice&quot; to track
                     your progress.
                   </p>
                 </div>
@@ -355,7 +355,7 @@ export default function Landing() {
                   </div>
                   <div className="mx-auto flex flex-col gap-3 w-full p-4 sm:p-8">
                     <p className="">
-                      Together, let's build a community dedicated to making
+                      Together, let&apos;s build a community dedicated to making
                       Kanji learning accessible and enjoyable for everyone! 🀄🌐
                     </p>
                     <a href="mailto:tenyainmoelwin@gmail.com" target="_blank">

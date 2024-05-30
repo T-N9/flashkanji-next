@@ -12,11 +12,11 @@ import { IoMdSettings } from "react-icons/io";
 import { GoPlus } from "react-icons/go";
 
 /* Hook */
-import Hook from "../flash_ground/hook";
+import useContainer from "../flash_ground/useContainer";
 
 export function SpeedDialMenu({ mode = 1 }) {
   const { dispatch, toggleFlashModal, toggleSetting, toggleJukugoModal } =
-    Hook();
+    useContainer();
 
   return (
     <>

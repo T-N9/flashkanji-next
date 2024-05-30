@@ -8,7 +8,7 @@ import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { VscTarget } from "react-icons/vsc";
 
 /* Hook */
-import { Hook } from "./hook";
+import { useContainer } from "./useContainer";
 
 const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -23,7 +23,7 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
     handleOpen,
     handleClickFavourite,
     handleClickTarget,
-  } = Hook(item);
+  } = useContainer(item);
 
   useEffect(() => {
     setIsFlipped(false);

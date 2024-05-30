@@ -8,7 +8,7 @@ import {
   increaseAnsweredCount,
 } from "@/store/quizGroundSlice";
 
-const Hook = (rightAnswer) => {
+const useContainer = (rightAnswer) => {
   const [currentAnswer, setCurrentAnswer] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [markOfItem, setMarkOfItem] = useState(0);
@@ -48,4 +48,4 @@ const Hook = (rightAnswer) => {
   };
 };
 
-export default Hook;
+export default useContainer;

@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation, Keyboard } from "swiper/modules";
 
 /* Hook */
-import { Hook } from "./hook";
+import { useContainer } from "./useContainer";
 
 /* Component */
 import FlashCard from "../flash_card/FlashCard";
@@ -25,7 +25,7 @@ export const FlashSwiperModal = () => {
     dispatch,
     /* action */
     toggleFlashModal,
-  } = Hook();
+  } = useContainer();
 
   return (
     <>

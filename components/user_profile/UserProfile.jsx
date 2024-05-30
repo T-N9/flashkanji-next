@@ -1,4 +1,4 @@
-import hook from "./hook";
+import useContainer from "./useContainer";
 
 import Image from "next/image";
 
@@ -11,7 +11,7 @@ import TargetedItems from "../targeted_items/TargetedItems";
 import { JukugoDetailModal } from "../jukugo_detail_modal/JukugoDetailModal";
 
 const UserProfile = () => {
-  const { userInfo, handleLogOut } = hook();
+  const { userInfo, handleLogOut } = useContainer();
 
   // console.log({userInfo})
 

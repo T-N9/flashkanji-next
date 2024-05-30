@@ -13,7 +13,7 @@ import {
 import { QuizItem } from "../quiz_item/QuizItem";
 
 /* Hook */
-import Hook from "./hook";
+import useContainer from "./useContainer";
 
 export const Quiz_Ground = () => {
   const {
@@ -44,13 +44,13 @@ export const Quiz_Ground = () => {
     handleQuizSubmit,
     handleQuizQuit,
     setQuizMode,
-  } = Hook();
+  } = useContainer();
   return (
     <section className="relative flex bg-light min-h-screen flex-col items-center p-4">
       {!isQuizReady ? (
         <>
           <h1 className="text-4xl font-english text-center font-bold text-info">
-            Let's practice with FlashQuiz!
+            Let&apos;s practice with FlashQuiz!
           </h1>
           <p className="">今、漢字を練習しましょう。</p>
           <div className="mt-5 w-full flex flex-col justify-center items-center">

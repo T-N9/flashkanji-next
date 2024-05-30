@@ -1,27 +1,23 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleDetailModal, setCurrentDetail } from "@/store/generalSlice";
+import { toggleJukugoDetailModal, setJukugoDetail } from "@/store/generalSlice";
 import { useRouter } from "next/router";
 
 import { handleUserPractice } from "@/services/fetchers";
 
-export const Hook = (item) => {
+export const useContainer = (item) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const { isDetailModalOpen, userInfo } = useSelector(
-    (state) => state.generalReducer
-  );
-  const { kanjiPracticeData } = useSelector(
-    (state) => state.flashGroundReducer
-  );
-
+  const { isJukugoDetailModalOpen, userInfo } = useSelector((state) => state.generalReducer);
+  const { isShowMeaning,jukugoPracticeData } = useSelector((state) => state.jukugoGroundReducer);
   const [isFavourite, setIsFavourite] = useState(false);
   const [isNeedMore, setIsNeedMore] = useState(false);
 
-  const handleOpen = (character) => {
-    dispatch(toggleDetailModal());
-    dispatch(setCurrentDetail(character));
+  const handleOpen = (word) => {
+    dispatch(toggleJukugoDetailModal());
+
+    dispatch(setJukugoDetail(word));
   };
 
   const handleClickFavourite = async (item_id) => {
@@ -29,8 +25,8 @@ export const Hook = (item) => {
       let passInfo = {
         user_id: userInfo.id,
         item_id: item_id,
-        item_type: "kanji",
-        is_favourite: isFavourite === true ? 0 : 1,
+        item_type: "jukugo",
+        is_favourite: !isFavourite === true ? 1 : 0,
       };
 
       const processUserPractice = await handleUserPractice(passInfo);
@@ -46,7 +42,7 @@ export const Hook = (item) => {
       let passInfo = {
         user_id: userInfo.id,
         item_id: item_id,
-        item_type: "kanji",
+        item_type: "jukugo",
         practice_status: !isNeedMore === true ? "need_more" : "completed",
       };
 
@@ -70,8 +66,9 @@ export const Hook = (item) => {
 
   useEffect(() => {
     if (userInfo) {
-      if (isItemIdIncluded(kanjiPracticeData, item.id)) {
-        const practice_item_data = getItemById(kanjiPracticeData, item.id);
+      if (isItemIdIncluded(jukugoPracticeData, item.id)) {
+        const practice_item_data = getItemById(jukugoPracticeData, item.id);
+        // console.log({ practice_item_data });
 
         if (practice_item_data?.isFavourite === "1") {
           setIsFavourite(true);
@@ -86,11 +83,12 @@ export const Hook = (item) => {
         }
       }
     }
-  }, [kanjiPracticeData]);
+  }, [jukugoPracticeData]);
 
   return {
     dispatch,
-    isDetailModalOpen,
+    isJukugoDetailModalOpen,
+    isShowMeaning,
     isFavourite,
     isNeedMore,
 

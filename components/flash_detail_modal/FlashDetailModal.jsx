@@ -9,7 +9,7 @@ import {
 import { Spinner } from "@material-tailwind/react";
 
 /* Hook */
-import { Hook } from "./hook";
+import { useContainer } from "./useContainer";
 import { KanjiGif } from "../kanji_gif/KanjiGif";
 
 const KanjiVariants = ({ variants }) => {
@@ -46,7 +46,7 @@ export function FlashDetailModal() {
 
     /* action */
     handleOpen,
-  } = Hook();
+  } = useContainer();
 
   // console.log({ jukugoData });
 

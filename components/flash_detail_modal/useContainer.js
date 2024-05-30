@@ -5,7 +5,7 @@ import { toggleDetailModal, setCurrentDetail } from "@/store/generalSlice";
 /* fetchers */
 import { fetchCharData, fetchWordData } from "@/services/kanjiapi";
 import { fetchJukugo_byKanjis } from "@/services/fetchers";
-export const Hook = () => {
+export const useContainer = () => {
   const dispatch = useDispatch();
   const [charData, setCharData] = useState(null);
   const [wordData, setWordData] = useState(null);

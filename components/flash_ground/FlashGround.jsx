@@ -8,7 +8,7 @@ import { Pagination } from "./Pagination";
 import { SpeedDialMenu } from "../common/SpeedDialMenu";
 
 /* Hook */
-import Hook from "./hook";
+import useContainer from "./useContainer";
 
 export default function FlashGround() {
   const {
@@ -19,7 +19,7 @@ export default function FlashGround() {
     isSettingOpen,
     isPaginated,
     isIgnite
-  } = Hook();
+  } = useContainer();
 
   return (
     <section

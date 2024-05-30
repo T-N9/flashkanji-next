@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserTarget, getUserPractice } from "@/services/fetchers";
+import { getUserFavourite, getUserPractice } from "@/services/fetchers";
 import { setKanjiPracticeData } from "@/store/flashGroundSlice";
 import { setJukugoPracticeData } from "@/store/jukugoGroundSlice";
 
-const hook = () => {
+const useContainer = () => {
   const [kanjiItems, setKanjiItems] = useState(null);
   const [jukugoItems, setJukugoItems] = useState(null);
 
@@ -15,7 +15,7 @@ const hook = () => {
     try {
       let allData = await getUserPractice(userInfo?.id, "kanji");
       dispatch(setKanjiPracticeData(allData));
-      console.log("fetching");
+      // console.log("fetching");
       // dispatch(setStopLoading());
     } catch (error) {
       // dispatch(setStopLoading());
@@ -26,7 +26,7 @@ const hook = () => {
     try {
       let allData = await getUserPractice(userInfo?.id, "jukugo");
       dispatch(setJukugoPracticeData(allData));
-      console.log("fetching");
+      // console.log("fetching");
       // dispatch(setStopLoading());
     } catch (error) {
       // dispatch(setStopLoading());
@@ -35,14 +35,14 @@ const hook = () => {
 
   const getFavouriteKanjis = async () => {
     try {
-      const data = await getUserTarget(userInfo?.id, "kanji");
+      const data = await getUserFavourite(userInfo?.id, "kanji");
       setKanjiItems(data);
       // console.log({data})
     } catch (error) {}
   };
   const getFavouriteJukugos = async () => {
     try {
-      const data = await getUserTarget(userInfo?.id, "jukugo");
+      const data = await getUserFavourite(userInfo?.id, "jukugo");
       setJukugoItems(data);
       // console.log({data})
     } catch (error) {}
@@ -68,4 +68,4 @@ const hook = () => {
   };
 };
 
-export default hook;
+export default useContainer;

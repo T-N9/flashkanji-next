@@ -4,7 +4,7 @@ import React from "react";
 import { Checkbox } from "@material-tailwind/react";
 
 /* Hook */
-import Hook from "./hook";
+import useContainer from "./useContainer";
 
 export const QuizItem = ({ quizItem, number, isSubmitted }) => {
   const {
@@ -15,7 +15,7 @@ export const QuizItem = ({ quizItem, number, isSubmitted }) => {
     setCurrentAnswer,
     setIsAnswered,
     handleIsAnswered,
-  } = Hook(quizItem.correct_option);
+  } = useContainer(quizItem.correct_option);
 
   return (
     <div className="p-5 relative bg-white rounded-md flex flex-col md:flex-row justify-center items-center gap-4">
