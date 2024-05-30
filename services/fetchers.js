@@ -1,6 +1,6 @@
 export const fetchAll = async () => {
   try {
-    const response = await fetch("https://flashkanji.000webhostapp.com/api/");
+    const response = await fetch("https://flash-kanji-tn.000webhostapp.com/api/");
     const data = await response.json();
     return data;
   } catch (error) {
@@ -12,7 +12,7 @@ export const fetchAll = async () => {
 export const shuffleAll = async () => {
   try {
     const response = await fetch(
-      "https://flashkanji.000webhostapp.com/api/?rand=0"
+      "https://flash-kanji-tn.000webhostapp.com/api/?rand=0"
     );
     const data = await response.json();
     return data;
@@ -25,7 +25,7 @@ export const shuffleAll = async () => {
 export const shuffleByLevels = async (levels) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/shuffle.php?levels=${levels}`
+      `https://flash-kanji-tn.000webhostapp.com/api/shuffle.php?levels=${levels}`
     );
     const data = await response.json();
     return data;
@@ -38,7 +38,7 @@ export const shuffleByLevels = async (levels) => {
 export const fetchByChapter = async (chapter, level) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/?level=${level}&chapter=${chapter}`
+      `https://flash-kanji-tn.000webhostapp.com/api/?level=${level}&chapter=${chapter}`
     );
     const data = await response.json();
     return data;
@@ -51,7 +51,7 @@ export const fetchByChapter = async (chapter, level) => {
 export const fetchByLevel = async (level) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/?level=${level}`
+      `https://flash-kanji-tn.000webhostapp.com/api/?level=${level}`
     );
     const data = await response.json();
     return data;
@@ -64,7 +64,7 @@ export const fetchByLevel = async (level) => {
 export const randomData = async (count) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/?rand=${count}`
+      `https://flash-kanji-tn.000webhostapp.com/api/?rand=${count}`
     );
     const data = await response.json();
     return data;
@@ -77,7 +77,7 @@ export const randomData = async (count) => {
 export const fetchByMultiChapters = async (chapters, level) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/?chapters=${chapters}&level=${level}`
+      `https://flash-kanji-tn.000webhostapp.com/api/?chapters=${chapters}&level=${level}`
     );
     const data = await response.json();
     return data;
@@ -90,7 +90,7 @@ export const fetchByMultiChapters = async (chapters, level) => {
 export const fetchBySearchValue = async (value) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/?search=${value}`
+      `https://flash-kanji-tn.000webhostapp.com/api/?search=${value}`
     );
     const data = await response.json();
     return data;
@@ -114,7 +114,7 @@ export const fetchQuiz_charOn_chapter_level = async (
 ) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/quiz.php?chapter=${chapter}&level=${level}&mode=${mode}`
+      `https://flash-kanji-tn.000webhostapp.com/api/quiz.php?chapter=${chapter}&level=${level}&mode=${mode}`
     );
     const data = await response.json();
     return data;
@@ -128,7 +128,7 @@ export const fetchQuiz_charOn_chapter_level = async (
 export const fetchQuiz_charOn_level = async (level, mode = 1) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/quiz.php?level=${level}&mode=${mode}`
+      `https://flash-kanji-tn.000webhostapp.com/api/quiz.php?level=${level}&mode=${mode}`
     );
     const data = await response.json();
     return data;
@@ -142,7 +142,7 @@ export const fetchQuiz_charOn_level = async (level, mode = 1) => {
 export const fetchQuiz_charOn_rand = async (count, mode = 1) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/quiz.php?rand=${count}&mode=${mode}`
+      `https://flash-kanji-tn.000webhostapp.com/api/quiz.php?rand=${count}&mode=${mode}`
     );
     const data = await response.json();
     return data;
@@ -161,7 +161,7 @@ Jukugo Fetchers
 export const fetchJukugo_all = async () => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/jukugo.php`
+      `https://flash-kanji-tn.000webhostapp.com/api/jukugo.php`
     );
     const data = await response.json();
     return data;
@@ -175,7 +175,7 @@ export const fetchJukugo_all = async () => {
 export const fetchJukugo_byLevel = async (level = 5) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/jukugo.php?level=${level}`
+      `https://flash-kanji-tn.000webhostapp.com/api/jukugo.php?level=${level}`
     );
     const data = await response.json();
     return data;
@@ -188,7 +188,7 @@ export const fetchJukugo_byLevel = async (level = 5) => {
 export const fetchRandomJukugo_byLevel = async (count = 20, level = 3) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/jukugo.php?level=${level}&rand=${count}`
+      `https://flash-kanji-tn.000webhostapp.com/api/jukugo.php?level=${level}&rand=${count}`
     );
     const data = await response.json();
     return data;
@@ -201,7 +201,7 @@ export const fetchRandomJukugo_byLevel = async (count = 20, level = 3) => {
 export const fetchJukugo_byKanjis = async (kanjis) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/jukugo.php?kanjis=${kanjis}`
+      `https://flash-kanji-tn.000webhostapp.com/api/jukugo.php?kanjis=${kanjis}`
     );
     const data = await response.json();
     return data;
@@ -214,7 +214,7 @@ export const fetchJukugo_byKanjis = async (kanjis) => {
 export const fetchJukugo_byLevelChapter = async (chapter, level) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/jukugo.php?level=${level}&chapter=${chapter}`
+      `https://flash-kanji-tn.000webhostapp.com/api/jukugo.php?level=${level}&chapter=${chapter}`
     );
     const data = await response.json();
     return data;
@@ -226,7 +226,7 @@ export const fetchJukugo_byLevelChapter = async (chapter, level) => {
 
 /* handling User Sign Up */
 export const handleUserSignUp = async (userInfo) => {
-  const url = "https://flashkanji.000webhostapp.com/api/auth.php";
+  const url = "https://flash-kanji-tn.000webhostapp.com/api/auth.php";
   const data = {
     user_id: userInfo?.id,
     user_name: userInfo?.name,
@@ -260,7 +260,7 @@ export const handleUserSignUp = async (userInfo) => {
 // handling User Practice Interaction
 
 export const handleUserPractice = async (actionInfo) => {
-  const url = "https://flashkanji.000webhostapp.com/api/user_practice.php";
+  const url = "https://flash-kanji-tn.000webhostapp.com/api/user_practice.php";
 
   try {
     const res = await fetch(url, {
@@ -289,7 +289,7 @@ export const handleUserPractice = async (actionInfo) => {
 export const getUserPractice = async (id, type) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}`
+      `https://flash-kanji-tn.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}`
     );
     const data = await response.json();
     return data;
@@ -302,7 +302,7 @@ export const getUserPractice = async (id, type) => {
 export const getUserFavourite = async (id, type) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}&for_favourite`
+      `https://flash-kanji-tn.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}&for_favourite`
     );
     const data = await response.json();
     return data;
@@ -315,7 +315,7 @@ export const getUserFavourite = async (id, type) => {
 export const getUserTarget = async (id, type) => {
   try {
     const response = await fetch(
-      `https://flashkanji.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}&for_target`
+      `https://flash-kanji-tn.000webhostapp.com/api/user_practice.php?user_id=${id}&item_type=${type}&for_target`
     );
     const data = await response.json();
     return data;
