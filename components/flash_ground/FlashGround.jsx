@@ -49,7 +49,7 @@ export default function FlashGround() {
               </div>
             ) : (
               <div className="w-full h-[415px] flex justify-center items-center">
-                <h1 className="text-orange-600 text-3xl">Coming Soon</h1>
+                <h1 className="text-orange-500 text-3xl">Coming Soon</h1>
               </div>
             )}
           </>

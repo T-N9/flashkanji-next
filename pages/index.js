@@ -2,12 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import { Button } from "@material-tailwind/react";
-import FlashCard from "@/components/flash_card/FlashCard";
-import { FlashDetailModal } from "@/components/flash_detail_modal/FlashDetailModal";
-
+import Button from "@/components/ui/button/Button";
+// import FlashCard from "@/components/flash_card/FlashCard";
+// import { FlashDetailModal } from "@/components/flash_detail_modal/FlashDetailModal";
 import { randomData } from "@/services/fetchers";
-import KanjiStrokeViewer from "@/components/kanji_stroke_viewer/KanjiStrokeViewer";
+// import KanjiStrokeViewer from "@/components/kanji_stroke_viewer/KanjiStrokeViewer";
 
 export default function Landing() {
   const [exampleKanji, setExampleKanji] = useState([]);
@@ -99,12 +98,12 @@ export default function Landing() {
       <div className="flex flex-col min-h-screen">
         <main className="flex-1">
           <section className="w-full py-12 md:py-14 lg:py-16">
-            <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-[1280px] mx-auto px-4 md:px-6">
               <div className="grid gap-10 md:gap-16 lg:grid-cols-2">
                 <div className="space-y-4 flex flex-col justify-center">
                   <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
                     Master Kanji with{" "}
-                    <span className="text-orange-600">
+                    <span className="text-orange-500">
                       <span className="outlined_title tracking-wide">
                         FlashKanji
                       </span>
@@ -118,14 +117,14 @@ export default function Landing() {
                   </p>
                   <div className="space-x-4">
                     <Link className="" href="/kanji">
-                      <Button className="bg-orange-600">Start Learning</Button>
+                      <Button >Start Learning</Button>
                     </Link>
                   </div>
                 </div>
-                <div>
+                <div className="flex justify-center lg:justify-end">
                   <Image
                     alt="jukugo"
-                    className="mx-auto shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
+                    className=" shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
                     height="500"
                     src="/assets/hero-1.jpg"
                     width="500"
@@ -135,7 +134,7 @@ export default function Landing() {
             </div>
           </section>
           <section className="w-full py-12 md:py-14 lg:py-16">
-            <div className="container mx-auto space-y-12 px-4 md:px-6">
+            <div className="max-w-[1280px] mx-auto space-y-12 px-4 md:px-6">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
@@ -143,7 +142,7 @@ export default function Landing() {
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                     Learn with Interactive{" "}
-                    <span className="text-orange-600">Flashcards</span>
+                    <span className="text-orange-500">Flashcards</span>
                   </h2>
                   <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                     Our flashcards provide a fun and interactive way to learn
@@ -156,7 +155,7 @@ export default function Landing() {
               </div>
               <div className="mx-auto text-center grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
                 <div className="grid gap-1">
-                  <h3 className="text-lg font-bold text-orange-600">
+                  <h3 className="text-lg font-bold text-orange-500">
                     Interactive Learning
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -165,7 +164,7 @@ export default function Landing() {
                   </p>
                 </div>
                 <div className="grid gap-1">
-                  <h3 className="text-lg font-bold text-orange-600">
+                  <h3 className="text-lg font-bold text-orange-500">
                     Track Your Progress
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -174,7 +173,7 @@ export default function Landing() {
                   </p>
                 </div>
                 <div className="grid gap-1">
-                  <h3 className="text-lg font-bold text-orange-600">
+                  <h3 className="text-lg font-bold text-orange-500">
                     Personalized Learning
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -189,41 +188,41 @@ export default function Landing() {
                   Example kanjis
                 </div>
                 <div className="mx-auto grid items-start gap-4 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-3xl lg:grid-cols-3 grid-cols-2">
-                  {exampleKanji?.map((kanji, index) => {
+                  {/* {exampleKanji?.map((kanji, index) => {
                     return <FlashCard key={index} item={kanji}/>;
-                  })}
+                  })} */}
                 </div>
               </div>
             </div>
           </section>
           <section className="w-full py-12 md:py-14 lg:py-16 bg-orange-50 dark:bg-gray-800">
-            <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
+            <div className="max-w-[1280px] mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
               <div className="space-y-3">
                 <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
                   Orders
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Understand{" "}
-                  <span className="text-orange-600">Stroke Orders</span>
+                  <span className="text-orange-500">Stroke Orders</span>
                 </h2>
                 <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                   Learn the correct stroke order for each kanji in one touch
                 </p>
               </div>
               <div className="mx-auto w-full max-w-sm space-y-2">
-                <KanjiStrokeViewer kanji={"普"} isSearch={true} />
+                {/* <KanjiStrokeViewer kanji={"普"} isSearch={true} /> */}
               </div>
             </div>
           </section>
           <section className="w-full py-12 md:py-14 lg:py-16">
-            <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-[1280px] mx-auto px-4 md:px-6">
               <div className="grid gap-10 md:gap-16 lg:grid-cols-2">
                 <div className="space-y-4">
                   <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
                     Jukugo
                   </div>
                   <h2 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-                    <span className="text-orange-600">Jukugo Mastery</span>:
+                    <span className="text-orange-500">Jukugo Mastery</span>:
                     Explore, Learn, Excel!
                   </h2>
                   <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
@@ -234,14 +233,14 @@ export default function Landing() {
                   </p>
                   <div className="space-x-4">
                     <Link className="" href="/jukugo">
-                      <Button className="bg-orange-600">Start Learning</Button>
+                      <Button >Start Learning</Button>
                     </Link>
                   </div>
                 </div>
-                <div>
+                <div className="flex justify-center lg:justify-end">
                   <Image
                     alt="jukugo"
-                    className="mx-auto shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
+                    className="shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
                     height="500"
                     src="/assets/hero-2.jpg"
                     width="500"
@@ -252,12 +251,12 @@ export default function Landing() {
           </section>
 
           <section className="w-full bg-orange-50 py-12 md:py-14 lg:py-16">
-            <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-[1280px] mx-auto px-4 md:px-6">
               <div className="flex gap-10 md:gap-16 flex-col-reverse lg:flex-row">
-                <div className="flex-1">
+                <div className="flex flex-1 justify-center lg:justify-start">
                   <Image
                     alt="quiz"
-                    className="mx-auto shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
+                    className=" shadow-md image-card border-4 border-border_orange aspect-[1/1] overflow-hidden rounded-xl object-cover"
                     height="500"
                     src="/assets/hero-3.jpg"
                     width="500"
@@ -268,7 +267,7 @@ export default function Landing() {
                     Quiz
                   </div>
                   <h2 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-                    <span className="text-orange-600">Quiz Quest</span>: Test
+                    <span className="text-orange-500">Quiz Quest</span>: Test
                     Your Kanji Knowledge!
                   </h2>
                   <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
@@ -278,7 +277,7 @@ export default function Landing() {
                   </p>
                   <div className="space-x-4">
                     <Link className="" href="/quiz">
-                      <Button className="bg-orange-600">Start Quiz</Button>
+                      <Button >Start Quiz</Button>
                     </Link>
                   </div>
                 </div>
@@ -286,11 +285,11 @@ export default function Landing() {
             </div>
           </section>
           <section className="w-full py-12 md:py-14 lg:py-16 dark:bg-gray-800">
-            <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
+            <div className="max-w-[1280px] mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
               <div className="space-y-3">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Contribute to{" "}
-                  <span className="text-orange-600">FlashKanji</span>
+                  <span className="text-orange-500">FlashKanji</span>
                 </h2>
                 <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                   Join us in shaping the future of Kanji learning! Our project
@@ -308,7 +307,7 @@ export default function Landing() {
                       href="https://github.com/T-N9/flashkanji-next"
                       target="_blank"
                     >
-                      <Button color="orange" variant="outlined" size="sm">
+                      <Button color="primary" variant="bordered">
                         FlashKanji NextJS
                       </Button>
                     </a>
@@ -317,7 +316,7 @@ export default function Landing() {
                       href="https://github.com/T-N9/flashkanji-php"
                       target="_blank"
                     >
-                      <Button color="orange" variant="outlined" size="sm">
+                      <Button color="primary" variant="bordered">
                         FlashKanji PHP API
                       </Button>
                     </a>
@@ -331,7 +330,7 @@ export default function Landing() {
                       href="https://github.com/KanjiVG/kanjivg"
                       target="_blank"
                     >
-                      <Button color="orange" variant="outlined" size="sm">
+                      <Button color="primary" variant="bordered">
                         Kanjivg
                       </Button>
                     </a>
@@ -340,7 +339,7 @@ export default function Landing() {
                       href="https://github.com/onlyskin/kanjiapi.dev"
                       target="_blank"
                     >
-                      <Button color="orange" variant="outlined" size="sm">
+                      <Button color="primary" variant="bordered">
                         Kanjiapi.dev
                       </Button>
                     </a>
@@ -348,7 +347,7 @@ export default function Landing() {
                       href="https://github.com/jcsirot/kanji.gif"
                       target="_blank"
                     >
-                      <Button color="orange" variant="outlined" size="sm">
+                      <Button color="primary" variant="bordered">
                         KanjiGIF
                       </Button>
                     </a>
@@ -359,7 +358,7 @@ export default function Landing() {
                       Kanji learning accessible and enjoyable for everyone! 🀄🌐
                     </p>
                     <a href="mailto:tenyainmoelwin@gmail.com" target="_blank">
-                      <Button color="orange" variant="outlined" size="sm">
+                      <Button color="primary" variant="bordered">
                         Contact Us
                       </Button>
                     </a>
@@ -369,7 +368,7 @@ export default function Landing() {
             </div>
           </section>
         </main>
-        <FlashDetailModal />
+        {/* <FlashDetailModal /> */}
       </div>
     </>
   );

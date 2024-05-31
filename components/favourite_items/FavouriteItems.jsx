@@ -18,7 +18,7 @@ const FavouriteItems = () => {
           <>
             <p>
               You have no favourite Kanjis.{" "}
-              <Link className="text-orange-600 underline" href={"/kanji"}>
+              <Link className="text-orange-500 underline" href={"/kanji"}>
                 Learn Kanji
               </Link>
             </p>
@@ -37,7 +37,7 @@ const FavouriteItems = () => {
           <>
             <p>
               You have no favourite Jukugos.
-              <Link className="text-orange-600 underline" href={"/jukugo"}>
+              <Link className="text-orange-500 underline" href={"/jukugo"}>
                 Learn Jukugo
               </Link>
             </p>
