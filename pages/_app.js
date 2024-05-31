@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 /* Components */
 import { NavigationBar } from "@/components/common/NavigationBar";
-// import { Footer } from "@/components/common/Footer";
+import { Footer } from "@/components/common/Footer";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
         <main className="bg-white text-dark">
           <NavigationBar />
           <Component {...pageProps} />
-          {/* <Footer/> */}
+          <Footer/>
         </main>
       </NextUIProvider>
     </Provider>

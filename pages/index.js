@@ -6,7 +6,7 @@ import Button from "@/components/ui/button/Button";
 import FlashCard from "@/components/flash_card/FlashCard";
 import { FlashDetailModal } from "@/components/flash_detail_modal/FlashDetailModal";
 import { randomData } from "@/services/fetchers";
-// import KanjiStrokeViewer from "@/components/kanji_stroke_viewer/KanjiStrokeViewer";
+import KanjiStrokeViewer from "@/components/kanji_stroke_viewer/KanjiStrokeViewer";
 
 export default function Landing() {
   const [exampleKanji, setExampleKanji] = useState([]);
@@ -210,7 +210,7 @@ export default function Landing() {
                 </p>
               </div>
               <div className="mx-auto w-full max-w-sm space-y-2">
-                {/* <KanjiStrokeViewer kanji={"普"} isSearch={true} /> */}
+                <KanjiStrokeViewer kanji={"普"} isSearch={true} />
               </div>
             </div>
           </section>
@@ -233,7 +233,7 @@ export default function Landing() {
                   </p>
                   <div className="space-x-4">
                     <Link className="" href="/jukugo">
-                      <Button >Start Learning</Button>
+                      <Button>Start Learning</Button>
                     </Link>
                   </div>
                 </div>
