@@ -13,7 +13,7 @@ export default function Landing() {
 
   const fetchKanjiExample = async () => {
     try {
-      let exampleData = await randomData(3);
+      let exampleData = await randomData(4);
       setExampleKanji(exampleData);
       // console.log(exampleData);
     } catch (error) {}
@@ -187,7 +187,7 @@ export default function Landing() {
                 <div className="table mb-4 mx-auto rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
                   Example kanjis
                 </div>
-                <div className="mx-auto grid items-start gap-4 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-3xl lg:grid-cols-3 grid-cols-2">
+                <div className="mx-auto grid items-start gap-4 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-4 grid-cols-2">
                   {exampleKanji?.map((kanji, index) => {
                     return <FlashCard key={index} item={kanji}/>;
                   })}
