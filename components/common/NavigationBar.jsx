@@ -70,7 +70,7 @@ export function NavigationBar() {
         <div className="flex items-center gap-x-1">
           {userInfo ? (
             <NavbarItem>
-              <Link href={"/profile"} legacyBehavior>
+              <Link href={"/profile"}>
                 <Image
                   className="hidden lg:inline-block rounded-full cursor-pointer border-2 border-border_orange"
                   width={40}
@@ -81,13 +81,13 @@ export function NavigationBar() {
               </Link>
             </NavbarItem>
           ) : (
-            <NavbarItem>
-              <Link href={"/login"} legacyBehavior>
+            // <NavbarItem>
+              <Link href={"/login"}>
                 <Button>
                   <span>Log In</span>
                 </Button>
               </Link>
-            </NavbarItem>
+            // </NavbarItem>
           )}
         </div>
       </NavbarContent>
@@ -99,7 +99,7 @@ export function NavigationBar() {
           <div className="text-gray-700 gap-6 flex flex-col text-center">{navList}</div>
           <div className="flex justify-center items-center gap-x-1">
             {userInfo ? (
-              <Link href={"/profile"} legacyBehavior>
+              <Link href={"/profile"}>
                 <div className="flex justify-center items-center gap-2">
                   <Image
                     className="inline-block lg:hidden rounded-full cursor-pointer border-2 border-border_orange"
@@ -112,7 +112,7 @@ export function NavigationBar() {
                 </div>
               </Link>
             ) : (
-              <Link href={"/login"} legacyBehavior>
+              <Link href={"/login"}>
                 <Button
                 >
                   <span>Log In</span>

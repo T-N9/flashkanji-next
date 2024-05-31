@@ -3,7 +3,7 @@ import Image from "next/image";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import Button from "@/components/ui/button/Button";
-// import FlashCard from "@/components/flash_card/FlashCard";
+import FlashCard from "@/components/flash_card/FlashCard";
 // import { FlashDetailModal } from "@/components/flash_detail_modal/FlashDetailModal";
 import { randomData } from "@/services/fetchers";
 // import KanjiStrokeViewer from "@/components/kanji_stroke_viewer/KanjiStrokeViewer";
@@ -188,9 +188,9 @@ export default function Landing() {
                   Example kanjis
                 </div>
                 <div className="mx-auto grid items-start gap-4 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-3xl lg:grid-cols-3 grid-cols-2">
-                  {/* {exampleKanji?.map((kanji, index) => {
+                  {exampleKanji?.map((kanji, index) => {
                     return <FlashCard key={index} item={kanji}/>;
-                  })} */}
+                  })}
                 </div>
               </div>
             </div>
