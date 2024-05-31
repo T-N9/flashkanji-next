@@ -18,16 +18,12 @@ import { Logo } from "./Logo";
 import { setUserInfo } from "@/store/generalSlice";
 
 export function NavigationBar() {
-
   const { userInfo } = useSelector((state) => state.generalReducer);
   const dispatch = useDispatch();
-    const path = usePathname();
-    console.log(path);
+  const path = usePathname();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-
-
       if (!userInfo) {
         const user =
           window && JSON.parse(localStorage.getItem("flashkanji_user"));
@@ -40,17 +36,17 @@ export function NavigationBar() {
   const navList = (
     <>
       {/* list */}
-      <NavbarItem isActive={path === '/'}>
+      <NavbarItem isActive={path === "/"}>
         <Link href={"/"}>Home</Link>
       </NavbarItem>
 
-      <NavbarItem isActive={path === '/kanji'}>
+      <NavbarItem isActive={path === "/kanji"}>
         <Link href={"/kanji"}>Kanji</Link>
       </NavbarItem>
-      <NavbarItem isActive={path === '/quiz'}>
+      <NavbarItem isActive={path === "/quiz"}>
         <Link href={"/quiz"}>Quiz</Link>
       </NavbarItem>
-      <NavbarItem isActive={path === '/jukugo'}>
+      <NavbarItem isActive={path === "/jukugo"}>
         <Link href={"/jukugo"}>Jukugo</Link>
       </NavbarItem>
     </>
@@ -82,21 +78,23 @@ export function NavigationBar() {
             </NavbarItem>
           ) : (
             // <NavbarItem>
-              <Link href={"/login"}>
-                <Button>
-                  <span>Log In</span>
-                </Button>
-              </Link>
+            <Link href={"/login"}>
+              <Button>
+                <span>Log In</span>
+              </Button>
+            </Link>
             // </NavbarItem>
           )}
         </div>
       </NavbarContent>
-      <div className="block lg:hidden" >
+      <div className="block lg:hidden">
         <NavbarMenuToggle />
       </div>
       <NavbarMenu>
         <div className="container flex flex-col gap-6 mx-auto">
-          <div className="text-gray-700 gap-6 flex flex-col text-center">{navList}</div>
+          <div className="text-gray-700 gap-6 flex flex-col text-center">
+            {navList}
+          </div>
           <div className="flex justify-center items-center gap-x-1">
             {userInfo ? (
               <Link href={"/profile"}>
@@ -113,8 +111,7 @@ export function NavigationBar() {
               </Link>
             ) : (
               <Link href={"/login"}>
-                <Button
-                >
+                <Button>
                   <span>Log In</span>
                 </Button>
               </Link>

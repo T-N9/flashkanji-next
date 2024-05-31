@@ -3,7 +3,7 @@ import { Button as NextButton } from "@nextui-org/button";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Button = ({ children, className, color, variant, isIconOnly }) => {
+const Button = ({ children, className, color, variant, isIconOnly, onClick }) => {
   const colorClasses = {
     primary: 'bg-orange-500 text-white',
     secondary: 'bg-gray-500 text-white',
@@ -21,7 +21,7 @@ const Button = ({ children, className, color, variant, isIconOnly }) => {
   );
 
   return (
-    <NextButton className={buttonClass} variant={variant} isIconOnly={isIconOnly}>
+    <NextButton onClick={onClick} className={buttonClass} variant={variant} isIconOnly={isIconOnly}>
       {children}
     </NextButton>
   );

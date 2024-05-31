@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import Button from "@/components/ui/button/Button";
 import FlashCard from "@/components/flash_card/FlashCard";
-// import { FlashDetailModal } from "@/components/flash_detail_modal/FlashDetailModal";
+import { FlashDetailModal } from "@/components/flash_detail_modal/FlashDetailModal";
 import { randomData } from "@/services/fetchers";
 // import KanjiStrokeViewer from "@/components/kanji_stroke_viewer/KanjiStrokeViewer";
 
@@ -368,7 +368,7 @@ export default function Landing() {
             </div>
           </section>
         </main>
-        {/* <FlashDetailModal /> */}
+        <FlashDetailModal />
       </div>
     </>
   );
