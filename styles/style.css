@@ -266,3 +266,7 @@ button {
     height: 330px;
   }
 }
+
+.data-\[active\=true\]\:font-semibold[data-active=true] {
+  color: orange !important;
+ }
