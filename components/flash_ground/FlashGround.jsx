@@ -23,7 +23,7 @@ export default function FlashGround() {
 
   return (
     <section
-      className={`${isIgnite && 'select-none pointer-events-none'} max-w-[1440px] mx-auto relative flex bg-white min-h-screen flex-col items-center md:p-4`}
+      className={`${isIgnite && 'select-none pointer-events-none'} max-w-[1440px] mx-auto relative flex bg-white flex-col items-center md:p-4`}
     >
       <FlashSettings />
 

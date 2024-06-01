@@ -71,10 +71,10 @@ export function FlashDetailModal() {
           {(onClose) => (
             <>
               <ModalHeader className="flex justify-between text-orange-500 items-center shadow">
-                <h1 className="text-6xl">{currentDetail}</h1>
-                {/* <p>Kanji information</p> */}
+                {/* <h1 className="text-6xl">{currentDetail}</h1> */}
+                <p>Kanji information</p>
               </ModalHeader>
-              <ModalBody className="h-[22rem] md:h-[20rem] bg-gradient-orange-card overflow-y-scroll">
+              <ModalBody className=" min-h-40 bg-gradient-orange-card overflow-y-scroll">
                 {!isLoading ? (
                   <div className="  font-primary-san">
                     <div className="flex flex-col lg:flex-row gap-y-3 gap-x-5">
@@ -208,8 +208,8 @@ export function FlashDetailModal() {
                     </div>
                   </div>
                 ) : (
-                  <div className="w-full h-full flex justify-center items-center">
-                    <Spinner />
+                  <div className="w-full min-h-40 h-full flex justify-center items-center">
+                    <Spinner color="warning"/>
                   </div>
                 )}
               </ModalBody>

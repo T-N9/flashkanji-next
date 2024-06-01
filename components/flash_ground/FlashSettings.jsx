@@ -14,9 +14,11 @@ import {
   PopoverTrigger,
   PopoverContent,
   Switch,
-  Input
+  Input,
+  Tooltip,
 } from "@nextui-org/react";
 import Button from "../ui/button/Button";
+import { Button as NextButton } from "@nextui-org/react";
 
 /* Hook */
 import useContainer from "./useContainer";
@@ -124,7 +126,7 @@ export const FlashSettings = () => {
             </Select>
           </div>
         </div>
-        <div className="flex w-full justify-center select-box gap-6 ">
+        <div className="flex w-full justify-center items-center select-box gap-6 ">
           <div className="flex select-box flex-col gap-6">
             <Input
               onChange={(e) => {
@@ -139,9 +141,13 @@ export const FlashSettings = () => {
           </div>
           <Popover backdrop="opaque" placement="bottom" showArrow={true}>
             <PopoverTrigger>
-              <button className="bg-gray-600 w-20 py-2 flex justify-center items-center text-white rounded-md text-xs">
-                <TbSitemap size={20} />
-              </button>
+
+                <NextButton
+                  title="Select Multiple Chapters"
+                  className="bg-gray-600 w-20 py-2 flex justify-center items-center text-white rounded-md text-xs"
+                >
+                  <TbSitemap size={20} />
+                </NextButton>
             </PopoverTrigger>
             <PopoverContent className="p-4">
               <div className="grid grid-cols-5 gap-3 max-w-[300px]">
@@ -163,6 +169,7 @@ export const FlashSettings = () => {
                   );
                 })}
               </div>
+
               <Button
                 onClick={() =>
                   fetchByMultiChaptersData(selectedMultiChapters, level)
@@ -175,17 +182,19 @@ export const FlashSettings = () => {
           </Popover>
         </div>
         <div className=" flex gap-2 items-center">
-          <Button
-            onClick={() => shuffleNowData(kanji, kanji.length)}
-            variant="bordered"
-            className=" text-info rounded-full"
-            title="Shuffle"
-          >
-            <BiShuffle size={20} />
-          </Button>
+          <Tooltip className="font-primary-san" content="Shuffle" color="primary" placement="bottom">
+            <NextButton
+              onClick={() => shuffleNowData(kanji, kanji.length)}
+              variant="bordered"
+              className=" text-info rounded-full"
+              title="Shuffle"
+            >
+              <BiShuffle size={20} />
+            </NextButton>
+          </Tooltip>
           <div className="flex min-w-20 flex-col gap-1 justify-center items-center">
             <p className="text-xs text-center">
-              Shuffle Mode : <span className="text-orange-500">{isShuffledMode ? "ON" : "OFF"}</span>
+              Shuffle Mode
             </p>
             <Switch
               color="primary"
@@ -203,29 +212,33 @@ export const FlashSettings = () => {
               checked={isShuffledMode}
             />
           </div>
-          <Button
-            onClick={() => {
-              getRandomData(10);
-              dispatch(setSelectedChapter(""));
-              dispatch(setSelectedLevel(""));
-              dispatch(setSelectedMultiChapters([]));
-            }}
-            variant="gradient"
-            className="bg-gradient-radial rounded-full"
-            title="Randomize"
-          >
-            <GiCardRandom size={20} />
-          </Button>
-          <Button
-            onClick={() => {
-              dispatch(setIsFlippedMode());
-            }}
-            // variant="gradient"
-            className="bg-dark rounded-full"
-            title="Flip All"
-          >
-            <MdFlipCameraAndroid size={20} />
-          </Button>
+          <Tooltip className="font-primary-san" content="Randomize" color="primary" placement="bottom">
+            <NextButton
+              onClick={() => {
+                getRandomData(10);
+                dispatch(setSelectedChapter(""));
+                dispatch(setSelectedLevel(""));
+                dispatch(setSelectedMultiChapters([]));
+              }}
+              variant="gradient"
+              className="bg-gradient-radial rounded-full"
+              title="Randomize"
+            >
+              <GiCardRandom size={20} color="white" />
+            </NextButton>
+          </Tooltip>
+          <Tooltip className="font-primary-san" content="Flip All" color="primary" placement="bottom">
+            <NextButton
+              onClick={() => {
+                dispatch(setIsFlippedMode());
+              }}
+              // variant="gradient"
+              className="bg-dark rounded-full"
+              title="Flip All"
+            >
+              <MdFlipCameraAndroid size={20} color="white" />
+            </NextButton>
+          </Tooltip>
         </div>
       </div>
 
