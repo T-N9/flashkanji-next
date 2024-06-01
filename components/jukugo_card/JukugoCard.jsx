@@ -59,7 +59,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
             isSwiped ? "text-2xl md:text-[3rem]" : "text-xl"
           }`}
         >
-          <p className="text-amber-900 flex flex-wrap justify-center">
+          <p className="text-amber-600 flex flex-wrap justify-center">
             {item.hiragana}
           </p>
           {isShowMeaning && (
@@ -82,7 +82,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
           </Button>
         </div>
       )}
-      <div className="absolute -right-2 top-12">
+      <div className="absolute -right-2 top-10">
         <Button
           isIconOnly
           onClick={() => handleClickFavourite(item.id)}
@@ -100,7 +100,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
         </Button>
       </div>
 
-      <div className="absolute -right-2 top-[6rem]">
+      <div className="absolute -right-2 top-20">
         <Button
           isIconOnly
           onClick={() => handleClickTarget(item.id)}

@@ -87,7 +87,7 @@ export function NavigationBar() {
           )}
         </div>
       </NavbarContent>
-      <div className="block lg:hidden">
+      <div className="block lg:hidden h-full">
         <NavbarMenuToggle />
       </div>
       <NavbarMenu>

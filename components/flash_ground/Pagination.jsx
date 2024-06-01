@@ -50,6 +50,7 @@ export function Pagination() {
           page={selectedChapter}
           onChange={setCurrentPage}
           color="warning"
+          size="sm"
         />
         <Button
           size="sm"
