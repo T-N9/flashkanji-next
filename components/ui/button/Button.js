@@ -20,8 +20,15 @@ const Button = ({ children, className, color, variant, isIconOnly, onClick }) =>
     className
   );
 
+  const buttonProps = {
+    className: buttonClass,
+    variant: variant,
+    isIconOnly: isIconOnly,
+    ...(onClick && { onClick }), // Conditionally add onClick if it's defined
+  };
+
   return (
-    <NextButton onClick={onClick} className={buttonClass} variant={variant} isIconOnly={isIconOnly}>
+    <NextButton {...buttonProps}>
       {children}
     </NextButton>
   );
@@ -31,7 +38,9 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   color: PropTypes.oneOf(['primary', 'secondary']),
-  variant : PropTypes.oneOf(['solid', 'bordered'])
+  variant : PropTypes.oneOf(['solid', 'bordered']),
+  isIconOnly: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {

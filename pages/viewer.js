@@ -7,9 +7,7 @@ import {
   getShowRadicals,
   getNoShowSO,
 } from "@/public/js/kanjiviewer";
-// import { Input, Button, Checkbox } from "@material-tailwind/react";
-import { Input, Checkbox } from "@nextui-org/react";
-import Button from "@/components/ui/button/Button";
+import { Input } from "@nextui-org/react";
 
 const Viewer = () => {
   const [kanji, setKanji] = useState("");

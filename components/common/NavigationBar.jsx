@@ -53,7 +53,7 @@ export function NavigationBar() {
   );
 
   return (
-    <Navbar isBordered isBlurred={false}>
+    <Navbar className="z-[45]" isBordered isBlurred={false}>
       <NavbarBrand>
         <Link href={"/"}>
           <Logo className="cursor-pointer" />

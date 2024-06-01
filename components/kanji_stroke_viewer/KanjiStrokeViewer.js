@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { Input, Checkbox, Button } from "@material-tailwind/react";
 import { Input } from "@nextui-org/react";
 import KanjiViewer from "@/public/js/kanjiviewer";
 import { getUrlVars } from "@/public/js/kanjivg";

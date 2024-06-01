@@ -5,7 +5,7 @@ import FlashCard from "@/components/flash_card/FlashCard";
 import { LoadingGround } from "../common/LoadingGround";
 import { FlashSettings } from "./FlashSettings";
 import { Pagination } from "./Pagination";
-import { SpeedDialMenu } from "../common/SpeedDialMenu";
+// import { SpeedDialMenu } from "../common/SpeedDialMenu";
 
 /* Hook */
 import useContainer from "./useContainer";
@@ -23,7 +23,7 @@ export default function FlashGround() {
 
   return (
     <section
-      className={`${isIgnite && 'select-none pointer-events-none'} relative flex bg-white min-h-screen flex-col items-center md:p-4`}
+      className={`${isIgnite && 'select-none pointer-events-none'} max-w-[1440px] mx-auto relative flex bg-white min-h-screen flex-col items-center md:p-4`}
     >
       <FlashSettings />
 
@@ -58,7 +58,7 @@ export default function FlashGround() {
         {isPaginated && <Pagination />}
       </div>
 
-      <SpeedDialMenu />
+      {/* <SpeedDialMenu /> */}
     </section>
   );
 }

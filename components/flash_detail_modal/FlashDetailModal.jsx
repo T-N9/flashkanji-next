@@ -54,7 +54,7 @@ export function FlashDetailModal() {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
   return (
-    <section>
+    <>
       <Modal
         className="font-writing-1"
         isOpen={isDetailModalOpen}
@@ -248,6 +248,6 @@ export function FlashDetailModal() {
           )}
         </ModalContent>
       </Modal>
-    </section>
+    </>
   );
 }
