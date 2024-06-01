@@ -39,9 +39,9 @@ export const QuizItem = ({ quizItem, number, isSubmitted }) => {
                 );
               });
               return (
-                <div>
+                <div key={index}>
                   <Checkbox
-                    key={index}
+                    
                     onClick={() => {
                       handleIsAnswered();
                       setCurrentAnswer(index);
