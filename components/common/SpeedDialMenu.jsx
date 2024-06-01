@@ -21,42 +21,6 @@ export function SpeedDialMenu({ mode = 1 }) {
 
   return (
     <>
-      {/* <div className="fixed bottom-10 right-5 z-50">
-        <SpeedDial>
-          <SpeedDialHandler>
-            <IconButton size="lg" className="rounded-full bg-gradient-radial">
-              <GoPlus
-                size={20}
-                className="transition-transform group-hover:rotate-45"
-              />
-            </IconButton>
-          </SpeedDialHandler>
-          <SpeedDialContent>
-            <SpeedDialAction
-              onClick={() => {
-                switch (mode) {
-                  case 1:
-                    dispatch(toggleFlashModal());
-                    break;
-                  case 2:
-                    dispatch(toggleJukugoModal());
-                    break;
-                  default:
-                    break;
-                }
-              }}
-            >
-              <PiSlideshowBold size={20} />
-            </SpeedDialAction>
-
-            {mode === 1 && (
-              <SpeedDialAction onClick={() => dispatch(toggleSetting())}>
-                <IoMdSettings size={20} />
-              </SpeedDialAction>
-            )}
-          </SpeedDialContent>
-        </SpeedDial>
-      </div> */}
       <div className="fixed bottom-10 right-10 z-50">
         <Dropdown>
           <DropdownTrigger>
@@ -89,8 +53,8 @@ export function SpeedDialMenu({ mode = 1 }) {
                 <span>Open slide</span> <PiSlideshowBold size={15} />
               </div>
             </DropdownItem>
-            <DropdownItem key="copy">
-              {mode === 1 && (
+            {mode === 1 && (
+              <DropdownItem key="copy">
                 <div
                   className="flex justify-between"
                   onClick={() => dispatch(toggleSetting())}
@@ -98,8 +62,8 @@ export function SpeedDialMenu({ mode = 1 }) {
                   <span>Toggle setting</span>
                   <IoMdSettings size={20} />
                 </div>
-              )}
-            </DropdownItem>
+              </DropdownItem>
+            )}
           </DropdownMenu>
         </Dropdown>
       </div>
