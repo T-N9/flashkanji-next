@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import useContainer from "./useContainer";
-import { Button } from "@material-tailwind/react";
+import Button from "../ui/button/Button";
 import { useRouter } from "next/navigation";
 
 const GoogleLogIn = () => {

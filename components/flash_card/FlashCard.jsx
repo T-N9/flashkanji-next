@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Button } from "@material-tailwind/react";
+import Button from "../ui/button/Button";
 
 /* Icons */
 import { FaInfoCircle } from "react-icons/fa";
@@ -58,7 +58,7 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
             isSwiped ? "text-2xl md:text-[3rem]" : "text-xl"
           }`}
         >
-          <p className="text-amber-900 flex flex-wrap justify-center">
+          <p className="text-amber-600 flex flex-wrap justify-center">
             {item.kunyomi?.split(",").map((i, index) => {
               return (
                 <React.Fragment key={index}>
@@ -78,7 +78,7 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
               );
             })}{" "}
           </p>
-          <p>{item.meaning}</p>
+          <p className="text-gray-700">{item.meaning}</p>
         </div>
       </div>
 
@@ -86,21 +86,23 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
         <div className="absolute -right-2 top-0">
           <Button
             onClick={() => handleOpen(item.kanji_character)}
+            isIconOnly
+            className="mt-2 mx-auto shadow-md text-xs flex justify-center items-center p-2 rounded-full bg-[#FA8245]"
             size="sm"
-            className="mt-2 mx-auto text-xs p-2 rounded-full bg-[#FA8245] table"
           >
             <FaInfoCircle size={20} />
           </Button>
         </div>
       )}
-      <div className="absolute -right-1 top-12">
+      <div className="absolute -right-2 top-10">
         <Button
           onClick={() => handleClickFavourite(item.id)}
-          size="sm"
-          className={`mt-2 mx-auto text-xs p-1 rounded-full ${
+          isIconOnly
+          className={`mt-2 mx-auto text-xs flex shadow-md justify-center items-center p-1 rounded-full ${
             isFavourite ? "bg-[#ff6363]" : "bg-white"
-          } table`}
+          }`}
           title="Mark Favourite"
+          size="sm"
         >
           {isFavourite ? (
             <IoIosHeart size={20} color="#white" />
@@ -110,14 +112,15 @@ const FlashCard = ({ item, isSwiped = false, isInfoShow = true }) => {
         </Button>
       </div>
 
-      <div className="absolute -right-1 top-[5.3rem]">
+      <div className="absolute -right-2 top-20">
         <Button
           onClick={() => handleClickTarget(item.id)}
-          size="sm"
-          className={`mt-2 mx-auto text-xs p-1 rounded-full ${
+          isIconOnly
+          className={`mt-2 mx-auto text-xs flex shadow-md justify-center items-center p-1 rounded-full ${
             isNeedMore ? "bg-[#ff6363]" : "bg-white"
-          } table`}
+          }`}
           title="Mark Target"
+          size="sm"
         >
           {isNeedMore ? (
             <VscTarget size={20} color="white" />

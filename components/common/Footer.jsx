@@ -1,11 +1,13 @@
-import { Typography } from "@material-tailwind/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
+  const pathname = usePathname();
   return (
-    <footer className="flex bg-white container mx-auto shadow-lg rounded-lg px-4 w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-blue-gray-50 py-6 text-center md:justify-between">
-      <Typography color="blue-gray" className="font-normal">
-        &copy; 2023 Flash Kanji by{" "}
+    <footer className="flex max-w-[1440px] bg-white container mx-auto shadow-lg rounded-lg px-4 w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 border-t border-blue-gray-50 py-6 text-center md:justify-between">
+      <div className="flex gap-3">
+        <div>&copy; 2023 Flash Kanji by </div>
+
         <a
           className="text-orange-400 blue-600 font-bold"
           href="https://www.tenyain.com"
@@ -13,70 +15,22 @@ export function Footer() {
         >
           Te Nyain
         </a>
-      </Typography>
+      </div>
       <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
-        <li>
-          <Link href={"/"}>
-            <Typography
-              href="/"
-              color="blue-gray"
-              className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
-            >
-              Home
-            </Typography>
-          </Link>
+        <li className={`${pathname === '/' && 'font-bold text-orange-500'}`}>
+          <Link href={"/"}>Home</Link>
         </li>
-        <li>
-        <Link href={"/kanji"}>
-          <Typography
-            href="/kanji"
-            color="blue-gray"
-            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500 font-english"
-          >
-            Kanji
-          </Typography>
-        </Link>
-      </li>
-        <li>
-          <Link href={"/quiz"}>
-            <Typography
-              href="/quiz"
-              color="blue-gray"
-              className="font-extrabold drop-shadow-lg transition-colors hover:text-orange-500 focus:text-orange-500"
-            >
-              Quiz
-            </Typography>
-          </Link>
+        <li className={`${pathname === '/kanji' && 'font-bold text-orange-500'}`}>
+          <Link href={"/kanji"}>Kanji</Link>
         </li>
-        <li>
-        <Link href={"/jukugo"}>
-          <Typography
-            href="/jukugo"
-            color="blue-gray"
-            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
-          >
-            Jukugo
-          </Typography>
-        </Link>
-      </li>
-        <li>
-          <Typography
-            href="#"
-            color="blue-gray"
-            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
-          >
-            Contribute
-          </Typography>
+        <li className={`${pathname === '/quiz' && 'font-bold text-orange-500'}`}>
+          <Link href={"/quiz"}>Quiz</Link>
         </li>
-        <li>
-          <Typography
-            href="#"
-            color="blue-gray"
-            className="font-normal transition-colors hover:text-orange-500 focus:text-orange-500"
-          >
-            Contact Us
-          </Typography>
+        <li className={`${pathname === '/jukugo' && 'font-bold text-orange-500'}`}>
+          <Link href={"/jukugo"}>Jukugo</Link>
         </li>
+        <li className={`${pathname === '/contribute' && 'font-bold text-orange-500'}`}>Contribute</li>
+        <li className={`${pathname === '/contact-us' && 'font-bold text-orange-500'}`}>Contact Us</li>
       </ul>
     </footer>
   );

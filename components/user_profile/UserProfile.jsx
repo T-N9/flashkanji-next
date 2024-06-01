@@ -2,7 +2,7 @@ import useContainer from "./useContainer";
 
 import Image from "next/image";
 
-import { Button } from "@material-tailwind/react";
+import Button from "../ui/button/Button";
 
 /* Components */
 import { FlashDetailModal } from "../flash_detail_modal/FlashDetailModal";
@@ -17,7 +17,7 @@ const UserProfile = () => {
 
   return (
     <>
-      <section className=" my-5 flex flex-col gap-2 justify-center items-center">
+      <section className="max-w-[1440px] mx-auto my-5 flex flex-col gap-2 justify-center items-center">
         <div className="bg-gray-100 flex gap-4 p-8 rounded-lg shadow-md max-w-md mx-auto">
           <Image
             src={userInfo?.avatar}
@@ -27,7 +27,7 @@ const UserProfile = () => {
             height={80}
           />
           <div className="">
-            <h2 className="text-2xl font-semibold text-orange-800">
+            <h2 className="text-2xl font-semibold text-orange-500">
               {userInfo?.name}
             </h2>
             <p className="text-gray-500">{userInfo?.email}</p>
@@ -38,10 +38,12 @@ const UserProfile = () => {
           </div>
         </div>
       </section>
-      <FavouriteItems />
-      <TargetedItems />
-      <FlashDetailModal />
-      <JukugoDetailModal />
+     <div className="max-w-[1440px] mx-auto">
+         <FavouriteItems />
+         <TargetedItems />
+         <FlashDetailModal />
+         <JukugoDetailModal />
+     </div>
     </>
   );
 };

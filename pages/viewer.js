@@ -7,7 +7,7 @@ import {
   getShowRadicals,
   getNoShowSO,
 } from "@/public/js/kanjiviewer";
-import { Input, Button, Checkbox } from "@material-tailwind/react";
+import { Input } from "@nextui-org/react";
 
 const Viewer = () => {
   const [kanji, setKanji] = useState("");
@@ -110,36 +110,81 @@ const Viewer = () => {
                   />
                 </div>
               </div>
-              <div id="kanji-options" className="flex flex-col">
-                <Checkbox
+              <div id="kanji-options" className="flex flex-col justify-start items-start">
+                <div className="flex gap-2 justify-center items-center">
+                  <input
+                    type="checkbox"
+                    color="orange"
+                    name="displayOrders"
+                    id="displayOrders"
+                    checked={displayOrders}
+                    onChange={handleCheckboxChange}
+                    label="Display stroke order"
+                  />
+                  <label for="displayOrders">Display stroke order</label>
+                </div>
+
+                <div className="flex gap-2 justify-center items-center">
+                  <input
+                    type="checkbox"
+                    color="orange"
+                    name="radicals"
+                    id="radicals"
+                    checked={radicals}
+                    onChange={handleCheckboxChange}
+                    label="Show radicals"
+                  />
+                  <label for="radicals">Show radicals</label>
+                </div>
+
+                <div className="flex gap-2 justify-center items-center">
+                  <input
+                    type="checkbox"
+                    color="orange"
+                    name="colorGroups"
+                    id="colorGroups"
+                    checked={colorGroups}
+                    onChange={handleCheckboxChange}
+                    label="Show component groups"
+                  />
+                  <label for="colorGroups">Show component groups</label>
+                </div>
+
+                {/* <Checkbox
                   type="checkbox"
                   color="orange"
                   name="displayOrders"
                   id="displayOrders"
-                  checked={displayOrders}
-                  onChange={handleCheckboxChange}
+                  isSelected={displayOrders}
+                  onValueChange={ () => handleCheckboxChange()}
                   label="Display stroke order"
-                />
+                >
+                  Display stroke order
+                </Checkbox>
 
                 <Checkbox
                   type="checkbox"
                   color="orange"
                   name="radicals"
                   id="radicals"
-                  checked={radicals}
-                  onChange={handleCheckboxChange}
+                  isSelected={radicals}
+                  onValueChange={() => handleCheckboxChange()}
                   label="Show radicals"
-                />
+                >
+                  Show radicals
+                </Checkbox>
 
                 <Checkbox
                   type="checkbox"
                   color="orange"
                   name="colorGroups"
                   id="colorGroups"
-                  checked={colorGroups}
-                  onChange={handleCheckboxChange}
+                  isSelected={colorGroups}
+                  onValueChange={() => handleCheckboxChange()}
                   label="Show component groups"
-                />
+                >
+                    Show component groups
+                </Checkbox> */}
               </div>
               <div
                 id="kanji-actions"
@@ -148,22 +193,22 @@ const Viewer = () => {
                 {/* <input type="submit" value="Redraw" /> */}
                 {/* &nbsp; */}
 
-                <Button
+                <button
                   id="submit"
                   variant="gradient"
-                  className="kanjivg-button bg-info rounded-full"
+                  className="kanjivg-button bg-info rounded-full text-white text-sm px-5 py-2"
                   type="submit"
                 >
                   Load
-                </Button>
-                <Button
+                </button>
+                <button
                   id="animate"
                   data-kanjivg-target="#kanji-svg"
                   variant="gradient"
-                  className="kanjivg-button bg-gradient-radial rounded-full"
+                  className="kanjivg-button bg-gradient-radial rounded-full text-white text-sm px-5 py-2"
                 >
                   Animate
-                </Button>
+                </button>
               </div>
             </div>
           </fieldset>
@@ -184,15 +229,15 @@ const Viewer = () => {
       </div>
 
       <p className="text-xs text-center my-4 font-english">
-            Provided by{" "}
-            <a
-              className="text-orange-500 "
-              target="_blank"
-              href="https://kanjivg.tagaini.net/index.html"
-            >
-              KanjiVG
-            </a>{" "}
-          </p>
+        Provided by{" "}
+        <a
+          className="text-orange-500 "
+          target="_blank"
+          href="https://kanjivg.tagaini.net/index.html"
+        >
+          KanjiVG
+        </a>{" "}
+      </p>
     </>
   );
 };

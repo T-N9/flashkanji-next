@@ -23,7 +23,7 @@ export default function FlashGround() {
 
   return (
     <section
-      className={`${isIgnite && 'select-none pointer-events-none'} relative flex bg-white min-h-screen flex-col items-center md:p-4`}
+      className={`${isIgnite && 'select-none pointer-events-none'} max-w-[1440px] mx-auto relative flex bg-white flex-col items-center md:p-4`}
     >
       <FlashSettings />
 
@@ -31,7 +31,7 @@ export default function FlashGround() {
         className={`${
           isSettingOpen
             ? "translate-y-0"
-            : "-translate-y-[250px] lg:-translate-y-36"
+            : "-translate-y-[250px] lg:-translate-y-36  mt-4"
         } relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3`}
       >
         {isPaginated && <Pagination />}
@@ -49,7 +49,7 @@ export default function FlashGround() {
               </div>
             ) : (
               <div className="w-full h-[415px] flex justify-center items-center">
-                <h1 className="text-orange-600 text-3xl">Coming Soon</h1>
+                <h1 className="text-orange-500 text-3xl">Coming Soon</h1>
               </div>
             )}
           </>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Input, Checkbox, Button } from "@material-tailwind/react";
+import { Input } from "@nextui-org/react";
 import KanjiViewer from "@/public/js/kanjiviewer";
 import { getUrlVars } from "@/public/js/kanjivg";
 import {
@@ -13,7 +13,7 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
   const [radicals, setRadicals] = useState(false);
   const [colorGroups, setColorGroups] = useState(false);
 
-  const [inputtedKanji, setInputtedKanji] = useState(kanji);
+  const [inputtedKanji, setInputtedKanji] = useState(kanji || " ");
 
   useEffect(() => {
     const urlVars = getUrlVars();
@@ -26,8 +26,6 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
     if (rad) setRadicals(true);
     if (noso) setDisplayOrders(false);
 
-
-
     KanjiViewer.initialize(
       "kanjiViewer",
       displayOrders,
@@ -36,13 +34,15 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
       isSearch ? inputtedKanji : kanji,
       file
     );
-  }, [kanji,inputtedKanji, displayOrders, radicals, colorGroups]);
-
-  // console.log({kanji, inputtedKanji})
-
+  }, [kanji, inputtedKanji, displayOrders, radicals, colorGroups]);
 
   const handleInputKanji = (input) => {
-    setInputtedKanji(input);
+    // console.log({ input });
+    if (input === undefined) {
+      setInputtedKanji("");
+    } else {
+      setInputtedKanji(input);
+    }
   };
 
   const handleCheckboxChange = (event) => {
@@ -89,18 +89,20 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
               <div className={`${isSearch ? "" : "hidden"}`}>
                 <label htmlFor="kanji">Search Kanji</label>
                 <Input
-                  className="viewer-input bg-white"
+                  className="viewer-input drop-shadow-md w-64"
                   type="text"
                   value={inputtedKanji}
                   id="kanji"
                   label="e.g. 線"
                   // readOnly
                   color="orange"
-                  onChange={() => handleInputKanji(event.target.value.split('')[0])}
+                  onValueChange={() =>
+                    handleInputKanji(event.target.value.split("")[0])
+                  }
                 />
               </div>
               <div id="kanji-options" className=" flex-col hidden">
-                <Checkbox
+                <input
                   type="checkbox"
                   color="blue"
                   name="displayOrders"
@@ -110,7 +112,7 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
                   label="Display stroke order"
                 />
 
-                <Checkbox
+                <input
                   type="checkbox"
                   color="blue"
                   name="radicals"
@@ -120,7 +122,7 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
                   label="Show radicals"
                 />
 
-                <Checkbox
+                <input
                   type="checkbox"
                   color="blue"
                   name="colorGroups"
@@ -132,16 +134,16 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
               </div>
             </div>
             <div id="kanji-actions" className=" flex flex-col items-center">
-              <Button
+              <button
                 id="animate"
                 data-kanjivg-target="#kanji-svg"
                 variant="outlined"
                 size="sm"
                 color="orange"
-                className="kanjivg-button w-fit rounded-full"
+                className="kanjivg-button w-fit rounded-full border-2 border-orange-500 px-5 text-sm py-2"
               >
                 Animate
-              </Button>
+              </button>
 
               <a
                 className="text-xs font-bold font-english p-2 mt-5 rounded bg-transparent text-center underline"

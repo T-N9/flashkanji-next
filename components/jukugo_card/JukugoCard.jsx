@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Button } from "@material-tailwind/react";
+import Button from "../ui/button/Button";
 
 /* Icons */
 import { FaInfoCircle } from "react-icons/fa";
@@ -59,7 +59,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
             isSwiped ? "text-2xl md:text-[3rem]" : "text-xl"
           }`}
         >
-          <p className="text-amber-900 flex flex-wrap justify-center">
+          <p className="text-amber-600 flex flex-wrap justify-center">
             {item.hiragana}
           </p>
           {isShowMeaning && (
@@ -73,21 +73,23 @@ const JukugoCard = ({ item, isSwiped = false }) => {
       {!isSwiped && (
         <div className="absolute -right-2 top-0">
           <Button
+            isIconOnly
             onClick={() => handleOpen(item.jukugo_char)}
             size="sm"
-            className="mt-2 mx-auto text-xs p-2 rounded-full bg-orange-700 table"
+            className="mt-2 mx-auto shadow-md flex justify-center items-center text-xs p-2 rounded-full bg-orange-500"
           >
             <FaInfoCircle size={20} />
           </Button>
         </div>
       )}
-      <div className="absolute -right-1 top-12">
+      <div className="absolute -right-2 top-10">
         <Button
+          isIconOnly
           onClick={() => handleClickFavourite(item.id)}
           size="sm"
-          className={`mt-2 mx-auto text-xs p-1 rounded-full ${
+          className={`mt-2 mx-auto shadow-md flex justify-center items-center text-xs p-1 rounded-full ${
             isFavourite ? "bg-[#ff6363]" : "bg-white"
-          } table`}
+          }`}
           title="Mark Favourite"
         >
           {isFavourite ? (
@@ -98,13 +100,14 @@ const JukugoCard = ({ item, isSwiped = false }) => {
         </Button>
       </div>
 
-      <div className="absolute -right-1 top-[5.3rem]">
+      <div className="absolute -right-2 top-20">
         <Button
+          isIconOnly
           onClick={() => handleClickTarget(item.id)}
           size="sm"
-          className={`mt-2 mx-auto text-xs p-1 rounded-full ${
+          className={`mt-2 mx-auto shadow-md flex justify-center items-center text-xs p-1 rounded-full ${
             isNeedMore ? "bg-[#ff6363]" : "bg-white"
-          } table`}
+          }`}
           title="Mark Target"
         >
           {isNeedMore ? (

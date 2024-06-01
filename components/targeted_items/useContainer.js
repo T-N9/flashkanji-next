@@ -15,7 +15,7 @@ const useContainer = () => {
     try {
       let allData = await getUserPractice(userInfo?.id, "kanji");
       dispatch(setKanjiPracticeData(allData));
-      console.log("fetching");
+      // console.log("fetching");
       // dispatch(setStopLoading());
     } catch (error) {
       // dispatch(setStopLoading());
@@ -26,7 +26,7 @@ const useContainer = () => {
     try {
       let allData = await getUserPractice(userInfo?.id, "jukugo");
       dispatch(setJukugoPracticeData(allData));
-      console.log("fetching");
+      // console.log("fetching");
       // dispatch(setStopLoading());
     } catch (error) {
       // dispatch(setStopLoading());
