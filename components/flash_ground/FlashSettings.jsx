@@ -103,11 +103,11 @@ export const FlashSettings = () => {
               size="sm"
               className="drop-shadow"
               label="Select Chapter"
-              defaultSelectedKeys={noChapters[selectedChapter - 1]?.toString()}
+              defaultSelectedKeys={[noChapters[selectedChapter - 1]?.toString()]}
               onSelectionChange={() => {
                 dispatch(setSelectedMultiChapters([]));
               }}
-              selectedKeys={selectedChapter.toString()}
+              selectedKeys={[selectedChapter.toString()]}
             >
               {noChapters.map((item) => (
                 <SelectItem
