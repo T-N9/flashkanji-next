@@ -5,7 +5,7 @@ import FlashCard from "@/components/flash_card/FlashCard";
 import { LoadingGround } from "../common/LoadingGround";
 import { FlashSettings } from "./FlashSettings";
 import { Pagination } from "./Pagination";
-// import { SpeedDialMenu } from "../common/SpeedDialMenu";
+import { SpeedDialMenu } from "../common/SpeedDialMenu";
 
 /* Hook */
 import useContainer from "./useContainer";
@@ -31,7 +31,7 @@ export default function FlashGround() {
         className={`${
           isSettingOpen
             ? "translate-y-0"
-            : "-translate-y-[250px] lg:-translate-y-36"
+            : "-translate-y-[250px] lg:-translate-y-36  mt-4"
         } relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3`}
       >
         {isPaginated && <Pagination />}
@@ -58,7 +58,7 @@ export default function FlashGround() {
         {isPaginated && <Pagination />}
       </div>
 
-      {/* <SpeedDialMenu /> */}
+      <SpeedDialMenu />
     </section>
   );
 }
