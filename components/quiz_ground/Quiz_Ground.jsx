@@ -1,15 +1,8 @@
 import React from "react";
 
 /* Components */
-import {
-  Select,
-  Option,
-  Button,
-  Popover,
-  PopoverHandler,
-  PopoverContent,
-  Input,
-} from "@material-tailwind/react";
+import { Select, SelectItem } from "@nextui-org/react";
+import Button from "../ui/button/Button";
 import { QuizItem } from "../quiz_item/QuizItem";
 
 /* Hook */
@@ -46,7 +39,7 @@ export const Quiz_Ground = () => {
     setQuizMode,
   } = useContainer();
   return (
-    <section className="relative flex bg-light min-h-screen flex-col items-center p-4">
+    <section className="relative flex  min-h-screen flex-col items-center p-4">
       {!isQuizReady ? (
         <>
           <h1 className="text-4xl font-english text-center font-bold text-info">
@@ -57,14 +50,18 @@ export const Quiz_Ground = () => {
             <div className="flex gap-4 w-full md:w-fit">
               <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
                 <Select
-                  value={selectedLevel}
-                  color="blue"
-                  size="md"
-                  className="bg-white"
+                  items={[5, 4, 3, 2, 1]}
+                  color="default"
+                  size="sm"
+                  className="drop-shadow"
                   label="Select Level"
+                  defaultSelectedKeys={selectedLevel}
+                  onSelectionChange={() => {
+                    dispatch(setSelectedChapter(1));
+                  }}
                 >
                   {[5, 4, 3, 2, 1].map((level) => (
-                    <Option
+                    <SelectItem
                       key={level}
                       onClick={() => {
                         handleChapterData(level);
@@ -72,44 +69,70 @@ export const Quiz_Ground = () => {
                         dispatch(setSelectedMultiChapters([]));
                         dispatch(setSelectedChapter(""));
                       }}
-                      value={level.toString()}
-                      disabled={level <= 3} // Assuming that levels 3 and above are disabled
+                      value={"N" + level.toString()}
+                      isDisabled={level <= 2} // Assuming that levels 3 and above are disabled
+                      isSelected={"N" + level === selectedLevel}
                     >
-                      N{level}
-                    </Option>
+                      {"N" + level.toString()}
+                    </SelectItem>
                   ))}
                 </Select>
               </div>
               <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
                 <Select
-                  value={selectedChapter}
-                  color="blue"
-                  size="md"
-                  className="bg-white"
+                  items={noChapters}
+                  color="default"
+                  size="sm"
+                  className="drop-shadow"
                   label="Select Chapter"
+                  defaultSelectedKeys={[
+                    noChapters[selectedChapter - 1]?.toString(),
+                  ]}
+                  selectedKeys={[selectedChapter.toString()]}
                 >
-                  {noChapters?.map((item) => {
-                    return (
-                      <Option
-                        onClick={() => {
-                          dispatch(setSelectedChapter(item));
-                          dispatch(setSelectedMultiChapters([]));
-                        }}
-                        key={item}
-                        value={item.toString()}
-                      >
-                        {item}
-                      </Option>
-                    );
-                  })}
+                  {noChapters.map((item) => (
+                    <SelectItem
+                      key={item}
+                      onClick={() => {
+                        dispatch(setSelectedChapter(item));
+                        dispatch(setSelectedMultiChapters([]));
+                      }}
+                      value={item.toString()}
+                      isSelected={
+                        item.toString() === selectedChapter.toString()
+                      }
+                      textValue={item.toString()}
+                    >
+                      {item}
+                    </SelectItem>
+                  ))}
                 </Select>
               </div>
               <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
+
                 <Select
-                  color="blue"
-                  size="md"
-                  className="bg-white"
+                  items={[
+                    {
+                      id: 1,
+                      name: "Onyomi",
+                    },
+                    {
+                      id: 2,
+                      name: "Kunyomi",
+                    },
+                    {
+                      id: 3,
+                      name: "Meaning",
+                    },
+                  ]}
+                  color="default"
+                  size="sm"
+                  className="drop-shadow"
                   label="Select Mode"
+                  defaultSelectedKeys={selectedLevel}
+                  onSelectionChange={() => {
+                    dispatch(setSelectedChapter(1));
+                  }}
                 >
                   {[
                     {
@@ -124,19 +147,17 @@ export const Quiz_Ground = () => {
                       id: 3,
                       name: "Meaning",
                     },
-                  ]?.map((item) => {
-                    return (
-                      <Option
-                        onClick={() => {
-                          dispatch(setQuizMode(item.id));
-                        }}
-                        key={item.id}
-                        value={item.id.toString()}
-                      >
-                        {item.name}
-                      </Option>
-                    );
-                  })}
+                  ].map((item) => (
+                    <SelectItem
+                      key={item.id}
+                      onClick={() => {
+                        dispatch(setQuizMode(item.id));
+                      }}
+                      value={item.id.toString()}
+                    >
+                      {item.name}
+                    </SelectItem>
+                  ))}
                 </Select>
               </div>
             </div>
@@ -151,7 +172,7 @@ export const Quiz_Ground = () => {
           </div>
         </>
       ) : (
-        <>
+        <div className="min-w-[1440px] mx-auto">
           <div className="mb-5 w-full flex justify-between items-center container font-english">
             <div>
               <h1 className="text-xl font-medium">
@@ -207,7 +228,7 @@ export const Quiz_Ground = () => {
               </Button>
             </div>
           </div>
-        </>
+        </div>
       )}
     </section>
   );
