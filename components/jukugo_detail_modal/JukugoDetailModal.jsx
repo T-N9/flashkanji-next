@@ -39,23 +39,23 @@ export const JukugoDetailModal = () => {
         scrollBehavior="inside"
       >
         <ModalContent>
-          <ModalHeader className="flex justify-between text-orange-500 items-center shadow">
+          <ModalHeader className="flex justify-between font-english-text text-orange-500 items-center shadow">
             <p>Jukugo information</p>
           </ModalHeader>
           <ModalBody className=" bg-gradient-orange-card overflow-y-auto">
-            <h1 className="text-4xl">{jukugoDetail}</h1>
+            <h1 className="text-4xl text-dark">{jukugoDetail}</h1>
 
             <div>
               <div>
-                <p className="mt-5">Stroke Information</p>
-                <div className="flex gap-2">
+                <p className="mt-5 font-english-text text-info">Stroke Information</p>
+                <div className="flex gap-2 text-dark">
                   {jukugoDetail?.split("").map((item, index) => {
                     return (
                       <div key={index}>
                         {item !== "～" && (
-                          <div className="flex gap-3">
+                          <div className="flex gap-3 items-center">
                             <h3
-                              className="text-xl text-deep-orange-700 cursor-pointer"
+                              className={`${currentStrokeWord === item && 'text-orange-500 border-orange-300'} p-2 border-2 text-2xl text-deep-orange-700 cursor-pointer`}
                               onClick={() => setCurrentStrokeWord(item)}
                             >
                               {item}
@@ -99,6 +99,7 @@ export const JukugoDetailModal = () => {
               </a>{" "}
             </p>
             <Button
+            className="font-english"
               onClick={() => handleOpen(null)}
             >
               <span>Close</span>

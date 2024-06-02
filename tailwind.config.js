@@ -25,7 +25,7 @@ module.exports = {
       colors: {
         light: "#E9EEEA",
         success: "#00755F",
-        info: "#23427C",
+        info: "#485682",
         border_orange: "#E19A63",
         dark: "#2F4858"
       },
@@ -34,6 +34,7 @@ module.exports = {
         "primary-serif": ["Noto Serif JP", "serif"],
         english: ['Tektur', "sans-serif"],
         "writing-1": ["Shippori Mincho", "serif"],
+        "english-text" : ["Poppins", "sans-serif"],
       },
     },
   },

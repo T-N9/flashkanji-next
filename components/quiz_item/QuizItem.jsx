@@ -20,7 +20,7 @@ export const QuizItem = ({ quizItem, number, isSubmitted }) => {
   return (
     <Card>
       <CardBody>
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-col lg:flex-row">
           <span className="absolute top-5 left-5 w-10 h-10 text-white flex justify-center items-center bg-gray-400 rounded-full">
             {number + 1}
           </span>

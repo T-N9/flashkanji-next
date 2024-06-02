@@ -70,8 +70,7 @@ export function FlashDetailModal() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex justify-between text-orange-500 items-center shadow">
-                {/* <h1 className="text-6xl">{currentDetail}</h1> */}
+              <ModalHeader className="flex justify-between text-orange-500 font-english-text font-bold items-center shadow">
                 <p>Kanji information</p>
               </ModalHeader>
               <ModalBody className=" min-h-40 bg-gradient-orange-card overflow-y-scroll">
@@ -91,7 +90,7 @@ export function FlashDetailModal() {
                           <strong className="text-info font-english">
                             Unicode:
                           </strong>{" "}
-                          <span className="text-dark font-bold">
+                          <span className="text-dark font-bold font-english-text">
                             {charData?.unicode}
                           </span>
                         </div>
@@ -101,7 +100,7 @@ export function FlashDetailModal() {
                           <strong className="text-info font-english">
                             Stroke Count:
                           </strong>{" "}
-                          <span className="text-dark font-bold">
+                          <span className="text-dark font-bold font-english-text">
                             {charData?.stroke_count}
                           </span>
                         </div>
@@ -111,7 +110,7 @@ export function FlashDetailModal() {
                         <strong className="text-info font-english">
                           Meanings:
                         </strong>
-                        <ul className="list-disc pl-4 text-dark font-bold">
+                        <ul className="list-disc pl-4 text-dark font-english-text">
                           {charData?.meanings.map((meaning, index) => (
                             <li key={index}>{meaning}</li>
                           ))}
@@ -166,10 +165,10 @@ export function FlashDetailModal() {
                                   <span className="text-dark text-2xl">
                                     {item.jukugo_char}
                                   </span>{" "}
-                                  <span className="text-sm">
+                                  <span className="text-sm text-gray-400">
                                     {item.hiragana}
                                   </span>
-                                  <span className="text-sm">
+                                  <span className="text-sm font-english-text text-dark">
                                     {item.english_meaning}
                                   </span>
                                 </p>

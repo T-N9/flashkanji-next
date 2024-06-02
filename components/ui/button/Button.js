@@ -3,7 +3,7 @@ import { Button as NextButton } from "@nextui-org/button";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Button = ({ children, className, color, variant, isIconOnly, onClick, title, size }) => {
+const Button = ({ children, className, color, variant, isIconOnly, onClick, title, size, disable }) => {
   const colorClasses = {
     primary: 'bg-orange-500 text-white',
     secondary: 'bg-gray-500 text-white',
@@ -27,6 +27,7 @@ const Button = ({ children, className, color, variant, isIconOnly, onClick, titl
     ...(onClick && { onClick }), // Conditionally add onClick if it's defined
     title: title,
     size: size,
+    isDisabled : disable
   };
 
   return (
@@ -45,6 +46,7 @@ Button.propTypes = {
   isIconOnly: PropTypes.bool,
   title : PropTypes.string,
   onClick: PropTypes.func,
+  disable : PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -53,7 +55,8 @@ Button.defaultProps = {
   variant: 'solid',
   isIconOnly : false,
   title : '',
-  size: 'md'
+  size: 'md',
+  disable : false
 };
 
 export default Button;

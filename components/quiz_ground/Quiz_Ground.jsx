@@ -39,7 +39,7 @@ export const Quiz_Ground = () => {
     setQuizMode,
   } = useContainer();
   return (
-    <section className="relative flex  min-h-screen flex-col items-center p-4">
+    <section className="relative flex  min-h-screen flex-col items-center p-4 pt-16">
       {!isQuizReady ? (
         <>
           <h1 className="text-4xl font-english text-center font-bold text-info">
@@ -47,7 +47,7 @@ export const Quiz_Ground = () => {
           </h1>
           <p className="">今、漢字を練習しましょう。</p>
           <div className="mt-5 w-full flex flex-col justify-center items-center">
-            <div className="flex gap-4 w-full md:w-fit">
+            <div className="flex gap-4 w-full md:w-fit flex-wrap">
               <div className="flex w-full md:w-36 min-w-36 select-box flex-col gap-6">
                 <Select
                   items={[5, 4, 3, 2, 1]}
@@ -172,14 +172,14 @@ export const Quiz_Ground = () => {
           </div>
         </>
       ) : (
-        <div className="min-w-[1440px] mx-auto">
+        <div className="max-w-[1440px] min-w-[70%] mx-auto">
           <div className="mb-5 w-full flex justify-between items-center container font-english">
             <div>
               <h1 className="text-xl font-medium">
                 Quiz on {selectedLevel && selectedLevel}{" "}
                 {selectedChapter && `Chapter ${selectedChapter}`}
               </h1>
-              <p>Character to Onyomi </p>
+              <p className="font-english-text">Character to Onyomi </p>
             </div>
 
             {isQuizSubmit && (
@@ -220,8 +220,8 @@ export const Quiz_Ground = () => {
                 Quit
               </Button>
               <Button
-                disabled={answeredCount !== quizData.length || isQuizSubmit}
-                className="bg-gradient-radial"
+                disable={answeredCount !== quizData.length || isQuizSubmit}
+                className={`bg-gradient-radial`}
                 onClick={() => handleQuizSubmit()}
               >
                 Submit
