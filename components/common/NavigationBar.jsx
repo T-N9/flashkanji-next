@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
@@ -33,27 +33,35 @@ export function NavigationBar() {
     }
   }, []);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const delayedSetIsMenuOpen = (val) => {
+    setTimeout(() => {
+        setIsMenuOpen(val)
+    }, 500);
+}
+
   const navList = (
     <>
       {/* list */}
-      <NavbarItem isActive={path === "/"}>
+      <NavbarItem isActive={path === "/"} onClick={() => delayedSetIsMenuOpen(false)}>
         <Link href={"/"}>Home</Link>
       </NavbarItem>
 
-      <NavbarItem isActive={path === "/kanji"}>
+      <NavbarItem isActive={path === "/kanji"} onClick={() => delayedSetIsMenuOpen(false)}>
         <Link href={"/kanji"}>Kanji</Link>
       </NavbarItem>
-      <NavbarItem isActive={path === "/quiz"}>
+      <NavbarItem isActive={path === "/quiz"} onClick={() => delayedSetIsMenuOpen(false)}>
         <Link href={"/quiz"}>Quiz</Link>
       </NavbarItem>
-      <NavbarItem isActive={path === "/jukugo"}>
+      <NavbarItem isActive={path === "/jukugo"} onClick={() => delayedSetIsMenuOpen(false)}>
         <Link href={"/jukugo"}>Jukugo</Link>
       </NavbarItem>
     </>
   );
 
   return (
-    <Navbar className="z-[45]" isBordered isBlurred={false}>
+    <Navbar isMenuOpen={isMenuOpen} className="z-[45]" isBordered isBlurred={false} onMenuOpenChange={setIsMenuOpen}>
       <NavbarBrand>
         <Link href={"/"}>
           <Logo className="cursor-pointer" />
