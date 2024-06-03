@@ -8,7 +8,7 @@ export const LoadingGround = ({ mode }) => {
   return (
     <>
       {mode === 1 && (
-        <div className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div className="grid lg:max-w-[550px] w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
           {Array.from({ length: 10 }, (_, index) => index + 1).map(
             (item, index) => {
               return (

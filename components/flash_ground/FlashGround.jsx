@@ -18,12 +18,14 @@ export default function FlashGround() {
     dispatch,
     isSettingOpen,
     isPaginated,
-    isIgnite
+    isIgnite,
   } = useContainer();
 
   return (
     <section
-      className={`${isIgnite && 'select-none pointer-events-none'} max-w-[1440px] mx-auto relative flex bg-white flex-col items-center md:p-4`}
+      className={`${
+        isIgnite && "select-none pointer-events-none"
+      } max-w-[1440px] mx-auto relative flex bg-white flex-col items-center md:p-4`}
     >
       <FlashSettings />
 
@@ -32,28 +34,48 @@ export default function FlashGround() {
           isSettingOpen
             ? "translate-y-0"
             : "-translate-y-[250px] lg:-translate-y-36  mt-4"
-        } max-w-[720px] relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3`}
+        }  relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3`}
       >
         {isPaginated && <Pagination />}
-        {isLoading || isIgnite ? (
-          <LoadingGround mode={1} />
-        ) : (
-          <>
-            {kanji?.length !== 0 ? (
-              <div
-                className={`grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4`}
-              >
-                {kanji?.map((item, index) => (
-                  <FlashCard key={index} item={item} />
-                ))}
-              </div>
-            ) : (
-              <div className="w-full h-[415px] flex justify-center items-center">
-                <h1 className="text-orange-500 text-3xl">Coming Soon</h1>
-              </div>
-            )}
-          </>
-        )}
+        <div className="flex w-full justify-center gap-4">
+          <div className="w-[300px] hidden lg:block">
+            <ins
+              class="adsbygoogle block w-full h-full"
+              data-ad-client="ca-pub-2340030299315656"
+              data-ad-slot="7647610361"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+          </div>
+          {isLoading || isIgnite ? (
+            <LoadingGround mode={1} />
+          ) : (
+            <>
+              {kanji?.length !== 0 ? (
+                <div
+                  className={`max-w-[550px] grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4`}
+                >
+                  {kanji?.map((item, index) => (
+                    <FlashCard key={index} item={item} />
+                  ))}
+                </div>
+              ) : (
+                <div className="w-full h-[415px] flex justify-center items-center">
+                  <h1 className="text-orange-500 text-3xl">Coming Soon</h1>
+                </div>
+              )}
+            </>
+          )}
+          <div className="w-[300px] hidden lg:block">
+            <ins
+              class="adsbygoogle block"
+              data-ad-client="ca-pub-2340030299315656"
+              data-ad-slot="7647610361"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+          </div>
+        </div>
 
         {isPaginated && <Pagination />}
       </div>
