@@ -14,6 +14,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </body>
     </Html>
   );
