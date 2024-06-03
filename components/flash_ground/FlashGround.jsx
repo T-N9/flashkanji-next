@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 /* Components */
 import FlashCard from "@/components/flash_card/FlashCard";
@@ -21,6 +21,14 @@ export default function FlashGround() {
     isIgnite,
   } = useContainer();
 
+  useEffect(() => {
+    try {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("Adsense error: ", e);
+    }
+  }, []);
+  
   return (
     <section
       className={`${
@@ -29,8 +37,8 @@ export default function FlashGround() {
     >
       <div className="my-5">
         <ins
-          class="adsbygoogle"
-          style={{display: "block"}}
+          className="adsbygoogle"
+          style={{ display: "block" }}
           data-ad-format="fluid"
           data-ad-layout-key="-f9+5v+4m-d8+7b"
           data-ad-client="ca-pub-2340030299315656"
@@ -50,7 +58,7 @@ export default function FlashGround() {
         <div className="flex w-full justify-center gap-4">
           <div className="w-[300px] hidden lg:block">
             <ins
-              class="adsbygoogle block w-full h-full"
+              className="adsbygoogle block w-full h-full"
               data-ad-client="ca-pub-2340030299315656"
               data-ad-slot="7647610361"
               data-ad-format="auto"
@@ -78,7 +86,7 @@ export default function FlashGround() {
           )}
           <div className="w-[300px] hidden lg:block">
             <ins
-              class="adsbygoogle block"
+              className="adsbygoogle block"
               data-ad-client="ca-pub-2340030299315656"
               data-ad-slot="7647610361"
               data-ad-format="auto"
