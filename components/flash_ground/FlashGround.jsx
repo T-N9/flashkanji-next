@@ -27,6 +27,16 @@ export default function FlashGround() {
         isIgnite && "select-none pointer-events-none"
       } max-w-[1440px] mx-auto relative flex bg-white flex-col items-center md:p-4`}
     >
+      <div className="my-5">
+        <ins
+          class="adsbygoogle"
+          style={{display: "block"}}
+          data-ad-format="fluid"
+          data-ad-layout-key="-f9+5v+4m-d8+7b"
+          data-ad-client="ca-pub-2340030299315656"
+          data-ad-slot="1053749028"
+        ></ins>
+      </div>
       <FlashSettings />
 
       <div
