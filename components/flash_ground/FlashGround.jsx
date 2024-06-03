@@ -22,13 +22,16 @@ export default function FlashGround() {
   } = useContainer();
 
   useEffect(() => {
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("Adsense error: ", e);
+    if (typeof window !== "undefined") {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        console.log("Ads initialized");
+      } catch (e) {
+        console.error("Adsense error: ", e);
+      }
     }
   }, []);
-  
+
   return (
     <section
       className={`${
