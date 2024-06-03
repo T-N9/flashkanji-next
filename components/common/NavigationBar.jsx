@@ -45,17 +45,17 @@ export function NavigationBar() {
     <>
       {/* list */}
       <NavbarItem isActive={path === "/"} onClick={() => delayedSetIsMenuOpen(false)}>
-        <Link href={"/"}>Home</Link>
+        <a href={"/"}>Home</a>
       </NavbarItem>
 
       <NavbarItem isActive={path === "/kanji"} onClick={() => delayedSetIsMenuOpen(false)}>
-        <Link href={"/kanji"}>Kanji</Link>
+        <a href={"/kanji"}>Kanji</a>
       </NavbarItem>
       <NavbarItem isActive={path === "/quiz"} onClick={() => delayedSetIsMenuOpen(false)}>
-        <Link href={"/quiz"}>Quiz</Link>
+        <a href={"/quiz"}>Quiz</a>
       </NavbarItem>
       <NavbarItem isActive={path === "/jukugo"} onClick={() => delayedSetIsMenuOpen(false)}>
-        <Link href={"/jukugo"}>Jukugo</Link>
+        <a href={"/jukugo"}>Jukugo</a>
       </NavbarItem>
     </>
   );
@@ -63,9 +63,9 @@ export function NavigationBar() {
   return (
     <Navbar isMenuOpen={isMenuOpen} className="z-[45]" isBordered isBlurred={false} onMenuOpenChange={setIsMenuOpen}>
       <NavbarBrand>
-        <Link href={"/"}>
+        <a href={"/"}>
           <Logo className="cursor-pointer" />
-        </Link>
+        </a>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-6" justify="center">
         {navList}
