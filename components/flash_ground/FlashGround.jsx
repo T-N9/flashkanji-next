@@ -32,7 +32,7 @@ export default function FlashGround() {
           isSettingOpen
             ? "translate-y-0"
             : "-translate-y-[250px] lg:-translate-y-36  mt-4"
-        } relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3`}
+        } max-w-[720px] relative transition-all duration-200 ease-out container w-full flex flex-col items-center p-3`}
       >
         {isPaginated && <Pagination />}
         {isLoading || isIgnite ? (
@@ -41,7 +41,7 @@ export default function FlashGround() {
           <>
             {kanji?.length !== 0 ? (
               <div
-                className={`grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4`}
+                className={`grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4`}
               >
                 {kanji?.map((item, index) => (
                   <FlashCard key={index} item={item} />

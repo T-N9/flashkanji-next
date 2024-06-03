@@ -21,8 +21,8 @@ export function SpeedDialMenu({ mode = 1 }) {
 
   return (
     <>
-      <div className="fixed bottom-10 right-10 z-50">
-        <Dropdown>
+      <div className="fixed bottom-40 right-10 z-50">
+        <Dropdown placement="top">
           <DropdownTrigger>
             <Button
               isIconOnly
