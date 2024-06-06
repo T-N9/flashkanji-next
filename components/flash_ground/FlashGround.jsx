@@ -9,6 +9,7 @@ import { SpeedDialMenu } from "../common/SpeedDialMenu";
 
 /* Hook */
 import useContainer from "./useContainer";
+import AdsComponent from "../adsComponent/AdsComponent";
 
 export default function FlashGround() {
   const {
@@ -39,14 +40,11 @@ export default function FlashGround() {
       } max-w-[1440px] mx-auto relative flex bg-white flex-col items-center md:p-4`}
     >
       <div className="my-5">
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-format="fluid"
-          data-ad-layout-key="-f9+5v+4m-d8+7b"
-          data-ad-client="ca-pub-2340030299315656"
-          data-ad-slot="1053749028"
-        ></ins>
+        <AdsComponent
+          isDisplay={false}
+          layoutKey="-f9+5v+4m-d8+7b"
+          slotId={"1053749028"}
+        />
       </div>
       <FlashSettings />
 
@@ -60,13 +58,7 @@ export default function FlashGround() {
         {isPaginated && <Pagination />}
         <div className="flex w-full justify-center gap-4">
           <div className="w-[300px] hidden lg:block">
-            <ins
-              className="adsbygoogle block w-full h-full"
-              data-ad-client="ca-pub-2340030299315656"
-              data-ad-slot="7647610361"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
+            <AdsComponent isDisplay={true} slotId={"7647610361"} />
           </div>
           {isLoading || isIgnite ? (
             <LoadingGround mode={1} />
@@ -88,13 +80,7 @@ export default function FlashGround() {
             </>
           )}
           <div className="w-[300px] hidden lg:block">
-            <ins
-              className="adsbygoogle block"
-              data-ad-client="ca-pub-2340030299315656"
-              data-ad-slot="7647610361"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
+            <AdsComponent isDisplay={true} slotId={"7647610361"} />
           </div>
         </div>
 
