@@ -45,17 +45,17 @@ export function NavigationBar() {
     <>
       {/* list */}
       <NavbarItem isActive={path === "/"} onClick={() => delayedSetIsMenuOpen(false)}>
-        <Link href={"/"}>Home</Link>
+        <a href={"/"}>Home</a>
       </NavbarItem>
 
       <NavbarItem isActive={path === "/kanji"} onClick={() => delayedSetIsMenuOpen(false)}>
-        <Link href={"/kanji"}>Kanji</Link>
+        <a href={"/kanji"}>Kanji</a>
       </NavbarItem>
       <NavbarItem isActive={path === "/quiz"} onClick={() => delayedSetIsMenuOpen(false)}>
-        <Link href={"/quiz"}>Quiz</Link>
+        <a href={"/quiz"}>Quiz</a>
       </NavbarItem>
       <NavbarItem isActive={path === "/jukugo"} onClick={() => delayedSetIsMenuOpen(false)}>
-        <Link href={"/jukugo"}>Jukugo</Link>
+        <a href={"/jukugo"}>Jukugo</a>
       </NavbarItem>
     </>
   );

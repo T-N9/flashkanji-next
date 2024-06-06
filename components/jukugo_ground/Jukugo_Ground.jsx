@@ -20,7 +20,7 @@ export const Jukugo_Ground = () => {
         />
       </div> */}
       <JukugoSetting />
-      <div className="flex w-full justify-center gap-4">
+      <div className="flex w-full justify-center px-4 lg:px-0 gap-4">
         <div className="w-[300px] hidden lg:block">
           <AdsComponent isDisplay={true} slotId={"7647610361"} />
         </div>
