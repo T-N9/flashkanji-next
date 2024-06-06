@@ -37,7 +37,7 @@ const AdsComponent = ({ isDisplay = true , slotId, layoutKey = '' }) => {
   }, [pathname]);
 
   return (
-    <div>
+    <div className="sticky top-4">
       {isDisplay ? (
         <ins
           className="adsbygoogle"
