@@ -12,13 +12,13 @@ export const Jukugo_Ground = () => {
 
   return (
     <section className="relative flex min-h-screen flex-col items-center md:p-4">
-      <div className="my-5 w-full h-[100px]">
+      {/* <div className="my-5 w-full h-[100px]">
         <AdsComponent
           isDisplay={false}
           layoutKey="-f9+5v+4m-d8+7b"
           slotId={"1053749028"}
         />
-      </div>
+      </div> */}
       <JukugoSetting />
       <div className="flex w-full justify-center gap-4">
         <div className="w-[300px] hidden lg:block">
@@ -39,7 +39,7 @@ export const Jukugo_Ground = () => {
           <AdsComponent isDisplay={true} slotId={"7647610361"} />
         </div>
       </div>
-      <div className="my-5 w-full h-[100px]">
+      <div className="my-5 w-full">
         <AdsComponent
           isDisplay={false}
           layoutKey="-f9+5v+4m-d8+7b"
