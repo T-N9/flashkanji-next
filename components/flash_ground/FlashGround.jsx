@@ -39,7 +39,7 @@ export default function FlashGround() {
         isIgnite && "select-none pointer-events-none"
       } max-w-[1440px] mx-auto relative flex bg-white flex-col items-center md:p-4`}
     >
-      <div className="my-5">
+      <div className="my-5 w-full">
         <AdsComponent
           isDisplay={false}
           layoutKey="-f9+5v+4m-d8+7b"
