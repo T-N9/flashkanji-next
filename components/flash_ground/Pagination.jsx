@@ -51,6 +51,7 @@ export function Pagination() {
           onChange={setCurrentPage}
           color="warning"
           size="sm"
+          disableAnimation={false}
         />
         <Button
           size="sm"
