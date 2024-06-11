@@ -41,7 +41,7 @@ const JukugoCard = ({ item, isSwiped = false }) => {
           isSwiped
             ? "bg-white border-border_orange"
             : "bg-gradient-orange-card border-border_orange border-opacity-50"
-        } relative font-writing-1 text-dark border-4 p-5 rounded-md card jukugo_card min-w-[150px] lg:min-w-[200px] ${
+        } relative font-primary-san text-dark border-4 p-5 rounded-md card jukugo_card min-w-[150px] lg:min-w-[200px] ${
           isSwiped && "h-[200px]"
         } shadow-md ${isFlipped && "flipped"}`}
       >
