@@ -162,12 +162,12 @@ export function FlashDetailModal() {
                                 key={index}
                               >
                                 <p className="flex justify-between flex-col">
-                                  <span className="text-dark text-2xl">
-                                    {item.jukugo_char}
-                                  </span>{" "}
-                                  <span className="text-sm text-gray-400">
-                                    {item.hiragana}
-                                  </span>
+                                  <ruby className="text-dark text-2xl">
+                                    {item.jukugo_char}{" "}
+                                    <rt className="text-sm text-gray-400">
+                                      {item.hiragana}
+                                    </rt>
+                                  </ruby>{" "}
                                   <span className="text-sm font-english-text text-dark">
                                     {item.english_meaning}
                                   </span>
@@ -208,7 +208,7 @@ export function FlashDetailModal() {
                   </div>
                 ) : (
                   <div className="w-full min-h-40 h-full flex justify-center items-center">
-                    <Spinner color="warning"/>
+                    <Spinner color="warning" />
                   </div>
                 )}
               </ModalBody>
