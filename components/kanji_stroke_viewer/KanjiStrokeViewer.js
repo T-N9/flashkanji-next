@@ -147,7 +147,7 @@ const KanjiStrokeViewer = ({ kanji, isSearch = false }) => {
 
               <a
                 className="text-sm font-normal hover:text-orange-400 transition-all duration-250 text-gray-500 font-english-text p-2 mt-2 rounded bg-transparent text-center underline"
-                href={`/viewer?kanji=${kanji}`}
+                href={isSearch ? `/viewer?kanji=${inputtedKanji}` :`/viewer?kanji=${kanji}`}
                 target="_blank"
               >
                 Check stroke information

@@ -283,3 +283,7 @@ button {
   display: flex;
   gap: 1rem;
 }
+
+#kanji-svg text {
+  font-size: 5px;
+}
