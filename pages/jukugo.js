@@ -25,7 +25,7 @@ const Jukugo = () => {
           content="learn Kanji, Japanese characters, FlashKanji, memorization, interactive flashcards, reading Kanji"
         />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charSet=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charSet=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content="Te Nyain Moe Lwin" />
         <meta property="og:locale" content="en-US" />
