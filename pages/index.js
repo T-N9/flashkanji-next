@@ -15,13 +15,15 @@ export default function Landing() {
     try {
       let exampleData = await randomData(4);
       setExampleKanji(exampleData);
-      // console.log(exampleData);
-    } catch (error) {}
+      console.log(exampleData);
+    } catch (error) {
+      console.log({error})
+    }
   };
 
   useEffect(() => {
     fetchKanjiExample();
-    // console.log({ exampleKanji });
+    console.log({ exampleKanji });
   }, []);
 
   return (
