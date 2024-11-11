@@ -38,7 +38,10 @@ export const shuffleByLevels = async (levels) => {
 export const fetchByChapter = async (chapter, level) => {
   try {
     const response = await fetch(
-      `https://flash-kanji-node.onrender.com/kanji?level=${level}&chapter=${chapter}`
+      `https://flash-kanji-node.onrender.com/kanji?level=${level}&chapter=${chapter}`,
+      {
+        mode: "no-cors",
+      }
     );
     const data = await response.json();
     return data;
@@ -64,7 +67,10 @@ export const fetchByLevel = async (level) => {
 export const randomData = async (count) => {
   try {
     const response = await fetch(
-      `https://flash-kanji-node.onrender.com/kanji?random=${count}`
+      `https://flash-kanji-node.onrender.com/kanji?random=${count}`,
+      {
+        mode: "no-cors",
+      }
     );
     const data = await response.json();
     return data;
