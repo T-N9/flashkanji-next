@@ -21,23 +21,23 @@ export const Jukugo_Ground = () => {
       </div> */}
       <JukugoSetting />
       <div className="flex w-full justify-center px-4 lg:px-0 gap-4">
-        <div className="w-[300px] hidden lg:block">
+        {/* <div className="w-[300px] hidden lg:block">
           <AdsComponent isDisplay={true} slotId={"7647610361"} />
-        </div>
+        </div> */}
         {isLoading ? (
           <LoadingGround mode={2} />
         ) : (
           <div
-            className={`grid w-full grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 max-w-[720px]`}
+            className={`grid w-full grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-[1280px]`}
           >
             {jukugo?.map((item, index) => {
               return <JukugoCard key={index} item={item} />;
             })}
           </div>
         )}
-        <div className="w-[300px] hidden lg:block">
+        {/* <div className="w-[300px] hidden lg:block">
           <AdsComponent isDisplay={true} slotId={"7647610361"} />
-        </div>
+        </div> */}
       </div>
       <div className="my-10 p-4">
         <h1 className="font-bold text-orange-500">Jukugo Data :</h1>

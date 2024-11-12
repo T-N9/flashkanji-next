@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import { debounce } from "lodash";
+
 import {
   randomData,
   fetchAll,
@@ -62,18 +64,6 @@ const useContainer = () => {
     (state) => state.generalReducer
   );
 
-  const fetchAllData = async () => {
-    dispatch(setStartLoading());
-    dispatch(setShuffleMode(false));
-    try {
-      let allData = await fetchAll();
-      dispatch(setKanji(allData));
-      dispatch(setStopLoading());
-    } catch (error) {
-      dispatch(setStopLoading());
-    }
-  };
-
   const fetchUserPracticeKanji = async () => {
     try {
       let allData = await getUserPractice(userInfo?.id, "kanji");
@@ -85,16 +75,43 @@ const useContainer = () => {
     }
   };
 
+  const fetchByChapterData = useCallback(
+    debounce(async (chapter, level) => {
+      if (!chapter) return;
+
+      console.log("Fetching chapter...");
+      dispatch(setStartLoading());
+      dispatch(setShuffleMode(false));
+      dispatch(setIsPaginated(true));
+      try {
+        const allData = await fetchByChapter(chapter, level);
+        dispatch(setKanji(allData));
+      } catch (error) {
+        console.error("Error fetching chapter data:", error);
+      } finally {
+        dispatch(setStopLoading());
+      }
+    }, 300), // Adjust debounce duration as needed
+    [dispatch]
+  );
+
   useEffect(() => {
     userInfo && fetchUserPracticeKanji();
   }, [userInfo,isFlashModalOpen, selectedChapter, selectedLevel]);
 
-  useEffect(() => {
-    fetchByChapterData(selectedChapter, level);
-    setTimeout(() => {
-      setIsIgnite(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   fetchByChapterData(selectedChapter, level);
+  //   setTimeout(() => {
+  //     setIsIgnite(false);
+  //   }, 3000);
+  // }, []);
+
+    // Initial fetch for the selected chapter
+    useEffect(() => {
+      if (selectedChapter > 0) {
+        fetchByChapterData(selectedChapter, level);
+      }
+    }, [selectedChapter, level, fetchByChapterData]);
 
   const shuffleNowData = async (data, count) => {
     const shuffledKanji = data.slice();
@@ -142,23 +159,7 @@ const useContainer = () => {
     }
   };
 
-  const fetchByChapterData = async (chapter, level) => {
-    dispatch(setStartLoading());
-    dispatch(setShuffleMode(false));
-    dispatch(setIsPaginated(true));
-    try {
-      if (chapter > 0) {
-        let allData = await fetchByChapter(chapter, level);
-        dispatch(setKanji(allData));
-        // console.log("kanji");
-        dispatch(setStopLoading());
-        // console.log({ chapter, level });
-      } else {
-        fetchAllData();
-        dispatch(setStopLoading());
-      }
-    } catch (error) {}
-  };
+
 
   const fetchByLevelData = async (level) => {
     dispatch(setShuffleMode(false));
