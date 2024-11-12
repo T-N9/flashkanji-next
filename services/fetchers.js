@@ -161,7 +161,7 @@ Jukugo Fetchers
 export const fetchJukugo_all = async () => {
   try {
     const response = await fetch(
-      `https://flash-kanji-node.onrender.com/kanjijukugo.php`
+      `https://flash-kanji-node.onrender.com/jukugo`
     );
     const data = await response.json();
     return data;
@@ -175,7 +175,7 @@ export const fetchJukugo_all = async () => {
 export const fetchJukugo_byLevel = async (level = 5) => {
   try {
     const response = await fetch(
-      `https://flash-kanji-node.onrender.com/kanjijukugo.php?level=${level}`
+      `https://flash-kanji-node.onrender.com/jukugo?level=${level}`
     );
     const data = await response.json();
     return data;
@@ -188,7 +188,7 @@ export const fetchJukugo_byLevel = async (level = 5) => {
 export const fetchRandomJukugo_byLevel = async (count = 20, level = 3) => {
   try {
     const response = await fetch(
-      `https://flash-kanji-node.onrender.com/kanjijukugo.php?level=${level}&rand=${count}`
+      `https://flash-kanji-node.onrender.com/jukugo?level=${level}&random=${count}`
     );
     const data = await response.json();
     return data;
@@ -201,7 +201,7 @@ export const fetchRandomJukugo_byLevel = async (count = 20, level = 3) => {
 export const fetchJukugo_byKanjis = async (kanjis) => {
   try {
     const response = await fetch(
-      `https://flash-kanji-node.onrender.com/kanjijukugo.php?kanjis=${kanjis}`
+      `https://flash-kanji-node.onrender.com/jukugo?kanjis=${kanjis}`
     );
     const data = await response.json();
     return data;
@@ -214,7 +214,7 @@ export const fetchJukugo_byKanjis = async (kanjis) => {
 export const fetchJukugo_byLevelChapter = async (chapter, level) => {
   try {
     const response = await fetch(
-      `https://flash-kanji-node.onrender.com/kanjijukugo.php?level=${level}&chapter=${chapter}`
+      `https://flash-kanji-node.onrender.com/jukugo?level=${level}&chapter=${chapter}`
     );
     const data = await response.json();
     return data;
